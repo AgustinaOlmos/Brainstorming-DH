@@ -1,16 +1,99 @@
+<!-- <%- include('../partials/head') %>
+    <title>Ecommerce Brainstorming - Perfil Usuario</title>
+    
+    <link rel="stylesheet" href="/css/profile.css">
+
+</head>
+<%- include('../partials/header') %> -->
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <%- include('../partials/head.ejs') %>
-        <link rel="stylesheet" href="/css/profile.css">
-        <link rel="stylesheet" href="/css/efectosBotones.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/efectosBotones.css">
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
 
-        <%- include('../partials/footer.ejs') %>
-</body>
 
+<main>
+    <div class="dataProfile">
+        <div class="dataProfileStates">
+            <div class="card-container">
+                <div class="bubbles"></div>
+                <div class="photo">
+                    <img src="/img/users/image-victor.jpg" alt="Foto Personal">
+                </div>
+
+                <div class="personal-data-container">
+                    <span class="name">Victor Crest</span>
+                    <span class="age">26</span>
+                    <div class="city">London</div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="statistics">
+                        <div class="quantity">80</div>
+                        <div class="units">Seguidores</div>
+                    </div>
+
+                    <div class="statistics">
+                        <div class="quantity">803</div>
+                        <div class="units">Compras</div>
+                    </div>
+
+                    <div class="statistics">
+                        <div class="quantity">1150</div>
+                        <div class="units">Productos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataProfilePersonal">
+            <div class="card-container-personal">
+                <div class="box-personal">
+                    <span class="personal-title">Mis datos personales</span>
+                    <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                </div>
+                <div class="general-personal-box">
+                    <div class="data-personal">
+                        <div class="data-name">
+                            <h3>Victor Crest</h3>
+                        </div>
+                        <div class="data-information">
+                            <span class="data-img"><i class="fas fa-address-card"></i></span><span>DNI: 20345789</span><br>
+                            <span class="data-img"><i class="fas fa-at"></i></span><span>Email: victorcrest@gmail.com</span><br>
+                            <span class="data-img"><i class="fas fa-lg fa-phone"></i></span><span>Teléfono: 1136887699</span>
+                        </div>
+                    </div>
+                    <div class="data-image">
+                        <div class="data-avatar">
+                            <img src="/img/users/cards/datos.png" alt="Imagen avatar">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-button">
+                    <button>Cambiar contraseña</button>
+                </div>
+            </div>
+        </div>
+        <div class="dataProfileShipping">
+            <div class="box-personal-2">
+                <span class="personal-title">Mis datos personales</span>
+                <a href="#"><i class="fas fa-pencil-alt"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="dataHistory">
+        
+    </div>
+</main>
+
+
+<%- include('../partials/footer') %>
+
+<script src="/js/main.js" type="text/javascript"></script>
+</body>
 </html>

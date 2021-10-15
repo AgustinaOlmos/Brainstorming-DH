@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+:root {
+    --Dark_cyan: hsl(185, 75%, 39%);
+    --Very_dark_desatured_blue: hsl(229, 23%, 23%);
+    --Dark_grayish_blue: hsl(227, 10%, 46%);
+    --Dark_gray: hsl(0, 0%, 59%);
+    --Yellow: #ffc107;
+    --Black_light: #1f2d3d;
+    --Blue_medium: #007bff;
+    --Blue_medium_osc: #0069d9;
+    --White_light: #f8f9fa;
+}
+
+/*==================================================
+    Contenedor General
+==================================================*/
+
+main {
+    /* height: 300px; */
+    width: 90%;
+    /* margin: 20px 0; */
+	/* padding: 20px; */
+	height: 1000px;
+    margin: auto;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+
+
+
+
+
+
+    /* border: 2px solid blue; */
+}
+
+/*==================================================
+    Contenedor Izquierdo
+==================================================*/
+
+.dataProfile {
+    /* width: 30%; */
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    /* height: 100px; */
+
+
+
+
+
+    /* border: 1px solid black; */
+}
+
+/*==================================================
+    Card Estadisticas
+==================================================*/
+
+.dataProfileStates {
+
+
+
+
+
+
+
+
+    /* border: 1px solid brown; */
+}
+
+.card-container {
+    height: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; 
+    box-shadow: 1px 1px 2px #999;
+    -webkit-box-shadow: 1px 1px 2px #999;
+    -moz-box-shadow: 1px 1px 2px #999;
+}
+
+.bubbles {
+    background: url(/img/users/cards/bg-pattern-card.svg);
+    height: 140px;
+}
+.photo {
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    top: 87px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 4px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px #999;
+    -webkit-box-shadow: 2px 2px 5px #999;
+    -moz-box-shadow: 2px 2px 5px #999;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.personal-data-container {
+    background-color: white;
+    height: 150px;
+    padding: 75px;
+    text-align: center;
+}
+
+.name {
+    font-weight: 700;
+    color: var(--Very_dark_desatured_blue);
+}
+
+.age, .city {
+    color: var(--Dark_gray);
+}
+
+.city {
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+.stats-container {
+    background-color: var(--White_light);
+    border-top: 1px solid var(--Dark_gray);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90px;
+}
+
+.statistics {
+    text-align: center;
+}
+
+.quantity {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--Very_dark_desatured_blue);
+}
+
+.units {
+    font-size: 0.6em;
+    color: var(--Dark_gray);
+    letter-spacing: 2px;
+}
+
+/*==================================================
+    Card Datos Personales
+==================================================*/
+
+.dataProfilePersonal {
+    margin-top: 20px;
+
+
+
+
+
+
+
+
+
+    /* border: 1px solid green; */
+}
+
+.card-container-personal {
+    font-family: 'Source Sans Pro', sans-serif;
+    /* height: 380px; */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; 
+    box-shadow: 1px 1px 2px #999;
+    -webkit-box-shadow: 1px 1px 2px #999;
+    -moz-box-shadow: 1px 1px 2px #999;  
+    /* border: 1px solid violet; */
+}
+
+.box-personal {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--Yellow);
+}
+
+.box-personal span {
+    margin-left: 10px;
+    color: var(--Black_light);
+}
+
+.box-personal a {
+    color: var(--Very_dark_desatured_blue);
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.data-name {
+    height: 60px;
+    padding-left: 20px;
+    /* border: 1px solid #777; */
+}
+
+.data-name h3{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.data-information {
+    font-size: 80%;
+    padding-left: 20px;
+    color: var(--Dark_grayish_blue);
+    /* border: 1px solid cyan; */
+}
+
+.data-img i{
+    width: 25px;
+}
+
+.general-personal-box {
+    height: 180px;
+    /* border: 1px solid #999; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-personal {
+    width: 70%;
+    margin-top: 20px;
+    /* border: 1px solid lightsalmon; */
+}
+
+.data-image {
+    width: 35%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid blue; */
+}
+.data-avatar {
+    height: 60px;
+    width: 60px;
+    /* border: 1px solid red; */
+}
+.data-avatar img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.box-button {
+    height: 70px;
+    /* border: 1px solid mediumorchid; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    /* margin: auto; */
+    align-items: center;
+    background-color: var(--White_light);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.box-button button {
+    font-size: 1rem;
+    height: 40px;
+    width: 220px;
+    color: #fff;
+    background-color: var(--Blue_medium);
+    border-color: var(--Blue_medium);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.box-button button:hover {
+    background-color:  var(--Blue_medium_osc);
+}
+
+/*==================================================
+    Contenedor Derecho
+==================================================*/
+
+.dataHistory {
+    /* width: 69%; */
+    height: 100px;
+
+
+
+
+
+    /* border: 1px solid brown; */
+    
+}
+
+
+/*==================================================
+    PUNTOS DE QUIEBRES
+==================================================*/
+
+/*==================================================
+    TABLET
+==================================================*/
+
+@media (min-width: 481px) {
+
+    /* CONTENEDOR GENERAL */
+    main {
+        /* width: 71%; */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* CONTENEDOR IZQUIERDO */
+    .dataProfile {
+        width: 38%;
+        font-size: 14px;
+    }
+
+    /* CONTENEDOR DERECHO */
+    .dataHistory {
+        width: 61%;
+    }
+  
+}
+  
+/*==================================================
+    LAPTOP
+==================================================*/
+
+@media (min-width: 769px) {
+
+    /* CONTENEDOR GENERAL */
+    main {
+        width: 88%;
+    }
+
+    /* CONTENEDOR IZQUIERDO */
+    .dataProfile {
+        width: 30%;
+        font-size: 18px;
+    }
+
+    /* CONTENEDOR DERECHO */
+    .dataHistory {
+        width: 69%;
+    }
+
+}
+  
+/*==================================================
+    TV
+==================================================*/
+
+@media (min-width: 1400px) {
+
+    /* CONTENEDOR GENERAL */
+    main {
+        width: 82%;
+    }
+    
+}
