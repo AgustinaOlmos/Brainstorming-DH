@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head.ejs') %> 
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/lightslider.css">
+    <!-- Jquery -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/lightslider.js"></script>
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+
+        <!--==================================================
+        Titulo Producto
+    ===================================================-->
+
+        <div class="detalle">
+            <div class="detalle_titulo_box">
+                <h1 class="detalle_titulo"> <a href="">PRODUCTOS</a> | <a href="">VINOS</a> | <span>ADUENTUS CABERNET
+                        FRANC</span></h1>
+                <a class="detalle_titulo_boton" href="">VOLVER A PRODUCTOS <i class="fas fa-th-large"></i></a>
+            </div>
+        </div>
+
+        <!--==================================================
+        Caja imagen y descripcion
+    ===================================================-->
+        <div class="producto">
+            <div class="producto_imagen">
+                <img src=<%=product.img %> alt="">
+            </div>
+            <div class="producto_titulo_movil">
+                <div class="producto_titulo_box">
+                    <h5 class="producto_titulo">
+                        <%= product.title %>
+                    </h5>
+                </div>
+            </div>
+            <div class="producto_descripcion">
+                <div class="producto_descripcion_cantidad">
+                    <div class="producto_descripcion_cantidad_box">
+                        <div class="producto_descripcion_cantidad_precio">
+                            <h4>PROMO $ <%= product.price %>
+                            </h4>
+                        </div>
+                        <div class="producto_descripcion_cantidad_input">
+                            <input type="text" value="1">
+                            <div class="producto_descripcion_detalle_botones">
+                                <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                <button type="button"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="producto_descripcion_detalle_icono">
+                            <img src="/img/vectors/icon_bike.png" alt="">
+                        </div>
+                    </div>
+                    <div class="producto_descripcion_detalle_carrito">
+                        <button type="button">
+                            <span>agregar a la bolsa de pedidos</span>
+                            <i class="fas fa-shopping-bag"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="producto_descripcion_detalle">
+                    <h3>DETALLES</h3>
+                    <hr>
+                    <div class="producto_detalle_desc">
+                        <p>
+                            <span
+                                style="color: rgb(82, 82, 82); letter-spacing: 1px; font-family: sans-serif; font-size: 14px;">Beber
+                                con moderación. Prohibida su venta a menores de 18 años.</span>
+                            <br>
+                        </p>
+                    </div>
+                    <div class="producto_descripcion_lista">
+                        <div class="producto_descripcion_lista_red">
+                            <ul>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-twitter fa-fw"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-facebook fa-fw"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-pinterest fa-fw"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-linkedin fa-fw"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-envelope fa-fw"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--==================================================
+        Productos Relacionados
+    ===================================================-->
+        <div class="producto_relacionado">
+            <div class="producto_relacionado_icono">
+                <i class="fas fa-chevron-circle-down"></i>
+            </div>
+        </div>
+        <div class="productos_relacionados_titulo">
+            <h2>PRODUCTOS RELACIONADOS</h2>
+        </div>
+
+        <!--==================================================
+        Productos Relacionados Slider
+    ===================================================-->
+        <div class="container">
+            <!-- Slider ----------------------------------------->
+            <ul id="autoWidth" class="cs-hidden">
+                <!-- 1 ------------------------>
+                <li class="item-a">
+                    <!-- slider-box -->
+                    <div class="box">
+                        <p class="marvel">FIFTY POUNDS GIN</p>
+                        <!-- Model -->
+                        <img src="/img/products/gin-fifty.jpg" class="model">
+                        <!-- Detalles -->
+                        <div class="details">
+                            <div class="producto_descripcion_cantidad_box2">
+
+                                <div class="producto_descripcion_cantidad_precio2">
+                                    <h4>PROMO $ 12790</h4>
+                                </div>
+                                <div class="producto_descripcion_cantidad_input2">
+                                    <input type="text" value="1">
+                                    <div class="producto_descripcion_detalle_botones2">
+                                        <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                        <button type="button"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                                <div class="producto_descripcion_detalle_icono2">
+                                    <img src="/img/vectors/icon_bike.png" alt="">
+                                </div>
+
+                            </div>
+                            <!-- Boton de carrito -->
+                            <div class="producto_descripcion_detalle_carrito2">
+                                <button type="button">
+                                    <span>agregar a la bolsa de pedidos</span>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <!-- Fin Boton de carrito -->
+                        </div>
+                    </div>
+                </li>
+                <!-- 2 ------------------------>
+                <li class="item-a">
+                    <!-- slider-box -->
+                    <div class="box">
+                        <p class="marvel">NORDÉS</p>
+                        <!-- Model -->
+                        <img src="/img/products/gin-nordes.jpg" class="model">
+                        <!-- Detalles -->
+                        <div class="details">
+                            <div class="producto_descripcion_cantidad_box2">
+
+                                <div class="producto_descripcion_cantidad_precio2">
+                                    <h4>PROMO $ 7790</h4>
+                                </div>
+                                <div class="producto_descripcion_cantidad_input2">
+                                    <input type="text" value="1">
+                                    <div class="producto_descripcion_detalle_botones2">
+                                        <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                        <button type="button"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                                <div class="producto_descripcion_detalle_icono2">
+                                    <img src="/img/vectors/icon_bike.png" alt="">
+                                </div>
+
+                            </div>
+                            <!-- Boton de carrito -->
+                            <div class="producto_descripcion_detalle_carrito2">
+                                <button type="button">
+                                    <span>agregar a la bolsa de pedidos</span>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <!-- Fin Boton de carrito -->
+                        </div>
+                    </div>
+                </li>
+                <!-- 3 ------------------------>
+                <li class="item-a">
+                    <!-- slider-box -->
+                    <div class="box">
+                        <p class="marvel">BRANDY MAGNO</p>
+                        <!-- Model -->
+                        <img src="/img/products/brandy-magno.jpg" class="model">
+                        <!-- Detalles -->
+                        <div class="details">
+                            <div class="producto_descripcion_cantidad_box2">
+
+                                <div class="producto_descripcion_cantidad_precio2">
+                                    <h4>PROMO $ 7790</h4>
+                                </div>
+                                <div class="producto_descripcion_cantidad_input2">
+                                    <input type="text" value="1">
+                                    <div class="producto_descripcion_detalle_botones2">
+                                        <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                        <button type="button"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                                <div class="producto_descripcion_detalle_icono2">
+                                    <img src="/img/vectors/icon_bike.png" alt="">
+                                </div>
+
+                            </div>
+                            <!-- Boton de carrito -->
+                            <div class="producto_descripcion_detalle_carrito2">
+                                <button type="button">
+                                    <span>agregar a la bolsa de pedidos</span>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <!-- Fin Boton de carrito -->
+                        </div>
+                    </div>
+                </li>
+                <!-- 4 ------------------------>
+                <li class="item-a">
+                    <!-- slider-box -->
+                    <div class="box">
+                        <p class="marvel">DALMORE 15 AÑOS - SINGLE MALT</p>
+                        <!-- Model -->
+                        <img src="/img/products/whisky-damore.jpg" class="model">
+                        <!-- Detalles -->
+                        <div class="details">
+                            <div class="producto_descripcion_cantidad_box2">
+
+                                <div class="producto_descripcion_cantidad_precio2">
+                                    <h4>PROMO $ 34000</h4>
+                                </div>
+                                <div class="producto_descripcion_cantidad_input2">
+                                    <input type="text" value="1">
+                                    <div class="producto_descripcion_detalle_botones2">
+                                        <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                        <button type="button"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                                <div class="producto_descripcion_detalle_icono2">
+                                    <img src="/img/vectors/icon_bike.png" alt="">
+                                </div>
+
+                            </div>
+                            <!-- Boton de carrito -->
+                            <div class="producto_descripcion_detalle_carrito2">
+                                <button type="button">
+                                    <span>agregar a la bolsa de pedidos</span>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <!-- Fin Boton de carrito -->
+                        </div>
+                    </div>
+                </li>
+                <!-- 5 ------------------------>
+                <li class="item-a">
+                    <!-- slider-box -->
+                    <div class="box">
+                        <p class="marvel">THE GLENROTHES VINTAGE RESERVE SINGLE MALT</p>
+                        <!-- Model -->
+                        <img src="/img/products/whisky-glenrothes.jpg" class="model">
+                        <!-- Detalles -->
+                        <div class="details">
+                            <div class="producto_descripcion_cantidad_box2">
+
+                                <div class="producto_descripcion_cantidad_precio2">
+                                    <h4>PROMO $ 17900</h4>
+                                </div>
+                                <div class="producto_descripcion_cantidad_input2">
+                                    <input type="text" value="1">
+                                    <div class="producto_descripcion_detalle_botones2">
+                                        <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                        <button type="button"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                                <div class="producto_descripcion_detalle_icono2">
+                                    <img src="/img/vectors/icon_bike.png" alt="">
+                                </div>
+
+                            </div>
+                            <!-- Boton de carrito -->
+                            <div class="producto_descripcion_detalle_carrito2">
+                                <button type="button">
+                                    <span>agregar a la bolsa de pedidos</span>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <!-- Fin Boton de carrito -->
+                        </div>
+                    </div>
+                </li>
+                <!-- 6 ------------------------>
+                <li class="item-a">
+                    <!-- slider-box -->
+                    <div class="box">
+                        <p class="marvel">FIFTY POUNDS GIN PACK FESTIVO</p>
+                        <!-- Model -->
+                        <img src="/img/products/gin-fifty-pack.jpg" class="model">
+                        <!-- Detalles -->
+                        <div class="details">
+                            <div class="producto_descripcion_cantidad_box2">
+
+                                <div class="producto_descripcion_cantidad_precio2">
+                                    <h4>PROMO $ 13490</h4>
+                                </div>
+                                <div class="producto_descripcion_cantidad_input2">
+                                    <input type="text" value="1">
+                                    <div class="producto_descripcion_detalle_botones2">
+                                        <button type="button"><i class="fas fa-chevron-up"></i></button>
+                                        <button type="button"><i class="fas fa-chevron-down"></i></button>
+                                    </div>
+                                </div>
+                                <div class="producto_descripcion_detalle_icono2">
+                                    <img src="/img/vectors/icon_bike.png" alt="">
+                                </div>
+
+                            </div>
+                            <!-- Boton de carrito -->
+                            <div class="producto_descripcion_detalle_carrito2">
+                                <button type="button">
+                                    <span>agregar a la bolsa de pedidos</span>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                            <!-- Fin Boton de carrito -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <!--=====================================
+    F O O T E R
+    ======================================-->
+        <%- include('../partials/footer.ejs') %>
+
+    <script src="/js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

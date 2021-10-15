@@ -1,0 +1,533 @@
+/*==================================================
+    Tipografía
+==================================================*/
+
+/* @font-face {
+  font-family: "Bebas Neue";
+  font-style: regular;
+  src: url("/fonts/BebasNeue-Regular.ttf");
+} */
+
+a {
+  color: var(--grisMedio);
+  font-size: 29px;
+  margin: 10px;
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+  font-size: 39px;
+  color: var(--tinto);
+  text-align: center;
+  padding-bottom: 20px;
+}
+h2 {
+  margin: 0;
+  font-size: 29px;
+  color: var(--tinto);
+}
+h3 {
+  margin: 0;
+  color: var(--tinto);
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+span {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: var(--grisMedio);
+}
+
+footer a {
+  font-size: 14px;
+}
+
+/*==================================================
+    Encabezado del carrito
+==================================================*/
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+.order {
+  width: 100%;
+}
+.cart {
+  display: none;
+}
+.header-button {
+  text-align: center;
+}
+.header-button button {
+  width: 70%;
+  height: 48px;
+  font-size: 17px;
+  font-family: var(--fontBody);
+  padding: 0 15px;
+}
+
+/*** CAMBIO COLOR A BOTÓN GROW BOX ***/
+.ov-btn-grow-spin {
+  color: var(--tinto) !important; /* color de fuente */
+  border: 2px solid var(--tinto) !important; /* tamaño y color de borde */
+}
+.ov-btn-grow-spin:hover {
+  color: var(--blanco) !important; /* color de fuente hover */
+}
+.ov-btn-grow-spin::after {
+  background: var(--tinto) !important; /* color de fondo hover */
+}
+
+/*==================================================
+    ITEM DEL CARRITO
+==================================================*/
+.item-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  margin-top: 50px;
+  border-top: 1px dashed var(--tinto);
+  border-bottom: 1px dashed var(--tinto);
+}
+.item-image {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 150px;
+  padding: 5px;
+}
+.item-image img {
+  object-fit: cover;
+}
+.item-description {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 1px dashed var(--tinto);
+  border-bottom: 1px dashed var(--tinto);
+}
+.description-title {
+  margin-top: 5px;
+}
+.description-title h3 {
+  margin: 5px;
+}
+.description-content {
+  margin-top: 5px;
+}
+.description-content .description {
+  margin: 5px;
+}
+.item-price {
+  margin-bottom: 5px;
+  border-bottom: 1px dashed var(--tinto);
+}
+.item-price span {
+  font-family: var(--fontBody);
+  font-size: 17px;
+  margin: 5px;
+}
+.price {
+  margin-bottom: 5px;
+}
+.item-quantity {
+  margin-bottom: 5px;
+  border-bottom: 1px dashed var(--tinto);
+}
+.item-quantity span {
+  margin: 5px;
+}
+.quantity {
+  margin-bottom: 5px;
+}
+.item-subTotal {
+  margin-bottom: 5px;
+  border-bottom: 1px dashed var(--tinto);
+}
+.item-subTotal h3 {
+  margin: 5px;
+}
+.item-delete {
+  margin-bottom: 5px;
+  background-color: #f9f9f9;
+}
+.delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  height: 45px;
+}
+
+/*==================================================
+    TOOLTIP PARA ICONO ELIMINAR ITEM
+==================================================*/
+.item-delete {
+  position: relative;
+}
+
+.avatar {
+  transition: all 0.5s ease-in-out;
+}
+
+.avatar::before,
+.avatar::after {
+  --scale: 0;
+  --arrow-size: 10px;
+  --tooltip-color: var(--tinto);
+  --translate-y: -290%;
+
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0))
+    scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.avatar::before {
+  --translate-y: -260%;
+
+  content: attr(data-tooltip);
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+
+.avatar:hover {
+  color: var(--tinto);
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  --scale: 1;
+}
+
+.avatar::after {
+  content: "";
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+}
+
+/*==================================================
+    TOTAL DEL CARRITO
+==================================================*/
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.container-box-text {
+  width: 100%;
+  border-bottom: 1px dashed var(--tinto);
+}
+
+.box-text {
+  width: 98%;
+  margin: 5px 0;
+  margin-left: 5px;
+}
+
+.container-box-total {
+  width: 100%;
+}
+
+.box-total {
+  width: 98%;
+  margin: 5px 0;
+  margin-left: 5px;
+}
+
+.container-box-clear {
+  display: none;
+}
+
+/*==================================================
+    BOTONES DE CONFIRMACION
+==================================================*/
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  margin-bottom: 60px;
+  justify-content: space-between;
+  border-top: 2px solid #ccc;
+}
+.button-product {
+  margin-top: 10px;
+  height: 50px;
+}
+.button-product button,
+.button-buy button {
+  width: 100%;
+  height: 48px;
+  font-size: 17px;
+  font-family: var(--fontBody);
+  padding: 0 15px;
+}
+.button-buy {
+  margin-top: 10px;
+  height: 50px;
+}
+
+/*** CAMBIO COLOR A BOTÓN GROW BOX ***/
+.ov-btn-grow-box {
+  background: #fff !important; /* color de fondo */
+  color: var(--tinto) !important; /* color de fuente */
+  border: 2px solid var(--tinto) !important; /* tamaño y color de borde */
+}
+.ov-btn-grow-box:hover {
+  color: #fff !important; /* color de fuente hover */
+}
+.ov-btn-grow-box::after {
+  background: var(--tinto) !important; /* color de fondo hover */
+}
+
+/*** CAMBIO COLOR A BOTÓN SLIDE CLOSE ***/
+.ov-btn-slide-close {
+  background: #fff !important; /* color de fondo */
+  color: var(--tinto) !important; /* color de fuente */
+  border: 2px solid var(--tinto) !important; /* tamaño y color de borde */
+}
+.ov-btn-slide-close:before,
+.ov-btn-slide-close:after {
+  background-color: var(--tinto) !important; /* color de fondo hover */
+}
+.ov-btn-slide-close:hover {
+  color: #fff !important; /* color de fuente hover */
+}
+
+/*==================================================
+    PUNTOS DE QUIEBRES
+==================================================*/
+
+/*==================================================
+    TABLET
+==================================================*/
+
+@media (min-width: 768px) {
+  .main-navbar {
+    padding-top: 15px;
+  }
+
+  /*  ENCABEZADO  */
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 740px;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .order {
+    width: 30%;
+  }
+  .cart {
+    display: block;
+    width: 35%;
+    text-align: center;
+    margin: auto;
+  }
+  .header-button {
+    width: 35%;
+  }
+  .header-button button {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* ITEM CARRITO */
+  .item-container {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 740px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .item-image {
+    width: 200px;
+  }
+
+  .item-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 150px;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .description-title {
+    margin-top: 10px;
+  }
+
+  .description-content {
+    margin-bottom: 10px;
+  }
+
+  .item-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    height: 150px;
+    border-bottom: none;
+  }
+
+  .price {
+    margin-bottom: 0;
+  }
+
+  .item-quantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    height: 150px;
+    border-bottom: none;
+  }
+
+  .quantity {
+    margin-bottom: 0;
+  }
+
+  .item-subTotal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    height: 150px;
+    border-bottom: none;
+  }
+
+  .item-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    height: 150px;
+  }
+
+  /* TOOLTIP BORRAR ITEMS */
+  .avatar::before,
+  .avatar::after {
+    --translate-y: -20%;
+    transform: translateX(-50%) translateY(var(--translate-y, 0))
+      scale(var(--scale));
+    transition: 150ms transform;
+    transform-origin: bottom center;
+  }
+  .avatar::before {
+    --translate-y: -100%;
+  }
+
+  /* TOTAL CARITO */
+  .total-container {
+    display: flex;
+    flex-direction: row;
+    width: 740px;
+    margin: auto;
+    margin-top: 5px;
+  }
+
+  .container-box-text {
+    margin-top: 0;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: none;
+  }
+
+  .box-text {
+    text-align: right;
+  }
+
+  .container-box-total {
+    width: 14%;
+  }
+
+  .container-box-clear {
+    display: block;
+    width: 6%;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 740px;
+    margin: auto;
+    margin-top: 5px;
+  }
+
+  .container-button {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/*==================================================
+    DESKTOP  
+==================================================*/
+
+@media (min-width: 1200px) {
+  /*  ENCABEZADO  */
+  .header-container {
+    width: 840px;
+  }
+
+  /* ITEM CARRITO */
+  .item-container {
+    width: 840px;
+  }
+
+  .item-description {
+    width: 40%;
+  }
+
+  .description-title {
+    margin-top: 20px;
+  }
+
+  .description-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .description {
+    height: 60%;
+  }
+
+  /* TOTAL CARITO */
+
+  .total-container {
+    width: 840px;
+  }
+
+  /* CONTENIDO DE BOTONES CONFIRMACION */
+
+  .buttons-container {
+    width: 840px;
+  }
+}

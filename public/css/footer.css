@@ -1,0 +1,183 @@
+footer {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  background: var(--beige);
+  margin-top: 50px;
+}
+.main-storage {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.main-storage .square {
+  flex-basis: 50%;
+  padding: 10px 20px;
+  margin: 5px 0;
+}
+.square h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.square .storage {
+  margin: 20px 0 0 0;
+  position: relative;
+}
+.square .storage:before {
+  position: absolute;
+  content: "";
+  top: -10px;
+  height: 2px;
+  width: 100%;
+  background: #1a1a1a;
+}
+.square .storage:after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 15%;
+  background: var(--rosado);
+  top: -10px;
+}
+.left .storage p {
+  text-align: justify;
+  font-size: 18px;
+}
+.copas {
+  margin-top: 10px;
+}
+.copas img {
+  border-style: none;
+  width: 230px;
+  margin-left: 20px;
+}
+.left .storage .social {
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+.left .storage .social a {
+  padding: 0 2px;
+}
+.left .storage .social a i {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  background: #1a1a1a;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+  color: #d9d9d9
+}
+.left .storage .social a i:hover {
+  background: var(--rosado);
+}
+.center .storage .fas {
+  background: #1a1a1a;
+  font-size: 18px;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+  color: #d9d9d9;
+}
+.center .storage .fas:hover {
+  background: var(--rosado);
+}
+.center .storage .text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding-left: 10px;
+  color: #d9d9d9;
+}
+.center .storage .phone {
+  margin: 15px 0;
+}
+.right form .text {
+  font-size: 1.15rem;
+  margin-bottom: 2px;
+  color: #656565;
+}
+.right form .msg {
+  margin-top: 10px;
+}
+.right form input,
+.right form textarea {
+  width: 100%;
+  font-size: 1.15rem;
+  background: #151515;
+  padding-left: 10px;
+  padding-top: 10px;
+  border: 1px solid #222222;
+}
+.right form input:focus,
+.right form textarea:focus {
+  outline-color: var(--grisClaro);
+}
+.right form input {
+  height: 35px;
+  padding-top: 0;
+}
+.right form .btn {
+  margin-top: 10px;
+}
+.right form .btn button {
+  height: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: var(--grisMedio);
+  font-size: 1.15rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #d9d9d9;
+}
+.right form .btn button:hover {
+  background: var(--rosado);
+}
+.bottom center {
+  padding: 5px;
+  font-size: 0.9375rem;
+  background: #151515;
+  color: var(--grisMedio);
+}
+.bottom center i {
+  color: #656565;
+}
+.bottom center a {
+  color: var(--rosado);
+  text-decoration: none;
+}
+.bottom center a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .main-storage {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+  .square h2 {
+    font-size: 1.3rem;
+  }
+  .left .storage p {
+    font-size: 16px;
+  }
+  .copas img {
+    margin: auto;
+  }
+  .left .storage .social {
+    text-align: justify;
+  }
+}
+
+@media (min-width: 1200px){
+    .main-storage{
+        margin: auto 10%
+    }
+}

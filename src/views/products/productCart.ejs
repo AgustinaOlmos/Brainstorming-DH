@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs') %> 
+    <link rel="stylesheet" href="/css/productCart.css">
+    <link rel="stylesheet" href="/css/efectosBotones.css">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+    <!--==================================================
+        Encabezado del carrito
+    ===================================================-->
+    <div class="header-container">
+        <div class="order">
+            <h1>BOLSA DE PEDIDOS</h1>
+        </div>
+        <div class="cart">
+            <h2>MI CARRITO</h2>
+        </div>
+        <div class="header-button">
+            <button class="ov-btn-grow-spin">CONTINUAR COMPRANDO <i class="fa fa-cart-plus"></i></button>
+        </div>
+    </div>
+
+    <!--==================================================
+        ITEM DEL CARRITO
+    ===================================================-->
+
+    <div class="item-container">
+        <div class="item-image">
+            <img src="/img/products/Aduentus.cabFrankPromo.jpg" alt="imagen" >
+        </div>
+        <div class="item-description">
+            <div class="description-title">
+                <h3>ADUENTUS CABERNET FRANC</h3>
+            </div>
+            <div class="description-content">
+                <div class="description">
+                    <span>Beber con moderación. Prohibida su venta a menores de 18 años.</span>
+                </div>
+            </div>
+        </div>
+        <div class="item-price">
+            <div class="price">
+                <span>$ 3900.00 <sup><sup>c</sup>/<sub>u</sub></sup></span>
+            </div>
+        </div>
+        <div class="item-quantity">
+            <div class="quantity">
+                <span>Cant. 1</span>
+            </div>
+        </div>
+        <div class="item-subTotal">
+            <div class="subTotal">
+                <h3>$ 3900.00</h3>
+            </div>
+        </div>
+        <div class="item-delete">
+            <div class="delete">
+                <a href="#" class="avatar" data-tooltip="Quitar del carrito"><i class="fas fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!--==================================================
+        TOTAL DEL CARRITO
+    ===================================================-->
+
+    <div class="total-container">
+        <div class="container-box-text">
+            <div class="box-text">
+                <h3>TOTAL</h3>
+            </div>
+        </div>
+        <div class="container-box-total">
+            <div class="box-total">
+                <h2>$ 3900.00</h2>
+            </div>
+        </div>
+        <div class="container-box-clear">
+            <div class="box-clear">
+            </div>
+        </div>
+    </div>
+
+    <!--==================================================
+        BOTONES CONFIRMACION
+    ===================================================-->
+
+    <div class="buttons-container">
+        <div class="container-button">
+            <div class="button-product">
+                <button class="ov-btn-grow-box" type="submit">VOLVER A PRODUCTOS <i class="fa fa-th-large fa-fw" style="margin-left:5px;"></i></button>
+            </div>
+            <div class="button-buy">
+                <button class="ov-btn-slide-close" type="submit">CONFIRMAR PEDIDO Y CONTINUAR <i class="fa fa-angle-right fa-fw" style="margin-left:5px;"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--=====================================
+    F O O T E R
+    ======================================-->
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>
