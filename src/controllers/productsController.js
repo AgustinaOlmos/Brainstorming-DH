@@ -61,7 +61,7 @@ const productsController = {
         nombrePagina: 'Productos'
     }),
     details: (req, res) => {
-       let product = products.find(product => product.id === req.params.productId)
+       let product = products.find(product => product.id == req.params.productId)
         res.render('products/productDetail', {
             product,
             nombrePagina: 'Detalles del Producto'
