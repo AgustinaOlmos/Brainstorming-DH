@@ -1,34 +1,254 @@
 <header class="main-header">
-    <div class="container-top-header">
-        <div class="contact-header">
-            <a href="#" target="_blank" id="whatsapp"><i class="fab fa-whatsapp"></i>(11) xxxx xxxx</a>
-            <ul class="social">
-                <li><a href="#" target="_blank" id="twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" target="_blank" id="facebook"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#" target="_blank" id="instagram"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-        <div class="container-burger">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div>
-            <a href="#" class="logo-client"><i class="fas fa-user"></i>SOY CLIENTE</a>
-            <a href="#" class="logo-bag">
-                <!--<span class="items"><span class="items-count">0</span></span> -->
-                <i class="fas fa-shopping-bag"></i>
-            </a>
-        </div>
-    </div>
-    <nav class="main-navbar">
-        <ul class="left-navbar">
-            <li><a href="#">PRODUCTOS</a></li>
-            <li><a href="#">NOSOTROS</a></li>
-            <li><a href="#">COMO COMPRAR</a></li>
-        </ul>
-        <ul class="right-navbar">
-            <li><a href="#">INSTRUCCIONES</a></li>
-            <li><a href="#">PREGUNTAS FRECUENTES</a></li>
-            <li><a href="#">CONTACTO</a></li>
-        </ul>
-    </nav>
+    <nav class="menu" id="menu">
+		<div class="contenedor contenedor-botones-menu">
+			<button id="btn-menu-barras" class="btn-menu-barras"><i class="fas fa-bars"></i></button>
+			<button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="fas fa-times"></i></button>
+		</div>
+
+		<div class="contenedor contenedor-enlaces-nav">
+			<div class="btn-departamentos" id="btn-departamentos">
+				<p>Todos los <span>Productos</span></p>
+				<i class="fas fa-caret-down"></i>
+			</div>
+
+			<div class="enlaces">
+				<a href="#"><i class="fas fa-user" style="margin-right: 5px;"></i> Cuenta</a>
+				<a href="#">Promociones</a>
+				<a href="#">Mesa de Regalos</a>
+				<a href="#">Ayuda</a>
+				<a href="#"><i class="fas fa-shopping-bag" style="font-size: 20px;"></i></a>
+
+			</div>
+		</div>
+
+		<div class="contenedor contenedor-grid">
+			<div class="grid" id="grid">
+				<div class="categorias">
+					<button class="btn-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
+					<h3 class="subtitulo">Categorias</h3>
+
+					<a href="#" data-categoria="regaleria">Regaleria <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="cocktails">Cocktails <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="vinos">Vinos <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="espirituosas">Espirituosas <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="deli">Deli <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="cervezas">Cervezas <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="tools">Tools <i class="fas fa-angle-right"></i></a>
+				</div>
+
+				<div class="contenedor-subcategorias">
+					<div class="subcategoria " data-categoria="regaleria">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Regalos</h3>
+							<a href="#">Regalo</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/regaleria-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/regaleria-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/regaleria-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/regaleria-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/regaleria-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="cocktails">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Cocktails</h3>
+							<a href="#">Preparados</a>
+							<a href="#">Para preparar</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/cocktails-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/cocktails-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/cocktails-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/cocktails-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/cocktails-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="vinos">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Vinos</h3>
+							<a href="#">Vinos Blanco</a>
+							<a href="#">Vinos Rosados</a>
+							<a href="#">Vinos Tintos</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/vinos-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="espirituosas">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Espirituosas</h3>
+							<a href="#">Cañas</a>
+							<a href="#">Gins</a>
+							<a href="#">Otros</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/espirituosas-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/espirituosas-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/espirituosas-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/espirituosas-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/espirituosas-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="deli">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Deli</h3>
+							<a href="#">Nectar</a>
+							<a href="#">Dressing</a>
+							<a href="#">Fee</a>
+							<a href="#">Hielo</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/deli-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/deli-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/deli-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/deli-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/deli-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="cervezas">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Cervezas</h3>
+							<a href="#">Cerveza</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/cervezas-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/cervezas-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/cervezas-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/cervezas-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/cervezas-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="tools">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Tools</h3>
+							<a href="#">Tools</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/tools-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/tools-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/tools-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/tools-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/tools-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
 </header>

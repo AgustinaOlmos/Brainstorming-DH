@@ -35,9 +35,9 @@ img {
   height: 100%;
 }
 span {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: 14px;
-  color: var(--grisMedio);
+  /* color: var(--grisMedio); */
 }
 
 footer a {
@@ -52,7 +52,7 @@ footer a {
   display: flex;
   flex-direction: column;
   margin: 0 15px;
-  margin-top: 50px;
+  margin-top: 100px;
   justify-content: space-between;
 }
 .order {
@@ -332,7 +332,7 @@ footer a {
     justify-content: space-between;
     width: 740px;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 100px;
   }
   .order {
     width: 30%;
