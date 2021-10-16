@@ -1,9 +1,5 @@
 <!-- <%- include('../partials/head') %>
-    <title>Ecommerce Brainstorming - Perfil Usuario</title>
-    
-    <link rel="stylesheet" href="/css/profile.css">
 
-</head>
 <%- include('../partials/header') %> -->
 
 <!DOCTYPE html>
@@ -18,6 +14,11 @@
     <%- include('../partials/header.ejs') %>
 
 
+<div class="dataTitle">
+    <h1 style="font-family: 'Bebas Neue'; font-style: regular; color: var(--rosado);">
+        <i class="fas fa-address-card" style="margin-right: 10px;"></i> Perfil del usuario
+    </h1>
+</div>
 <main>
     <div class="dataProfile">
         <div class="dataProfileStates">
@@ -26,24 +27,20 @@
                 <div class="photo">
                     <img src="/img/users/image-victor.jpg" alt="Foto Personal">
                 </div>
-
                 <div class="personal-data-container">
                     <span class="name">Victor Crest</span>
                     <span class="age">26</span>
                     <div class="city">London</div>
                 </div>
-
                 <div class="stats-container">
                     <div class="statistics">
                         <div class="quantity">80</div>
                         <div class="units">Seguidores</div>
                     </div>
-
                     <div class="statistics">
                         <div class="quantity">803</div>
                         <div class="units">Compras</div>
                     </div>
-
                     <div class="statistics">
                         <div class="quantity">1150</div>
                         <div class="units">Productos</div>
@@ -63,9 +60,15 @@
                             <h3>Victor Crest</h3>
                         </div>
                         <div class="data-information">
-                            <span class="data-img"><i class="fas fa-address-card"></i></span><span>DNI: 20345789</span><br>
-                            <span class="data-img"><i class="fas fa-at"></i></span><span>Email: victorcrest@gmail.com</span><br>
-                            <span class="data-img"><i class="fas fa-lg fa-phone"></i></span><span>Teléfono: 1136887699</span>
+                            <div>
+                                <span class="data-img"><i class="fas fa-address-card"></i></span><span>DNI: 20345789</span><br>
+                            </div>
+                            <div>
+                                <span class="data-img" style="margin-top: 10px;"><i class="fas fa-at"></i></span><span>Email: victorcrest@gmail.com</span><br>
+                            </div>
+                            <div>
+                                <span class="data-img"><i class="fas fa-lg fa-phone"></i></span><span>Teléfono: 1136887699</span>
+                            </div>
                         </div>
                     </div>
                     <div class="data-image">
@@ -80,14 +83,153 @@
             </div>
         </div>
         <div class="dataProfileShipping">
-            <div class="box-personal-2">
-                <span class="personal-title">Mis datos personales</span>
-                <a href="#"><i class="fas fa-pencil-alt"></i></a>
+            <div class="card-container-personal-2">
+                <div class="box-personal-2">
+                    <span class="personal-title-2">Mi dirección de envío</span>
+                </div>
+                <div class="general-personal-box-2">
+                    <div class="card-address">
+                        <div class="data-information-2">
+                            <span class="data-img"></span><span style="font-size: 1.25rem; font-weight: 300; color: #212529; ">El Arreo 220</span><br><br>
+                            <span class="data-img"><strong>Referencia: </strong></span><span> entre cortejarena y garcia lorca, porton negro</span><br><br>
+                            <span class="data-img"><i class="fas fa-lg fa-building"></i></span><span>La Reja, Buenos Aires-GBA</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="dataHistory">
-        
+        <div class="dataNav">
+            <div class="historial">
+                <h4>Historial</h4>
+            </div>
+        </div>
+        <div class="dataFech">
+            <div class="dateToday">
+                <h4>13 de Octubre de 2021</h4>
+            </div>
+            <div class="dataBar"></div>
+        </div>
+        <div class="dataMessage">
+            <div class="dataLogo">
+                <div>
+                    <!-- <i class="fas fa-user"></i> -->
+                    <i class="fas fa-box"></i>
+                </div>
+            </div>
+            <div class="dataBarMessage"></div>
+            <div class="dataText">
+                <div class="textheader">
+                    <div>
+                        <h4><i class="fas fa-plus" style="margin-right: 5px;"></i>Se realizó la acción Crear en Producto</h4>
+                    </div>
+                </div>
+                <div class="textBody">
+                    <div>
+                        <h4>Ha realizado una pregunta: Quisiera saber cuanto tiempo tiene de demora la entrega ?. | en el producto: ADUENTUS CABERNET FRANC</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataMessage" style="height: 105px;">
+            <div class="dataLogo">
+                <div style="background-color: var(--Yellow);">
+                    <!-- <i class="fas fa-user"></i> -->
+                    <i class="far fa-bell"></i>
+                </div>
+            </div>
+            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataText">
+                <div class="textheader">
+                    <div>
+                        <h4><i class="far fa-trash-alt" style="margin-right: 5px;"></i>Se realizó la acción Borrar en Notificaciones</h4>
+                    </div>
+                </div>
+                <div class="textBody" style="height: 50px;">
+                    <div>
+                        <h4>Eliminaste una notificación.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataMessage" style="height: 105px;">
+            <div class="dataLogo">
+                <div style="background-color: #17a2b8;">
+                    <i class="fas fa-user"></i>
+                    <!-- <i class="far fa-bell"></i> -->
+                </div>
+            </div>
+            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataText">
+                <div class="textheader">
+                    <div>
+                        <h4><i class="far fa-edit" style="margin-right: 5px;"></i>Se realizó la acción Editar en Mi perfil</h4>
+                    </div>
+                </div>
+                <div class="textBody" style="height: 50px;">
+                    <div>
+                        <h4>Ha editado sus datos personales, ha echo los siguientes cambios: su avatar fué cambiado.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataFech">
+            <div class="dateToday" style="margin-top: 0;">
+                <h4>13 de Octubre de 2021</h4>
+            </div>
+            <div class="dataBar"></div>
+        </div>
+        <div class="dataMessage" style="height: 105px;">
+            <div class="dataLogo">
+                <div style="background-color: #17a2b8;">
+                    <i class="fas fa-user"></i>
+                    <!-- <i class="far fa-bell"></i> -->
+                </div>
+            </div>
+            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataText">
+                <div class="textheader">
+                    <div>
+                        <h4><i class="far fa-edit" style="margin-right: 5px;"></i>Se realizó la acción Editar en Mi perfil</h4>
+                    </div>
+                </div>
+                <div class="textBody" style="height: 50px;">
+                    <div>
+                        <h4>Ha creado una nueva dirección: El Arreo 250</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataMessage" style="height: 105px;">
+            <div class="dataLogo">
+                <div style="background-color: #17a2b8;">
+                    <i class="fas fa-user"></i>
+                    <!-- <i class="far fa-bell"></i> -->
+                </div>
+            </div>
+            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataText">
+                <div class="textheader">
+                    <div>
+                        <h4><i class="far fa-edit" style="margin-right: 5px;"></i>Se realizó la acción Editar en Mi perfil</h4>
+                    </div>
+                </div>
+                <div class="textBody" style="height: 50px;">
+                    <div>
+                        <h4>Ha cambiado su contraseña.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataMessage" style="height: 50px;">
+            <div class="dataLogo">
+                <div style="background-color: #6c757d;">
+                    <i class="far fa-clock"></i>
+                    <!-- <i class="far fa-bell"></i> -->
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 

@@ -10,8 +10,15 @@
     --Blue_medium: #007bff;
     --Blue_medium_osc: #0069d9;
     --White_light: #f8f9fa;
+    --Green_medium: #28a745;
 }
 
+.dataTitle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
 /*==================================================
     Contenedor General
 ==================================================*/
@@ -23,7 +30,7 @@ main {
 	/* padding: 20px; */
 	height: 1000px;
     margin: auto;
-    margin-top: 120px;
+    /* margin-top: 120px; */
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -35,6 +42,7 @@ main {
 
     /* border: 2px solid blue; */
 }
+
 
 /*==================================================
     Contenedor Izquierdo
@@ -215,11 +223,20 @@ main {
 }
 
 .data-information {
+    display: flex;
+    flex-direction: column;
     font-size: 80%;
     padding-left: 20px;
+    /* line-height: 1.3; */
     color: var(--Dark_grayish_blue);
     /* border: 1px solid cyan; */
 }
+
+.data-information div {
+    margin-top: 5px;
+}
+
+
 
 .data-img i{
     width: 25px;
@@ -288,19 +305,248 @@ main {
 }
 
 /*==================================================
+    Dirección de envío
+==================================================*/
+
+.card-container-personal-2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    /* height: 380px; */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; 
+    margin-top: 20px;
+    box-shadow: 1px 1px 2px #999;
+    -webkit-box-shadow: 1px 1px 2px #999;
+    -moz-box-shadow: 1px 1px 2px #999;  
+    /* border: 1px solid violet; */
+}
+
+.box-personal-2 {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--Green_medium);
+}
+
+.box-personal-2 span {
+    margin-left: 10px;
+    color: var(--Black_light);
+}
+
+.general-personal-box-2 {
+    height: 200px;
+    /* border: 1px solid #999; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-address {
+    height: 150px;
+    width: 280px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: .25rem;
+    border-left: 5px solid #117a8b;;
+    box-shadow: 1px 1px 2px #999;
+    -webkit-box-shadow: 1px 1px 2px #999;
+    -moz-box-shadow: 1px 1px 2px #999; 
+    /* border: 1px solid purple; */
+}
+
+.data-information-2 {
+    margin-top: 20px;
+    font-size: 80%;
+    padding-left: 20px;
+    color: var(--Dark_grayish_blue);
+    /* border: 1px solid cyan; */
+}
+
+/*==================================================
     Contenedor Derecho
 ==================================================*/
 
 .dataHistory {
     /* width: 69%; */
-    height: 100px;
-
-
+    display: none !important;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: 1px 1px 2px #999;
+    -webkit-box-shadow: 1px 1px 2px #999;
+    -moz-box-shadow: 1px 1px 2px #999;
 
 
 
     /* border: 1px solid brown; */
     
+}
+
+.dataNav {
+    height: 60px;
+    display: flex;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.historial {
+    width: 96%;
+    height: 60%;
+    margin: auto;
+}
+
+.historial h4 {
+    background-color: var(--Blue_medium);
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    color: white;
+    width: 100px;
+    text-align: center;
+    padding: 10px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.dataFech {
+    height: 60px;
+    display: flex;
+    position: relative;
+    /* border-radius: 5px 5px 0px 0px; */
+    /* border-bottom: 1px solid rgb(228, 228, 228); */
+}
+
+.dateToday {
+    width: 96%;
+    height: 60%;
+    margin: auto;
+}
+
+.dateToday h4 {
+    background-color: #DC3545;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    color: white;
+    /* width: 100px; */
+    width: 22%;
+    /* text-align: center; */
+    padding: 10px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.dataBar {
+    height: 49px;
+    width: 5px;
+    background-color: #dee2e6;
+    position: absolute;
+    top: 12px;
+    left: 50px;
+    z-index: -1;
+}
+
+.dataMessage {
+    height: 125px;
+    margin-left: 15px;
+    display: flex;
+    position: relative;
+    /* border: 1px solid green; */
+}
+
+.dataLogo {
+    width: 9%;
+    padding: 0 15px;
+    /* border: 1px solid violet; */
+}
+
+.dataLogo div {
+    width: 30px;
+    height: 30px;
+    /* background-color: #17a2b8; */
+    background-color: var(--Blue_medium);
+    border-radius: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.dataLogo div i {
+    margin-top: 6px;
+    color: white;
+}
+
+.dataBarMessage {
+    height: 125px;
+    width: 5px;
+    background-color: #dee2e6;
+    position: absolute;
+    top: 0;
+    left: 34px;
+    z-index: -1;
+}
+
+.textheader {
+    height: 40px;
+    width: 95%;
+    background-color: var(--White_light);
+    border-radius: 5px 5px 0px 0px;
+    border: 1px solid rgb(228, 228, 228);
+    /* border: 1px solid cyan; */
+}
+
+.textheader div {
+    width: 96%;
+    height: 60%;
+    margin: auto;
+}
+
+.textheader div h4 {
+    color: #495057;
+    font-family: "Source Sans Pro";
+    font-weight: bold;
+    /* width: 100px; */
+    /* text-align: center; */
+    padding: 10px;
+    height: 100%;
+
+}
+
+.textBody {
+    height: 70px;
+    width: 95%;
+    background-color: var(--White_light);
+    border: 1px solid rgb(228, 228, 228);
+    border-top: 0px;
+    border-radius: 0px 0px 5px 5px;
+    /* border: 1px solid orangered; */
+}
+
+.textBody div {
+    width: 96%;
+    height: 60%;
+    margin: auto;
+}
+
+.textBody div h4 {
+    color: #495057;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    /* width: 100px; */
+    /* text-align: center; */
+    padding: 10px;
+    line-height: 1.3;
+    height: 100%;
+}
+
+.dataText {
+    width: 91%;
+
+
+
+
+
+    /* border: 1px solid blue; */
 }
 
 
@@ -323,7 +569,8 @@ main {
 
     /* CONTENEDOR IZQUIERDO */
     .dataProfile {
-        width: 38%;
+        /* width: 38%; */
+        width: 98%;
         font-size: 14px;
     }
 
@@ -351,9 +598,18 @@ main {
         font-size: 18px;
     }
 
+    .card-address {
+        width: 230px;
+    }
+
     /* CONTENEDOR DERECHO */
     .dataHistory {
+        display: block !important;
         width: 69%;
+    }
+
+    .dateToday h4 {
+        width: 29% !important;
     }
 
 }
@@ -362,11 +618,19 @@ main {
     TV
 ==================================================*/
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
 
     /* CONTENEDOR GENERAL */
     main {
         width: 82%;
+    }
+
+    .dateToday h4 {
+        width: 24% !important;
+    }
+
+    .card-address {
+        width: 280px;
     }
     
 }
