@@ -1,13 +1,4 @@
 /*==================================================
-    Tipografía
-==================================================*/
-/* @font-face {
-    font-family: 'Bebas Neue';
-    font-style: regular;
-    src: url('/fonts/BebasNeue-Regular.ttf');
-} */
-
-/*==================================================
     Cuerpo del Detalle
 ==================================================*/
 .detalle {
@@ -72,16 +63,6 @@ a.detalle_titulo_boton {
 .producto_imagen img {
   width: 100%;
 }
-
-/* .producto_imagen:before {
-    content: "PROMOCIÓN";
-    background: #000000;
-    color: #FFFFFF;
-    padding: 5px 20px;
-    position: absolute;
-    top: 110px;
-    font-size: 0.75rem;
-} */
 
 /*==================================================
     CANTIDAD

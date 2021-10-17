@@ -113,5 +113,6 @@
     /* CONTENEDOR TITULO */
     .container-form {
         width: 60%;
+        margin-bottom: 300px;
     }
 }
