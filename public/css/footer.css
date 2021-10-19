@@ -89,6 +89,7 @@ footer {
   background: var(--rosado);
 }
 .center .storage .text {
+  font-family: var(--fontBody);
   font-size: 1.15rem;
   font-weight: 500;
   padding-left: 10px;
@@ -146,12 +147,16 @@ footer {
   background: #151515;
   color: var(--grisMedio);
 }
+.credit{
+  font-family: var(--fontBody);
+}
 .bottom center i {
   color: #656565;
 }
 .bottom center a {
   color: var(--rosado);
   text-decoration: none;
+  font-family: var(--fontBody);
 }
 .bottom center a:hover {
   text-decoration: underline;

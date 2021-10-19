@@ -2,22 +2,22 @@
 <html lang="es">
 
 <head>
-    <%- include('../partials/head.ejs') %> 
+    <%- include('../partials/head.ejs') %>
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
 
-    <form class="form-search" action="#" method="POST">
-        <h1 class="main-title">VINOS</h1>
-        <div class="span-btn">
-            <input type="text" name="search-input" class="search-input" placeholder="BUSCAR">
-            <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
-        </div>
-    </form>
-    <main class="main-products">
-        <section>
-     <!--        <% products.forEach(product=> {%>
+        <form class="form-search" action="#" method="POST">
+            <h1 class="main-title">Todos los Productos</h1>
+            <div class="span-btn">
+                <input type="text" name="search-input" class="search-input" placeholder="BUSCAR">
+                <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <main class="main-products">
+            <section>
+                <!--        <% products.forEach(product=> {%>
                 <article class="card-product">
                     <img src=<%=product.img %> alt="" />
                     <h3 class="title-product">
@@ -37,25 +37,28 @@
 
                 <% for(product of products){ %>
                     <article class="card-product">
-                        <img src=<%=product.img %> alt="" />
-                        <h3 class="title-product">
-                            <%= product.title %>
-                        </h3>
-                        <div class="container-infoProd">
-                            <p class="price">$<%= product.price %>
-                            </p>
-                            <input type="text" name="count" class="count" pattern="[0-9]" value="1" />
-                            <div class="icon-bag">
-                                <p>AGREGAR</p>
-                                <i class="fas fa-shopping-bag"></i>
+                        <a href="details/<%= product.id %>" id="card-link">
+                            <img src=<%=product.img %> alt="" />
+                            <h3 class="title-product">
+                                <%= product.title %>
+                            </h3>
+                            <div class="container-infoProd">
+                                <p class="price">$<%= product.price %>
+                                </p>
+                                <input type="text" name="count" class="count" pattern="[0-9]" value="1" />
+                                <div class="icon-bag">
+                                    <p>AGREGAR</p>
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </article>
-                    <% } %> 
-        </section>
-    </main>
+                    <% } %>
+            </section>
+        </main>
 
-    <%- include('../partials/footer') %> 
-    <script src="/js/main.js"></script>
+        <%- include('../partials/footer') %>
+            <script src="/js/main.js"></script>
 </body>
+
 </html>

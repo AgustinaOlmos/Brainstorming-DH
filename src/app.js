@@ -4,6 +4,7 @@ const app = express();
 const mainRouter = require('./routes/main')
 const productsRouter = require('./routes/products')
 const usersRouter = require('./routes/users')
+const adminRouter = require('./routes/admin')
 
 // Establecer vistas
 app.set('view engine', 'ejs')
@@ -17,6 +18,7 @@ app.use(express.static('public'));
 app.use('/', mainRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
+app.use('/admin', adminRouter)
 
 
 app.listen(3000, () => console.log("Levantando un servidor con Express en", "http://localhost:3000"))

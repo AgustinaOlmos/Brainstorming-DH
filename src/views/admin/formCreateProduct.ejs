@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/formCreateProduct.css">
+</head>
+
+<body>
+    <div id="container-brain">
+        <h1 class="title-brain">&bull; Brainstorming &bull;</h1>
+        <div class="underline"></div>
+        <div class="icon_wrapper">
+            <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
+        </div>
+        <form action="#" method="POST" id="form-create">
+            <div class="name-prod">
+                <label for="name-prod"></label>
+                <input type="text" name="name-prod" id="name-prod" placeholder="Nombre del Producto">
+            </div>
+            <div class="img-prod">
+                <label for="img-prod"></label>
+                <input type="file" name="img-prod" id="img-prod" accept=".jpg" multiple>
+            </div>
+
+            <div class="code-prod">
+                <label for="code-prod"></label>
+                <input type="number" name="code-prod" id="code-prod" placeholder="Codigo de Barra">
+            </div>
+            <div class="price-prod">
+                <label for="price-prod"></label>
+                <input type="number" name="price-prod" id="price-prod" placeholder="Precio">
+            </div>
+            <div class="stock-prod">
+                <label for="stock-prod"></label>
+                <input type="number" name="stock-prod" id="stock-prod" placeholder="Stock">
+            </div>
+            <div class="categ-produc">
+                <label for="categ-produc"></label>
+                <select placeholder="Seleccione una Categoria" name="categ-prod" id="categ-prod">
+                    <option disabled hidden selected>Seleccione una Categoria</option>
+                    <option value="cocktails">Cocktails</option>
+                    <option value="espirituosas">Espirituosas</option>
+                    <option value="vinos">Vinos</option>
+                    <option value="delis">Delis</option>
+                    <option value="tools">Tools</option>
+                </select>
+            </div>
+            <div class="description-prod">
+                <label for="description-prod"></label>
+                <textarea name="description-prod" id="description-prod"
+                    placeholder="Descripcion del Producto"></textarea>
+            </div>
+
+            <div class="submit-prod">
+                <input type="submit" value="Crear Producto" id="form_button" />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

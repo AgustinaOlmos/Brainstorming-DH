@@ -1,19 +1,6 @@
 /*==================================================
     Tipografía
 ==================================================*/
-
-/* @font-face {
-  font-family: "Bebas Neue";
-  font-style: regular;
-  src: url("/fonts/BebasNeue-Regular.ttf");
-} */
-
-a {
-  color: var(--grisMedio);
-  font-size: 29px;
-  margin: 10px;
-  text-decoration: none;
-}
 h1 {
   margin: 0;
   font-size: 39px;
@@ -35,14 +22,11 @@ img {
   height: 100%;
 }
 span {
-  /* font-family: sans-serif; */
+  font-family: sans-serif;
   font-size: 14px;
-  /* color: var(--grisMedio); */
+  color: var(--grisMedio);
 }
 
-footer a {
-  font-size: 14px;
-}
 
 /*==================================================
     Encabezado del carrito
@@ -173,6 +157,10 @@ footer a {
 
 .avatar {
   transition: all 0.5s ease-in-out;
+  color: var(--grisMedio);
+  font-size: 29px;
+  margin: 10px;
+  text-decoration: none;
 }
 
 .avatar::before,
@@ -322,6 +310,12 @@ footer a {
 ==================================================*/
 
 @media (min-width: 768px) {
+  footer{
+    margin-top: 212px;
+  }
+  .square h2 {
+    color: var(--negro);
+  }
   .main-navbar {
     padding-top: 15px;
   }

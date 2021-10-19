@@ -1,72 +1,28 @@
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	background: #EAEDED;
-	font-family: Arial, sans-serif;
-}
-
-a {
-	text-decoration: none;
-} */
-
-
-/*==================================================
-    Tipografía
-==================================================*/
-
-@font-face {
-    font-family: 'Bebas Neue';
-    font-style: regular;
-    src: url('/fonts/BebasNeue-Regular.ttf');
-}
-
 /*==================================================
     Estilo Global
 ==================================================*/
-
 * {
     box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-a{
+a {
     text-decoration: none;
 }
-
-/*==================================================
-    Estilo del Body
-==================================================*/
-
 body {
-    font-family: 'Bebas Neue', cursive;
-    margin: 0;
+    font-family: var(--fontBody);
     background-color: #fff;
 }
-
-
-
-
 
 .contenedor {
 	margin: auto;
 	width: 90%;
 	max-width: 1200px;
 }
-
-main article {
-	/* background: #fff;
-	margin: 20px 0;
-	padding: 20px;
-	height: 1000px; */
-}
-
 /* ------------------------- */
 /* Enlaces del NAV */
 /* ------------------------- */
 .menu {
-	/* height: 90px; */
 	background: #232F3E;
 	background-image: url("/img/wall/wall-violeta-2.jpg");
   	background-size: cover;
@@ -79,12 +35,7 @@ main article {
 	z-index: 999;
 }
 
-/* .menu .contenedor {
-	margin-top: 30px;
-} */
-
 .menu .contenedor-botones-menu {
-	/* display: flex; */
 	display: none;
 	justify-content: space-between;
 }
@@ -143,6 +94,8 @@ main article {
 	font-size: 20px;
 	font-weight: bold;
 	letter-spacing: 2px;
+	font-family: var(--fontBody);
+	color: #fff;
 }
 
 .menu .contenedor-enlaces-nav .enlaces a {
