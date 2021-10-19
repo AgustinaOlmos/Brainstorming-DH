@@ -56,13 +56,13 @@ const products = [
 ]
 
 const adminController = {
-    create: (req, res) => res.render('admin/formCreate', {
+    create: (req, res) => res.render('admin/formCreateProduct', {
         nombrePagina: 'Crear Producto'
     }),
     edit: (req, res) => {
         let product = products.find(product => product.id == req.params.productId)
         
-        res.render('admin/formEdit', {
+        res.render('admin/formEditProduct', {
         product,
         nombrePagina: 'Editar Producto',
     })}

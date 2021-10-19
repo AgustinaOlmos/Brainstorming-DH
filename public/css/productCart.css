@@ -310,6 +310,12 @@ span {
 ==================================================*/
 
 @media (min-width: 768px) {
+  footer{
+    margin-top: 212px;
+  }
+  .square h2 {
+    color: var(--negro);
+  }
   .main-navbar {
     padding-top: 15px;
   }
