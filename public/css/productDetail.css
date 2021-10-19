@@ -279,6 +279,10 @@ a.detalle_titulo_boton {
   justify-content: space-between;
   margin: 10px 10px;
 }
+.box p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .box img {
   object-fit: cover;
 }
@@ -291,6 +295,10 @@ a.detalle_titulo_boton {
 .box:hover .marvel {
   color: var(--blanco);
   transition: all ease 0.5s;
+}
+.box .box-img {
+  width: 75%;
+  height: 75%;
 }
 .model {
   width: 350px;
