@@ -79,6 +79,10 @@ body {
 	cursor: default;
 }
 
+.menu .btn-departamentos a {
+	color: #fff;
+}
+
 .menu .btn-departamentos i {
 	margin-left: 20px;
 	position: relative;
