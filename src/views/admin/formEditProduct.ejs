@@ -17,20 +17,20 @@
         <form action="#" method="POST" id="form-create">
             <div class="name-prod">
                 <label for="name-prod"></label>
-                <input type="text" name="name-prod" id="name-prod" placeholder=<%= product.title %>>
+                <input type="text" name="name-prod" id="name-prod" value="<%= product.title %>">
             </div>
             <div class="img-prod">
                 <label for="img-prod"></label>
                 <img src=<%=product.img %> alt="" class="img-edit"/>
                 <input type="file" name="img-prod" id="img-prod" accept=".jpg" multiple>
             </div>
+            <div class="price-prod">
+                <label for="price-prod"></label>
+                <input type="number" name="price-prod" id="price-prod" value=<%= product.price %>>
+            </div>
             <div class="code-prod">
                 <label for="code-prod"></label>
                 <input type="number" name="code-prod" id="code-prod" placeholder="Codigo de Barra">
-            </div>
-            <div class="price-prod">
-                <label for="price-prod"></label>
-                <input type="number" name="price-prod" id="price-prod" placeholder="$ <%= product.price %>">
             </div>
             <div class="stock-prod">
                 <label for="stock-prod"></label>
