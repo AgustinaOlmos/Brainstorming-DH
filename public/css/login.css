@@ -12,8 +12,8 @@
     display: flex;
     width: 90%;
     margin: auto;
-    margin-top: 100px;
-    margin-bottom: 40px;
+    margin-top: 200px;
+    margin-bottom: 100px;
 }
 .form-register {
     width: 100%;
@@ -113,6 +113,6 @@
     /* CONTENEDOR TITULO */
     .container-form {
         width: 60%;
-        margin-bottom: 300px;
+        margin-bottom: 200px;
     }
 }

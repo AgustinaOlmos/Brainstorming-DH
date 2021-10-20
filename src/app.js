@@ -19,6 +19,9 @@ app.use('/', mainRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)
+app.use((req, res, next) => {
+    res.status(404).render('not-found', { nombrePagina: 'Pagina no encontrada'});
+})
 
 
 app.listen(3000, () => console.log("Levantando un servidor con Express en", "http://localhost:3000"))

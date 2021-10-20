@@ -85,3 +85,20 @@ btnCerrarMenu.addEventListener('click', (e)=> {
 	});
 	document.querySelector('body').style.overflow = 'visible';
 });
+
+window.addEventListener('scroll', () => {
+	const scrolled = window.scrollY;
+	
+	
+	if(Math.ceil(scrolled) > 20) {
+		document.querySelector(".logo").style.top = '10px';
+		document.querySelector(".logo").style.height = '100px';
+		document.querySelector(".logo").style.width = '100px';
+	}
+	if(Math.ceil(scrolled) < 20) {
+		document.querySelector(".logo").style.top = '-27px';
+		document.querySelector(".logo").style.height = '180px';
+		document.querySelector(".logo").style.width = '180px';
+	}
+
+});
