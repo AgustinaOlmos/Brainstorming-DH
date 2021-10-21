@@ -36,7 +36,7 @@ span {
   display: flex;
   flex-direction: column;
   margin: 0 15px;
-  margin-top: 100px;
+  margin-top: 180px;
   justify-content: space-between;
   align-items: center;
 }
@@ -335,7 +335,7 @@ span {
     justify-content: space-between;
     width: 740px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 180px;
   }
   .order {
     width: 30%;
@@ -496,6 +496,7 @@ span {
   /*  ENCABEZADO  */
   .header-container {
     width: 840px;
+    margin-top: 200px;
   }
 
   /* ITEM CARRITO */

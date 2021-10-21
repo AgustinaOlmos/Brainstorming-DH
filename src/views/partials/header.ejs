@@ -29,45 +29,73 @@
 					<button class="btn-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
 					<h3 class="subtitulo">Categorias</h3>
 
-					<a href="/products/all" data-categoria="todos">Todos los productos <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="cocktails">Cocktails <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="vinos">Vinos <i class="fas fa-angle-right"></i></a>
+					<% categories.forEach(category => { %> 
+
+					<a href="/products<%= category.url %>" data-categoria="<%= category.id %>"><%= category.name %>  <i class="fas fa-angle-right"></i></a>
+					<!-- <a href="#" data-categoria="cocktails">Cocktails <i class="fas fa-angle-right"></i></a>
 					<a href="#" data-categoria="espirituosas">Espirituosas <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="vinos">Vinos <i class="fas fa-angle-right"></i></a>
 					<a href="#" data-categoria="deli">Deli <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="tools">Tools <i class="fas fa-angle-right"></i></a>
+					<a href="#" data-categoria="tools">Tools <i class="fas fa-angle-right"></i></a> -->
+
+					<% }) %> 
 				</div>
 
 				<div class="contenedor-subcategorias">
-					<div class="subcategoria " data-categoria="todos">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Todos los productos</h3>
-							<a href="/products/all">Todos los productos</a>
+
+
+					<% categories.forEach(category => { %>
+
+
+
+						<div class="subcategoria " data-categoria="<%= category.id %>">
+							<div class="enlaces-subcategoria">
+								<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+								<h3 class="subtitulo"><%= category.name %></h3>
+
+								<% for( let i = 0; i < subCategories.length; i++ ) { %>
+								
+								
+								
+									<% if (subCategories[i].idCategory == category.id ) { %>
+										<a href="/products<%= subCategories[i].url %>"><%= subCategories[i].name %></a>
+									<% } %>
+									
+
+
+								<% } %>
+								
+
+
+							</div>
+
+							<div class="banner-subcategoria">
+								<a href="">
+									<img src="/img/navbar/<%= category.imgBanner %>" alt="">
+								</a>
+							</div>
+
+							<div class="galeria-subcategoria">
+								<a href="">
+									<img src="/img/navbar/<%= category.img1 %>" alt="">
+								</a>
+								<a href="">
+									<img src="/img/navbar/<%= category.img2 %>" alt="">
+								</a>
+								<a href="">
+									<img src="/img/navbar/<%= category.img3 %>" alt="">
+								</a>
+								<a href="">
+									<img src="/img/navbar/<%= category.img4 %>" alt="">
+								</a>
+							</div>
 						</div>
 
-						<div class="banner-subcategoria">
-							<a href="/products/all">
-								<img src="/img/navbar/vinos-banner.jpg" alt="">
-							</a>
-						</div>
 
-						<div class="galeria-subcategoria">
-							<a href="/products/all">
-								<img src="/img/navbar/cocktails-galeria-1.jpg" alt="">
-							</a>
-							<a href="/products/all">
-								<img src="/img/navbar/espirituosas-banner.jpg" alt="">
-							</a>
-							<a href="/products/all">
-								<img src="/img/navbar/deli-galeria-1.jpg" alt="">
-							</a>
-							<a href="/products/all">
-								<img src="/img/navbar/tools-galeria-1.jpg" alt="">
-							</a>
-						</div>
-					</div>
+					<% }) %>
 
-					<div class="subcategoria" data-categoria="cocktails">
+
+					<!-- <div class="subcategoria" data-categoria="cocktails">
 						<div class="enlaces-subcategoria">
 							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
 							<h3 class="subtitulo">Cocktails</h3>
@@ -94,37 +122,6 @@
 							</a>
 							<a href="#">
 								<img src="/img/navbar/cocktails-galeria-4.jpg" alt="">
-							</a>
-						</div>
-					</div>
-
-					<div class="subcategoria" data-categoria="vinos">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Vinos</h3>
-							<a href="#">Vinos Blanco</a>
-							<a href="#">Vinos Rosados</a>
-							<a href="#">Vinos Tintos</a>
-						</div>
-
-						<div class="banner-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/vinos-banner.jpg" alt="">
-							</a>
-						</div>
-
-						<div class="galeria-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-1.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-2.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-3.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-4.jpg" alt="">
 							</a>
 						</div>
 					</div>
@@ -157,6 +154,37 @@
 							</a>
 							<a href="#">
 								<img src="/img/navbar/espirituosas-galeria-4.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<div class="subcategoria" data-categoria="vinos">
+						<div class="enlaces-subcategoria">
+							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
+							<h3 class="subtitulo">Vinos</h3>
+							<a href="#">Vinos Blanco</a>
+							<a href="#">Vinos Rosados</a>
+							<a href="#">Vinos Tintos</a>
+						</div>
+
+						<div class="banner-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/vinos-banner.jpg" alt="">
+							</a>
+						</div>
+
+						<div class="galeria-subcategoria">
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-1.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-2.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-3.jpg" alt="">
+							</a>
+							<a href="#">
+								<img src="/img/navbar/vinos-galeria-4.jpg" alt="">
 							</a>
 						</div>
 					</div>
@@ -220,13 +248,17 @@
 								<img src="/img/navbar/tools-galeria-4.jpg" alt="">
 							</a>
 						</div>
-					</div>
+					</div> -->
+
+
 				</div>
 			</div>
 		</div>
 
 		<div class="logo">
-			<img src="/img/vectors/Brainstorming_logo.png" alt="Logo Brainstorming">
+			<a href="/">
+				<img src="/img/vectors/Brainstorming_logo.png" alt="Logo Brainstorming">
+			</a>
 		</div>
 	</nav>
 </header>

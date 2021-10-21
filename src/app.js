@@ -6,6 +6,17 @@ const productsRouter = require('./routes/products')
 const usersRouter = require('./routes/users')
 const adminRouter = require('./routes/admin')
 
+
+// Lecturas de bases de datos json para nevbar pagina no encontrada
+
+const fs = require('fs');
+
+const productsFilePath = path.join(__dirname, './data/productsCategory.json');
+const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const productsFilePath2 = path.join(__dirname, './data/productsSubCategory.json');
+const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
+
+
 // Establecer vistas
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
@@ -20,7 +31,11 @@ app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)
 app.use((req, res, next) => {
-    res.status(404).render('not-found', { nombrePagina: 'Pagina no encontrada'});
+    res.status(404).render('not-found', { 
+        categories,
+        subCategories,
+        nombrePagina: 'Pagina no encontrada'
+    });
 })
 
 
