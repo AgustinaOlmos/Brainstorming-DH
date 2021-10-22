@@ -1,6 +1,11 @@
+.sec-categories {
+  margin-top: 200px;
+}
+
 /* SECCION CATEGORIAS */
 .title-categories {
   margin: 100px auto 30px;
+  margin-top: 250px;
   text-align: center;
   color: var(--beige);
   letter-spacing: 1.5px;
@@ -10,8 +15,10 @@
 }
 .img-categories img {
   width: 200px;
+  height: 200px;
   border-radius: 100px;
   margin-top: 10px;
+  object-fit: cover;
   box-shadow: 0px 0px 9px 5px rgb(158 158 158 / 78%);
 }
 .subtitle-categories {

@@ -27,6 +27,7 @@ app.use(express.static('public'));
 
 // Routing
 app.use('/', mainRouter)
+app.use('/home', mainRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)

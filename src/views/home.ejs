@@ -10,11 +10,25 @@
     <section id="sec-categories">
         <h1 class="title-categories">CATÁLOGO DE PRODUCTOS</h1>
         <div class="div-categories">
-            <div class="img-categories">
-                <img src="/img/categories/cocktails.jpg" alt="">
-                <h3 class="subtitle-categories">Cocktails</h3>
-            </div>
-            <div class="img-categories">
+
+
+
+            <% categories.forEach(category => { %> 
+                <div class="img-categories">
+                    <a href="/products<%= category.url %>">
+                        <img src="/img/navbar/<%= category.imgBanner %>" alt="">
+                        <h3 class="subtitle-categories"><%= category.name %></h3>
+                    </a>
+                </div>
+            <% }) %>
+
+
+
+
+
+
+            
+            <!-- <div class="img-categories">
                 <img src="/img/categories/espirituosas.jpg" alt="">
                 <h3 class="subtitle-categories">Espirituosas</h3>
             </div>
@@ -29,7 +43,7 @@
             <div class="img-categories">
                 <img src="/img/categories/tools.jpg" alt="">
                 <h3 class="subtitle-categories">Tools</h3>
-            </div>
+            </div> -->
         </div>
     </section>
 

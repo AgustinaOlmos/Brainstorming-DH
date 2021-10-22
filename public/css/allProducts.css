@@ -17,8 +17,8 @@ a {
   font-size: 20px;
   width: 100%;
   margin: 0;
-  margin-bottom: 30px;
-  margin-top: 100px;
+  margin-bottom: 40px;
+  margin-top: 180px;
 }
 .search-input,
 .search-btn {
@@ -105,7 +105,8 @@ input.search-input:focus {
   
   /* ------ FORM BUSCAR ------ */
   .form-search {
-    margin-top: 100px !important;
+    margin-top: 180px !important;
+    margin-bottom: 60px !important;
   }
   .span-btn {
     position: relative;
@@ -134,7 +135,6 @@ input.search-input:focus {
   .main-products section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: baseline;
   }
   .card-product {
@@ -173,6 +173,7 @@ input.search-input:focus {
   .card-product {
     width: 22%;
     margin-bottom: 50px;
+    margin-right: 30px;
   }
   .title-product,
   .price {

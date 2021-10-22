@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="enlaces">
-				<a href="/"><i class="fas fa-home" style="margin-right: 5px;"></i> Inicio</a>
+				<a href="/home"><i class="fas fa-home" style="margin-right: 5px;"></i> Inicio</a>
 				<a href="/users/login"><i class="fas fa-user" style="margin-right: 5px;"></i> Cuenta</a>
 				<a href="#">Promociones</a>
 				<a href="#">Mesa de Regalos</a>
@@ -28,53 +28,29 @@
 				<div class="categorias">
 					<button class="btn-regresar"><i class="fas fa-arrow-left"></i> Regresar</button>
 					<h3 class="subtitulo">Categorias</h3>
-
-					<% categories.forEach(category => { %> 
-
-					<a href="/products<%= category.url %>" data-categoria="<%= category.id %>"><%= category.name %>  <i class="fas fa-angle-right"></i></a>
-					<!-- <a href="#" data-categoria="cocktails">Cocktails <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="espirituosas">Espirituosas <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="vinos">Vinos <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="deli">Deli <i class="fas fa-angle-right"></i></a>
-					<a href="#" data-categoria="tools">Tools <i class="fas fa-angle-right"></i></a> -->
-
-					<% }) %> 
-				</div>
-
-				<div class="contenedor-subcategorias">
-
-
 					<% categories.forEach(category => { %>
-
-
-
+						<a href="#" data-categoria="<%= category.id %>"><%= category.name %>  <i class="fas fa-angle-right"></i></a>
+					<% }) %>
+				</div>
+				<div class="contenedor-subcategorias">
+					<% categories.forEach(category => { %>
 						<div class="subcategoria " data-categoria="<%= category.id %>">
 							<div class="enlaces-subcategoria">
 								<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-								<h3 class="subtitulo"><%= category.name %></h3>
-
+								<a href="/products<%= category.url %>">
+									<h3 class="subtitulo"><%= category.name %></h3>
+								</a>
 								<% for( let i = 0; i < subCategories.length; i++ ) { %>
-								
-								
-								
 									<% if (subCategories[i].idCategory == category.id ) { %>
 										<a href="/products<%= subCategories[i].url %>"><%= subCategories[i].name %></a>
 									<% } %>
-									
-
-
 								<% } %>
-								
-
-
 							</div>
-
 							<div class="banner-subcategoria">
 								<a href="">
 									<img src="/img/navbar/<%= category.imgBanner %>" alt="">
 								</a>
 							</div>
-
 							<div class="galeria-subcategoria">
 								<a href="">
 									<img src="/img/navbar/<%= category.img1 %>" alt="">
@@ -90,173 +66,12 @@
 								</a>
 							</div>
 						</div>
-
-
 					<% }) %>
-
-
-					<!-- <div class="subcategoria" data-categoria="cocktails">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Cocktails</h3>
-							<a href="#">Preparados</a>
-							<a href="#">Para preparar</a>
-							<a href="#">Box</a>
-						</div>
-
-						<div class="banner-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/cocktails-banner.jpg" alt="">
-							</a>
-						</div>
-
-						<div class="galeria-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/cocktails-galeria-1.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/cocktails-galeria-2.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/cocktails-galeria-3.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/cocktails-galeria-4.jpg" alt="">
-							</a>
-						</div>
-					</div>
-
-					<div class="subcategoria" data-categoria="espirituosas">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Espirituosas</h3>
-							<a href="#">Cañas</a>
-							<a href="#">Gins</a>
-							<a href="#">Wisky</a>
-							<a href="#">Otros</a>
-						</div>
-
-						<div class="banner-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/espirituosas-banner.jpg" alt="">
-							</a>
-						</div>
-
-						<div class="galeria-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/espirituosas-galeria-1.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/espirituosas-galeria-2.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/espirituosas-galeria-3.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/espirituosas-galeria-4.jpg" alt="">
-							</a>
-						</div>
-					</div>
-
-					<div class="subcategoria" data-categoria="vinos">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Vinos</h3>
-							<a href="#">Vinos Blanco</a>
-							<a href="#">Vinos Rosados</a>
-							<a href="#">Vinos Tintos</a>
-						</div>
-
-						<div class="banner-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/vinos-banner.jpg" alt="">
-							</a>
-						</div>
-
-						<div class="galeria-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-1.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-2.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-3.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/vinos-galeria-4.jpg" alt="">
-							</a>
-						</div>
-					</div>
-
-					<div class="subcategoria" data-categoria="deli">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Deli</h3>
-							<a href="#">Nectar</a>
-							<a href="#">Dressing</a>
-							<a href="#">Fee</a>
-							<a href="#">Hielo</a>
-						</div>
-
-						<div class="banner-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/deli-banner.jpg" alt="">
-							</a>
-						</div>
-
-						<div class="galeria-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/deli-galeria-1.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/deli-galeria-2.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/deli-galeria-3.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/deli-galeria-4.jpg" alt="">
-							</a>
-						</div>
-					</div>
-
-					<div class="subcategoria" data-categoria="tools">
-						<div class="enlaces-subcategoria">
-							<button class="btn-regresar"><i class="fas fa-arrow-left"></i>Regresar</button>
-							<h3 class="subtitulo">Tools</h3>
-							<a href="#">Tools</a>
-						</div>
-
-						<div class="banner-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/tools-banner.jpg" alt="">
-							</a>
-						</div>
-
-						<div class="galeria-subcategoria">
-							<a href="#">
-								<img src="/img/navbar/tools-galeria-1.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/tools-galeria-2.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/tools-galeria-3.jpg" alt="">
-							</a>
-							<a href="#">
-								<img src="/img/navbar/tools-galeria-4.jpg" alt="">
-							</a>
-						</div>
-					</div> -->
-
-
 				</div>
 			</div>
 		</div>
-
 		<div class="logo">
-			<a href="/">
+			<a href="/home">
 				<img src="/img/vectors/Brainstorming_logo.png" alt="Logo Brainstorming">
 			</a>
 		</div>

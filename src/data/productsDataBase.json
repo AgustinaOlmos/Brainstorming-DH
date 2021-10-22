@@ -53,12 +53,20 @@
         "id": 6,
         "title": "NORDÉS",
         "price": 7790,
+        "discount": 0,
+        "category": 3,
+        "subcategory": 5,
+        "promotion": 1,
         "img": "/img/products/gin-nordes.jpg"
     },
     {
         "id": 7,
         "title": "DALMORE 15 AÑOS",
         "price": 36000,
+        "discount": 0,
+        "category": 3,
+        "subcategory": 6,
+        "promotion": 0,
         "img": "/img/products/whisky-damore.jpg"
     },
     {
