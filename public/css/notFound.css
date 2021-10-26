@@ -1,14 +1,20 @@
 .notfound {
-    background-color: rgb(33, 98, 236);
+    background-color: rgb(89 101 128);
     color: white;
-    height: 700px;
-    margin-bottom: 0;
 }
 .notfound__container {
     padding: 20px;
     text-align: center;
-    margin-top: 60px;
+    margin: auto;
 }
-.notfound__container .text-center {
-    margin-top: 120px;
+.rocket-error{
+    margin-top: 130px;
+    font-size: 13px;
+}
+.text-error{
+letter-spacing: 2px;
+}
+.page-error{
+    letter-spacing: 1px;
+    font-size: 20px;
 }

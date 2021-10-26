@@ -1,42 +1,122 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    background: #f2f3eb;
-    font-family: "Montserrat", Arial, sans-serif;
-  }
-  
-  #form-create {
-    text-align: center;
-  }
-  #container-brain {
-    border: solid 3px #474544;
-    max-width: 768px;
-    margin: 60px auto;
-    position: relative;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f2f3eb;
+}
+
+#form-create {
+  text-align: center;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+#container-brain {
+  border: solid 3px #474544;
+  max-width: 768px;
+  margin: 180px auto 100px;
+  position: relative;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.title-brain {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 40px;
+  color: #474544;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.underline {
+  border-bottom: solid 2px #474544;
+  margin: 10px auto;
+  width: 100px;
+}
+.icon_wrapper {
+  margin: 20px auto;
+  width: 100%;
+}
+.icon-copas {
+  display: block;
+  margin: 20px auto 50px;
+  width: 13.75rem;
+}
+#name-prod,
+#img-prod,
+#code-prod,
+#price-prod,
+#promo-prod,
+#discount-prod,
+#stock-prod,
+#categ-prod,
+#subcateg-prod,
+#description-prod {
+  background: none;
+  border: none;
+  border-bottom: solid 2px #474544;
+  color: #474544;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0em 0 2.3em 0;
+  padding: 0 0 1em 0;
+  text-transform: uppercase;
+  width: 90%;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+}
+.img-edit {
+  border: none;
+  margin: auto;
+  width: 90%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+#img-prod {
+  color: transparent;
+}
+#description-prod {
+  line-height: 150%;
+  height: 150px;
+  resize: none;
+  width: 90%;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+#form_button {
+  background: none;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  outline: none;
+  padding: 16px 30px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+#form_button:active {
+  background: #474544;
+  color: #f2f3eb;
+}
+#name-prod,
+#img-prod,
+#code-prod,
+#price-prod,
+#promo-prod,
+#discount-prod,
+#stock-prod,
+#categ-prod,
+#subcateg-prod,
+#description-prod:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
   .title-brain {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    margin-top: 40px;
-    color: #474544;
+    font-size: 35px;
   }
-  .underline {
-    border-bottom: solid 2px #474544;
-    margin: 10px auto;
-    width: 100px;
-  }
-  .icon_wrapper {
-    margin: 20px auto;
-    width: 100%;
-  }
-  .icon-copas {
-    display: block;
-    margin: 20px auto 50px;
-    width: 13.75rem;
+  .img-edit {
+    width: 50%;
   }
   #name-prod,
   #img-prod,
@@ -45,88 +125,16 @@
   #stock-prod,
   #categ-prod,
   #description-prod {
-    background: none;
-    border: none;
-    border-bottom: solid 2px #474544;
-    color: #474544;
-    font-size: 0.9em;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin: 0em 0 2.3em 0;
-    padding: 0 0 1em 0;
-    text-transform: uppercase;
-    width: 90%;
-    font-family: "Montserrat", Arial, sans-serif;
-    font-weight: 700;
+    font-size: 1em;
   }
-  .img-edit{
-    border: none;
-    margin: auto;
-    width: 90%;
-    margin-bottom: 10px;
-    border-radius: 10px;
-  }
-  #img-prod {
-    color: transparent;
-  }
-  #description-prod {
-    line-height: 150%;
-    height: 150px;
-    resize: none;
-    width: 90%;
-  }
-  #form_button {
-    background: none;
-    border: solid 2px #474544;
-    color: #474544;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Montserrat", Arial, sans-serif;
-    font-weight: 700;
-    outline: none;
-    padding: 16px 30px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-  }
-  #form_button:active {
+}
+
+@media (min-width: 1200px) {
+  #form_button:hover {
     background: #474544;
     color: #f2f3eb;
   }
-  #name-prod,
-  #img-prod,
-  #code-prod,
-  #price-prod,
-  #stock-prod,
-  #categ-prod,
-  #description-prod:focus {
-    outline: none;
+  #form_button {
+    transition: background 0.7s, color 0.7s;
   }
-
-  @media (min-width: 768px) {
-    .title-brain{
-        font-size: 35px;
-    }
-    .img-edit{
-        width: 50%;
-    }
-    #name-prod,
-  #img-prod,
-  #code-prod,
-  #price-prod,
-  #stock-prod,
-  #categ-prod,
-  #description-prod {
-font-size: 1em;
 }
-  }
-  
-  @media (min-width: 1200px) {
-    #form_button:hover {
-      background: #474544;
-      color: #f2f3eb;
-    }
-    #form_button {
-      transition: background 0.7s, color 0.7s;
-    }
-  }
-  

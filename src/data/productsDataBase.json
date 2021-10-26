@@ -1,12 +1,12 @@
 [
     {
         "id": 1,
-        "title": "ADUENTUS CABERNET FRANC - 2do AL 70%",
+        "title": "ADUENTUS CABERNET FRANC",
         "price": 3900,
-        "discount": 5,
-        "category": 3,
-        "subcategory": 1,
-        "promotion": 1,
+        "discount": 10,
+        "category": 4,
+        "subcategory": 10,
+        "promotion": "sale",
         "img": "/img/products/vino-aduentusCabernet.jpg"
     },
     {
@@ -14,9 +14,9 @@
         "title": "ANTIGAL UNO MALBEC",
         "price": 1350,
         "discount": 0,
-        "category": 3,
-        "subcategory": 1,
-        "promotion": 0,
+        "category": 4,
+        "subcategory": 10,
+        "promotion": "no-sale",
         "img": "/img/products/vino-unoMalbec.jpg"
     },
     {
@@ -24,61 +24,190 @@
         "title": "ANTIGAL UNO C.SAUVIGNON",
         "price": 1350,
         "discount": 0,
-        "category": 3,
-        "subcategory": 1,
-        "promotion": 0,
+        "category": 4,
+        "subcategory": 10,
+        "promotion": "no-sale",
         "img": "/img/products/vino-unoSaivignon.jpg"
     },
     {
         "id": 4,
         "title": "ANTIGAL ESTUCHE LATA UNO MALBEC",
         "price": 1350,
-        "discount": 0,
-        "category": 3,
-        "subcategory": 1,
-        "promotion": 1,
+        "discount": 15,
+        "category": 4,
+        "subcategory": 10,
+        "promotion": "sale",
         "img": "/img/products/vino-uno-malbec-lata.jpg"
     },
     {
         "id": 5,
-        "title": "FIFTY POUNDS GIN",
-        "price": 13250,
-        "discount": 0,
-        "category": 2,
-        "subcategory": 1,
-        "promotion": 1,
-        "img": "/img/products/gin-fifty.jpg"
+        "title": "JOSE LUIS MOUNIER ROSE",
+        "price": 1990,
+        "discount": 5,
+        "category": 4,
+        "subcategory": 9,
+        "promotion": "sale",
+        "img": "/img/products/vino-rose-mounier.jpg"
     },
     {
         "id": 6,
-        "title": "NORDÉS",
-        "price": 7790,
+        "title": "ANTIGAL UNO SAUVIGNON BLANC",
+        "price": 1990,
         "discount": 0,
-        "category": 3,
-        "subcategory": 5,
-        "promotion": 1,
-        "img": "/img/products/gin-nordes.jpg"
+        "category": 4,
+        "subcategory": 8,
+        "promotion": "no-sale",
+        "img": "/img/products/vino-blanco-uno.jpg"
     },
     {
         "id": 7,
+        "title": "FIFTY POUNDS GIN",
+        "price": 13250,
+        "discount": 20,
+        "category": 3,
+        "subcategory": 5,
+        "promotion": "sale",
+        "img": "/img/products/gin-fifty.jpg"
+    },
+    {
+        "id": 8,
+        "title": "NORDÉS",
+        "price": 8790,
+        "discount": 20,
+        "category": 3,
+        "subcategory": 5,
+        "promotion": "sale",
+        "img": "/img/products/gin-nordes.jpg"
+    },
+    {
+        "id": 9,
         "title": "DALMORE 15 AÑOS",
         "price": 36000,
         "discount": 0,
         "category": 3,
         "subcategory": 6,
-        "promotion": 0,
+        "promotion": "no-sale",
         "img": "/img/products/whisky-damore.jpg"
     },
     {
-        "id": 8,
+        "id": 10,
         "title": "THE GLENROTHES",
         "price": 34900,
+        "discount": 0,
+        "category": 3,
+        "subcategory": 6,
+        "promotion": "no-sale",
         "img": "/img/products/whisky-glenrothes.jpg"
     },
     {
-        "id": 9,
+        "id": 11,
         "title": "PALLINI LEMONCELLO",
         "price": 5750,
+        "discount": 0,
+        "category": 3,
+        "subcategory": 7,
+        "promotion": "no-sale",
         "img": "/img/products/lemoncello-pallini.jpg"
+    },
+    {
+        "id": 12,
+        "title": "CACHAZA 51",
+        "price": 1500,
+        "discount": 0,
+        "category": 3,
+        "subcategory": 7,
+        "promotion": "no-sale",
+        "img": "/img/products/espiri-otros-cachaza.jpg"
+    },
+    {
+        "id": 13,
+        "title": "BOX DUO DINÁMICO",
+        "price": 950,
+        "discount": 0,
+        "category": 2,
+        "subcategory": 2,
+        "promotion": "no-sale",
+        "img": "/img/products/box-1.jpg"
+    },
+    {
+        "id": 14,
+        "title": "THE SPEAKEASY",
+        "price": 1300,
+        "discount": 15,
+        "category": 2,
+        "subcategory": 2,
+        "promotion": "sale",
+        "img": "/img/products/box-2.jpg"
+    },
+    {
+        "id": 15,
+        "title": "NEGRONI PERFETTO",
+        "price": 1300,
+        "discount": 10,
+        "category": 2,
+        "subcategory": 1,
+        "promotion": "sale",
+        "img": "/img/products/negroni.jpg"
+    },
+    {
+        "id": 16,
+        "title": "DRESSING DE CASSIS",
+        "price": 630,
+        "discount": 0,
+        "category": 5,
+        "subcategory": 12,
+        "promotion": "no-sale",
+        "img": "/img/products/deli-1.jpg"
+    },
+    {
+        "id": 17,
+        "title": "NECTAR DE FLORES DE SAUCO",
+        "price": 790,
+        "discount": 0,
+        "category": 5,
+        "subcategory": 11,
+        "promotion": "no-sale",
+        "img": "/img/products/deli-2.jpg"
+    },
+    {
+        "id": 18,
+        "title": "FEE BROTHERS PLUM",
+        "price": 3850,
+        "discount": 0,
+        "category": 5,
+        "subcategory": 13,
+        "promotion": "no-sale",
+        "img": "/img/products/deli-3.jpg"
+    },
+    {
+        "id": 19,
+        "title": "CUCHARA MEZCLADORA",
+        "price": 570,
+        "discount": 5,
+        "category": 6,
+        "subcategory": 15,
+        "promotion": "sale",
+        "img": "/img/products/tool-1.jpg"
+    },
+    {
+        "id": 20,
+        "title": "VASO METÁLICOS MODELO MATE",
+        "price": 850,
+        "discount": 5,
+        "category": 6,
+        "subcategory": 15,
+        "promotion": "sale",
+        "img": "/img/products/tool-2.jpg"
+    },
+    {
+        "id": 21,
+        "title": "COPA DECO",
+        "price": 900,
+        "discount": 10,
+        "category": 6,
+        "subcategory": 15,
+        "promotion": "sale",
+        "img": "/img/products/tool-3.jpg"
     }
 ]
+

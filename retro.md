@@ -1,23 +1,21 @@
 # Starfish Retrospective - Grupo 7 Brainstrorming
 
 ## Start Doing:
--	Compromiso para investigar de forma particular acerca de los temas a implementar en el sprint, a beneficio del e-commerce y del equipo al compartir nuevos conocimientos.
+-	Compromiso para investigar de forma particular acerca de los temas a implementar en el sprint, a beneficio del proyecto y del equipo, al compartir nuevos conocimientos.
 -	Comunicación fluida y sincera acerca de los avances logrados por cada miembro del equipo.
--	Implementar diferentes "branchs" para no ensuciar la rama Main.
+-	Implementar el "Daily Scrum" mediante whatsapp, con el fin de identificar a tiempo los logros, falencias y dudas.
+-	Antes de cada reunion por zoom, esclarecemos, por medio de whatsapp, los temas principales a charlar.
 
 ## More of:
--	Implementar el "Daily Scrum" mediante whatsapp, con el fin de identificar a tiempo logros y falencias.
--	Por medio de las Dailys se podrán esclarecer los temas realmente necesarios para tratar en las reuniones por Zoom.
+-	Anotar un resumen de cada reunion, como por ejemplo: los temas tratados, los temas que hayan quedado pendiente, y las ideas extras pero interesantes que fueron surgiendo.
 
 ## Keep Doing:
 -	Conservar la buena energía del equipo.
 -	Mantener la predisposición de ayudar, explicar y compartir conocimientos.
+-   La voluntad y el compromiso para respetar las reuniones pactadas.
 
 ## Less of:
--	Hacer zooms sin un objetivo de temas claros y concisos, respetando un horario y duración.
+-	Trabajar sobre la ramas master, en vez de hacerlo sobre diferentes "branchs" con el fin de no ensuciar la rama principal y poner en riesgo el proyecto.
 
 ## Stop Doing:
--	Olvidarse del compromiso asumido como equipo.
--	No respetar los tiempos de entregas organizados entre los miembros del equipo para asegurar la efectiva entrega finalizada del Sprint.
--	Comunicar a tiempo los objetivos incumplidos.
 -	Dejar de trabajar sobre la rama Main.

@@ -31,6 +31,7 @@ app.use('/home', mainRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)
+
 app.use((req, res, next) => {
     res.status(404).render('not-found', { 
         categories,

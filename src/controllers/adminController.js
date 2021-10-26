@@ -66,20 +66,23 @@ const productsFilePath3 = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath3, 'utf-8'));
 
 const adminController = {
-    create: (req, res) => res.render('admin/formCreateProduct', {
-        categories,
-        subCategories,
-        nombrePagina: 'Crear Producto'
-    }),
+    create: (req, res) => {
+        res.render('admin/formCreateProduct', {
+            categories,
+            subCategories,
+            nombrePagina: 'Crear Producto'
+        })
+    },
     edit: (req, res) => {
         let product = products.find(product => product.id == req.params.productId)
-        
+
         res.render('admin/formEditProduct', {
-        product,
-        categories,
-        subCategories,
-        nombrePagina: 'Editar Producto',
-    })}
+            product,
+            categories,
+            subCategories,
+            nombrePagina: 'Editar Producto',
+        })
+    }
 }
 
 module.exports = adminController

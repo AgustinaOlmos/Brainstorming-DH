@@ -45,7 +45,7 @@
     border: 2px solid var(--rosado);
 }
 .form-group input::placeholder {
-    color: var(--rosado);
+    color: var(--grisClaro);
 }
 .form-group input:focus {
     outline: none;

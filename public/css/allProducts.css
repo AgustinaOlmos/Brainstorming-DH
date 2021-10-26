@@ -16,9 +16,7 @@ a {
   text-align: center;
   font-size: 20px;
   width: 100%;
-  margin: 0;
-  margin-bottom: 40px;
-  margin-top: 180px;
+  margin: 160px auto 30px;
 }
 .search-input,
 .search-btn {
@@ -32,16 +30,17 @@ input.search-input:focus {
   border: 2px solid var(--grisMedio);
   box-shadow: 0px 0px 10px rgb(100 100 100);
 }
+
+/* ------ CARDS DE PRODUCTOS ------ */
 .main-title {
-  font-size: 35px;
+  font-size: 30px;
   color: var(--tinto);
   text-align: center;
   letter-spacing: 3px;
   margin-bottom: 15px;
+  margin-top: 50px;
 }
-
-/* ------ CARDS DE PRODUCTOS ------ */
-#card-link{
+#card-link {
   text-decoration: none;
   color: var(--grisMedio);
 }
@@ -94,48 +93,34 @@ input.search-input:focus {
   letter-spacing: 1px;
 }
 .icon-bag i {
-   color: var(--blanco);
-   font-size: 14px;
-    padding-left: 10px;
+  color: var(--blanco);
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 /* -------------MEDIA QUERIES------------- */
 /* Tablets */
 @media (min-width: 768px) {
-  
   /* ------ FORM BUSCAR ------ */
   .form-search {
-    margin-top: 180px !important;
-    margin-bottom: 60px !important;
-  }
-  .span-btn {
-    position: relative;
-  }
-  .search-input {
-    position: absolute;
-    right: -50px;
-    border-right: none;
-  }
-  .search-btn {
-    position: absolute;
-    left: 50px;
-    border-left: none;
-  }
-  .form-search {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    margin: 20px auto;
-  }
-  .main-title {
-    margin: 0;
+    text-align: right;
+    margin-top: 160px;
+    margin-bottom: -35px;
+    width: 85%;
   }
 
-  /* ------ CARDS DE PRODUCTOS ------ */
+  /* ------ CARDS DE PRODUCTOS ------ */ 
+  .main-title {
+    margin: auto;
+    text-align: left;
+    width: 85%;
+    margin-bottom: 30px;
+  }
   .main-products section {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
+    justify-content: space-between;
   }
   .card-product {
     width: 48%;
@@ -150,13 +135,13 @@ input.search-input:focus {
     font-size: 23px;
   }
   .count,
-  .icon-bag p{
-    font-size: 18px
+  .icon-bag p {
+    font-size: 18px;
   }
-  .icon-bag{
+  .icon-bag {
     width: 110px;
   }
-  .icon-bag i{
+  .icon-bag i {
     font-size: 18px;
     padding-left: 12px;
   }
@@ -165,11 +150,10 @@ input.search-input:focus {
 /* Descktop */
 @media (min-width: 1200px) {
   
-  /* ------ FORM BUSCAR ------ */
-  .form-search {
-    margin: 30px 0;
-  }
   /* ------ CARDS DE PRODUCTOS ------ */
+  .main-products section{
+     justify-content: space-evenly; 
+  }
   .card-product {
     width: 22%;
     margin-bottom: 50px;
@@ -179,16 +163,16 @@ input.search-input:focus {
   .price {
     font-size: 24px;
   }
-  .count{
+  .count {
     font-size: 18px;
   }
   .icon-bag p {
-    font-size: 20px
+    font-size: 20px;
   }
   .card-product img {
     width: 100%;
   }
-  
+
   /* ANIMACIONES */
   article.card-product:hover {
     transform: scale(1.1);

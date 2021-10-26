@@ -5,17 +5,18 @@
 }
 body {
   background: #f2f3eb;
-  font-family: "Montserrat", Arial, sans-serif;
 }
 
 #form-create {
   text-align: center;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 #container-brain {
   border: solid 3px #474544;
   max-width: 768px;
-  margin: 60px auto;
+  margin: 180px auto 100px;
   position: relative;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 .title-brain {
   text-align: center;
@@ -23,6 +24,7 @@ body {
   font-weight: 700;
   margin-top: 40px;
   color: #474544;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 .underline {
   border-bottom: solid 2px #474544;
@@ -42,8 +44,11 @@ body {
 #img-prod,
 #code-prod,
 #price-prod,
+#promo-prod,
+#discount-prod,
 #stock-prod,
 #categ-prod,
+#subcateg-prod,
 #description-prod {
   background: none;
   border: none;
@@ -66,6 +71,7 @@ body {
   height: 150px;
   resize: none;
   width: 90%;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 #form_button {
   background: none;
@@ -88,8 +94,11 @@ body {
 #img-prod,
 #code-prod,
 #price-prod,
+#promo-prod,
+#discount-prod,
 #stock-prod,
 #categ-prod,
+#subcateg-prod,
 #description-prod:focus {
   outline: none;
 }
