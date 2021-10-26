@@ -18,14 +18,14 @@ const productsController = {
     }),
     category: (req, res) => res.render('products/categoryProducts', {
         products,
-        categoryId: req.params.categoryId,
+        categoryId: req.params.id,
         categories,
         subCategories,
         nombrePagina: 'Productos por categorias'
     }),
     details: (req, res) => {
-        let product = products.find(product => product.id == req.params.productId)
-        let slidesProduct = products.filter(product => product.id != req.params.productId)
+        let product = products.find(product => product.id == req.params.id)
+        let slidesProduct = products.filter(product => product.id != req.params.id)
         res.render('products/productDetail', {
             product,
             categories,
