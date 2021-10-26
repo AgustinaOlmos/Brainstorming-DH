@@ -19,7 +19,11 @@
 
         <div class="detalle">
             <div class="detalle_titulo_box">
-                <h1 class="detalle_titulo"> <a href="">PRODUCTOS</a> | <a href="">VINOS</a> | <span><%= product.title %></span></h1>
+                <% for(category of categories){ %>
+                    <% if (category.id == product.category ) { %>
+                        <h1 class="detalle_titulo"> <a href="">PRODUCTOS</a> | <a href=""><%= category.name %></a> | <span><%= product.title %></span></h1>
+                    <% } %>            
+                <% } %>
                 <a class="detalle_titulo_boton" href="">VOLVER A PRODUCTOS <i class="fas fa-th-large"></i></a>
             </div>
         </div>
