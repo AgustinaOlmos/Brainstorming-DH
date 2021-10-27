@@ -23,6 +23,13 @@ const productsController = {
         subCategories,
         nombrePagina: 'Productos por categorias'
     }),
+    subcategory: (req, res) => res.render('products/subCategoryProducts', {
+        products,
+        subcategoryId: req.params.id,
+        categories,
+        subCategories,
+        nombrePagina: 'Productos por subcategorias'
+    }),
     details: (req, res) => {
         let product = products.find(product => product.id == req.params.id)
         let slidesProduct = products.filter(product => product.id != req.params.id)

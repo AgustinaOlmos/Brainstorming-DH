@@ -35,6 +35,39 @@
   color: var(--beige);
 }
 
+.nosotros {
+  height: 600px;
+  position: relative;
+  background: url(../img/wall/mona-slide-01.png) center center no-repeat fixed;
+  background-size: cover;
+  margin-bottom: 100px;
+}
+.nosotros:before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  background: url(../img/wall/style_border_w.png) center center repeat-x;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.nosotros .contenedor-parrafo {
+  display: flex;
+  justify-content: center;
+}
+
+.nosotros .contenedor-parrafo img {
+  width: 30%;
+  height: 30%;
+  margin-top: 100px;
+}
+
 @media (min-width: 768px) {
   .div-categories {
     display: flex;

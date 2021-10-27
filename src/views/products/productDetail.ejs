@@ -21,7 +21,7 @@
             <div class="detalle_titulo_box">
                 <% for(category of categories){ %>
                     <% if (category.id == product.category ) { %>
-                        <h1 class="detalle_titulo"> <a href="">PRODUCTOS</a> | <a href=""><%= category.name %></a> | <span><%= product.title %></span></h1>
+                        <h1 class="detalle_titulo"> <a href="/products/all">PRODUCTOS</a> | <a href="/products/category/<%= category.id %>"><%= category.name %></a> | <span><%= product.title %></span></h1>
                     <% } %>            
                 <% } %>
                 <a class="detalle_titulo_boton" href="">VOLVER A PRODUCTOS <i class="fas fa-th-large"></i></a>
@@ -34,6 +34,12 @@
         <div class="producto">
             <div class="producto_imagen">
                 <img src=<%= product.img %> alt="">
+                <% if (product.discount > 0) { %>
+                    <div class="sale-product">
+                        <span><%= product.discount %>% OFF</span>
+                        <span>$ <%= (product.price - (product.price * (product.discount * 0.01))) %></span>
+                    </div>
+                <% } %>
             </div>
             <div class="producto_titulo_movil">
                 <div class="producto_titulo_box">
@@ -46,8 +52,11 @@
                 <div class="producto_descripcion_cantidad">
                     <div class="producto_descripcion_cantidad_box">
                         <div class="producto_descripcion_cantidad_precio">
-                            <h4>PROMO $ <%= product.price %>
-                            </h4>
+                            <% if (product.discount > 0) { %>
+                                <h4>PROMO $ <%= (product.price - (product.price * (product.discount * 0.01))) %></h4>
+                            <% } else { %>
+                                <h4>IMPORTE $ <%= product.price %></h4>
+                            <% } %>
                         </div>
                         <div class="producto_descripcion_cantidad_input">
                             <input type="text" value="1">
@@ -140,12 +149,23 @@
                             <!-- Model -->
                             <div class="box-img">
                                 <img src="<%= product.img %> " class="model">
+                                <% if (product.discount > 0) { %>
+                                    <div class="sale-product">
+                                        <span><%= product.discount %>% OFF</span>
+                                        <span>$ <%= (product.price - (product.price * (product.discount * 0.01))) %></span>
+                                    </div>
+                                <% } %>
                             </div>
                             <!-- Detalles -->
                             <div class="details">
                                 <div class="producto_descripcion_cantidad_box2">
                                     <div class="producto_descripcion_cantidad_precio2">
-                                        <h4>PROMO $ <%= product.price %> </h4>
+                                        <!-- <h4>PROMO $ <%= product.price %> </h4> -->
+                                        <% if (product.discount > 0) { %>
+                                            <h4>PROMO $ <%= (product.price - (product.price * (product.discount * 0.01))) %></h4>
+                                        <% } else { %>
+                                            <h4>IMPORTE $ <%= product.price %></h4>
+                                        <% } %>
                                     </div>
                                     <div class="producto_descripcion_cantidad_input2">
                                         <input type="text" value="1">
@@ -161,8 +181,10 @@
                                 <!-- Boton de carrito -->
                                 <div class="producto_descripcion_detalle_carrito2">
                                     <button type="button">
-                                        <span>agregar a la bolsa de pedidos</span>
-                                        <i class="fas fa-shopping-bag"></i>
+                                        <a href="/products/details/<%= product.id %>">
+                                            <span>ver el detalle del producto</span>
+                                            <i class="far fa-eye"></i>
+                                        </a> 
                                     </button>
                                 </div>
                                 <!-- Fin Boton de carrito -->

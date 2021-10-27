@@ -26,21 +26,28 @@
                 <% for(product of products){ %>
                     <% if (product.category == categoryId) { %>
                         <article class="card-product">
-                            <a href="details/<%= product.id %>" id="card-link">
+                            <a href="/products/details/<%= product.id %>" id="card-link">
                                 <img src=<%=product.img %> alt="" />
                                 <h3 class="title-product">
                                     <%= product.title %>
                                 </h3>
                                 <div class="container-infoProd">
-                                    <p class="price">$<%= product.price %>
-                                    </p>
-                                    <input type="text" name="count" class="count" pattern="[0-9]" value="1" />
+                                    <% if (product.discount > 0) { %>
+                                        <p class="price-old">$<%= product.price %></p>
+                                    <% } %>
+                                    <p class="price">$<%= (product.price - (product.price * (product.discount * 0.01))) %>
                                     <div class="icon-bag">
                                         <p>AGREGAR</p>
                                         <i class="fas fa-shopping-bag"></i>
                                     </div>
                                 </div>
                             </a>
+                            <% if (product.discount > 0) { %>
+                                <div class="discount">
+                                    <span><%= product.discount %>% OFF</span>
+                                    <span>$ <%= (product.price - (product.price * (product.discount * 0.01))) %></span>
+                                </div>
+                            <% } %>
                         </article>
                         <% } %>
                 <% } %>

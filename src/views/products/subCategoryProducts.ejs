@@ -8,22 +8,25 @@
 <body>
     <%- include('../partials/header.ejs') %>
 
-    <%- include('../partials/scrollUp.ejs') %> 
-
         <form class="form-search" action="#" method="POST">
-            <!-- <h1 class="main-title">Todos los Productos</h1> -->
+
+            <% for(subcategory of subCategories){ %>
+                <% if (subcategory.id == subcategoryId) { %>
+                    <h1 class="main-title"><%= subcategory.name %></h1>
+                <% } %> 
+            <% } %> 
+            
             <div class="span-btn">
                 <input type="text" name="search-input" class="search-input" placeholder="BUSCAR">
                 <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
         <main class="main-products">
-            <h1 class="main-title">En Promoción</h1><br><br><br><br>
             <section>
                 <% for(product of products){ %>
-                    <% if (product.promotion == 1) { %>
+                    <% if (product.subcategory == subcategoryId) { %>
                         <article class="card-product">
-                            <a href="details/<%= product.id %>" id="card-link">
+                            <a href="/products/details/<%= product.id %>" id="card-link">
                                 <img src=<%=product.img %> alt="" />
                                 <h3 class="title-product">
                                     <%= product.title %>
@@ -46,38 +49,13 @@
                                 </div>
                             <% } %>
                         </article>
-                    <% } %>
+                        <% } %>
                 <% } %>
-            </section>
-            <h1 class="main-title">Todos los Productos</h1><br><br><br><br>
-            <section>
-                <% for(product of products){ %>
-                    <% if (product.promotion == 0) { %>
-                        <article class="card-product">
-                            <a href="details/<%= product.id %>" id="card-link">
-                                <img src=<%=product.img %> alt="" />
-                                <h3 class="title-product">
-                                    <%= product.title %>
-                                </h3>
-                                <div class="container-infoProd">
-                                    <p class="price">$<%= product.price %>
-                                    </p>
-                                    <div class="icon-bag">
-                                        <p>AGREGAR</p>
-                                        <i class="fas fa-shopping-bag"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                    <% } %>
-                <% } %>
-                
             </section>
         </main>
 
         <%- include('../partials/footer') %>
             <script src="/js/main.js"></script>
-            <script src="/js/scrollUp.js"></script>
 </body>
 
 </html>

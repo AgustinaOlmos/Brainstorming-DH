@@ -4,6 +4,7 @@ const productsController = require('../controllers/productsController')
 
 router.get('/all', productsController.all)
 router.get('/category/:id/', productsController.category)
+router.get('/subCategory/:id/', productsController.subcategory)
 router.get('/details/:id/', productsController.details)
 
 router.get('/shop', productsController.shop)
