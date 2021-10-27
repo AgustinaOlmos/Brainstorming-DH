@@ -1,4 +1,4 @@
-.sec-categories {
+#sec-categories {
   margin-top: 200px;
 }
 
@@ -11,6 +11,7 @@
 }
 .div-categories {
   text-align: center;
+  margin-top: 40px;
 }
 .img-categories img {
   width: 200px;
@@ -69,15 +70,20 @@
 }
 
 @media (min-width: 768px) {
+  #sec-categories{
+    margin-top: 250px;
+    margin-bottom: 200px;
+  }
   .div-categories {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 100px;
   }
 }
 @media (min-width: 1200px) {
   #sec-categories{
-    margin-bottom: 228px;
+    margin-top: 250px;
   }
       /* ANIMACIONES */
   .img-categories img:hover {

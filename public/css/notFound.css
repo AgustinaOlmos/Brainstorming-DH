@@ -1,6 +1,7 @@
 .notfound {
     background-color: rgb(89 101 128);
     color: white;
+    height: 600px;
 }
 .notfound__container {
     padding: 20px;
@@ -8,7 +9,7 @@
     margin: auto;
 }
 .rocket-error{
-    margin-top: 130px;
+    margin-top: 200px;
     font-size: 13px;
 }
 .text-error{
@@ -17,4 +18,13 @@ letter-spacing: 2px;
 .page-error{
     letter-spacing: 1px;
     font-size: 20px;
+}
+
+@media (min-width: 768px) {
+    .notfound {
+        height: 800px;
+    }
+    .rocket-error{
+        margin-top: 300px;
+    }
 }

@@ -1,0 +1,42 @@
+#ir_arriba_boton {
+    position: fixed;
+    z-index: 1000;
+    right: 25px;
+    bottom: 25px;
+    background-color: #1979a9;
+    width: 64px;
+    height: 64px;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    transition: all .2s; 
+}
+  
+  #ir_arriba_boton:hover {
+    cursor: pointer;
+    transform: scale(1.1); 
+}
+  
+  .indicador_contenedor {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 7px;
+    z-index: 1001; 
+}
+  
+  .indicador_scroll {
+    height: 100%;
+    width: 0;
+    background-color: 25, 121, 169; 
+}
+  
+  .ocultar {
+    opacity: 0;
+    visibility: hidden; 
+}
+  
+  .mostrar {
+    opacity: 1;
+    visibility: visible; 
+}
