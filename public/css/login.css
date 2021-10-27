@@ -1,12 +1,3 @@
-/*==================================================
-    Tipografía
-==================================================*/
-/* @font-face {
-    font-family: 'Bebas Neue';
-    font-style: regular;
-    src: url('/fonts/BebasNeue-Regular.ttf');
-} */
-
 /* CONTENEDOR TITULO */
 .container-form {
     display: flex;
@@ -45,7 +36,7 @@
     border: 2px solid var(--rosado);
 }
 .form-group input::placeholder {
-    color: var(--grisClaro);
+    color: var(--rosado);
 }
 .form-group input:focus {
     outline: none;
@@ -62,21 +53,98 @@
 }
 .button-container {
     display: flex;
-    height: 40px;
+    height: 70px;
     justify-content: flex-end;
 }
 .button-login {
     width: 40%;
+    display: flex;
+    justify-content: end;
 }
-.button-login button {
-    width: 100%;
-    height: 100%;
-    font-family: var(--fontBody);
-    font-size: 1.25rem;
+
+.btn-neon {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
     color: var(--rosado);
-    padding: 0;
+    letter-spacing: 4px;
+    font-size: 24px;
+    background: transparent;
+    border-color: transparent;
+    overflow: hidden;
     cursor: pointer;
+    transition: 0.2s;
 }
+
+.btn-neon:hover {
+    background: #a945c7;
+    color: #FFF;
+    box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+    transition-delay: 1s;
+}
+
+.btn-neon span {
+    position: absolute;
+    display: block;
+}
+
+#span1 {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #a945c7);
+}
+
+.btn-neon:hover #span1 {
+    left: 100%;
+    transition: 1s;
+}
+
+#span3 {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #a945c7);
+}
+
+.btn-neon:hover #span3 {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+#span2 {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #a945c7);
+}
+
+.btn-neon:hover #span2 {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+#span4 {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #a945c7);
+}
+
+.btn-neon:hover #span4 {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+
+
 
 /*** CAMBIO COLOR A BOTÓN GROW BOX ***/
 .ov-btn-grow-box {

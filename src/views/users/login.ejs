@@ -9,10 +9,12 @@
 
     <%- include('../partials/header.ejs') %>
 
-    <!-- Contenedor Formulario Registro -->
+    <!--==================================================
+        Contenedor Formulario Registro
+    ===================================================-->
     
     <div class="container-form">
-        <form class="form-register" action="/register" method="POST">
+        <form class="form-register" action="/register" method="post">
 
             <!-- CONTENEDOR TITULO -->
             <div class="form-container">
@@ -40,7 +42,13 @@
 
             <div class="button-container">
                 <div class="button-login">
-                    <button type="submit" id="login_bot" class="ov-btn-grow-box">LOGUEARSE</button>
+                    <button type="submit" id="login_bot" class="btn-neon">
+                        <span id="span1"></span>
+                        <span id="span2"></span>
+                        <span id="span3"></span>
+                        <span id="span4"></span>
+                        LOGUEARSE
+                    </button>
                 </div>
             </div>
         </form>
