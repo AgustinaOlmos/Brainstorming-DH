@@ -13,19 +13,37 @@ a {
 
 /* ------ FORM BUSCAR ------ */
 .form-search {
-  text-align: center;
-  font-size: 20px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+}
+.span-btn {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  margin: 0;
-  margin-bottom: 40px;
-  margin-top: 180px;
+  justify-content: center;
+}
+.span-btn div input {
+  margin-left: 0;
+}
+.box-title {
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 .search-input,
 .search-btn {
   background-color: transparent;
   color: #00000082;
-  border: 2px solid #00000082;
   padding: 3px 10px;
+}
+.search-input {
+  border: 2px solid #00000082;
+  border-right: 0px solid;
+}
+.search-btn {
+  border: 2px solid #00000082;
+  border-left: 0px solid;
 }
 input.search-input:focus {
   outline: none;
@@ -33,6 +51,7 @@ input.search-input:focus {
   box-shadow: 0px 0px 10px rgb(100 100 100);
 }
 .main-title {
+  /* display: none; */
   display: flex;
   justify-content: center;
   font-size: 35px;
@@ -40,6 +59,20 @@ input.search-input:focus {
   text-align: center;
   letter-spacing: 3px;
   margin-bottom: 15px;
+}
+.main-title2 {
+  font-size: 35px;
+  color: var(--tinto);
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+.main-title3 {
+  text-align: center;
+  font-size: 35px;
+  color: var(--tinto);
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  margin-top: 80px;
 }
 
 /* ------ CARDS DE PRODUCTOS ------ */
@@ -127,32 +160,36 @@ input.search-input:focus {
   
   /* ------ FORM BUSCAR ------ */
   .form-search {
-    margin-top: 180px !important;
-    margin-bottom: 60px !important;
+    flex-direction: row;
+  }
+  .box-title {
+    display: block;
   }
   .span-btn {
-    position: relative;
-  }
-  .search-input {
-    position: absolute;
-    right: -50px;
-    border-right: none;
+    margin: auto;
+    justify-content: flex-end;
   }
   .search-btn {
-    position: absolute;
-    left: 50px;
-    border-left: none;
+    margin-right: 85px;
   }
-  .form-search {
+  .title-promotion {
     display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    margin: 20px auto;
+    margin-left: 60px;
+    font-size: 35px;
+    color: var(--tinto);
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
   }
   .main-title {
-    margin: 0;
-    justify-content: start;
-    margin-left: 60px;
+    display: none;
+  }
+  .main-title2, .main-title3 {
+    text-align: left;
+    margin-left: 55px;
+  }
+  .span-btn {
+    height: 30px;
   }
 
   /* ------ CARDS DE PRODUCTOS ------ */
@@ -197,15 +234,20 @@ input.search-input:focus {
   .main-title {
     margin-left: 75px;
   }
+  .search-btn {
+    margin-right: 140px;
+  }
+  .main-title2, .main-title3 {
+    margin-left: 75px;
+  }
+  .title-promotion {
+    margin-left: 75px;
+  }
 }
 
 /* Descktop */
 @media (min-width: 1200px) {
   
-  /* ------ FORM BUSCAR ------ */
-  .form-search {
-    margin: 30px 0;
-  }
   /* ------ CARDS DE PRODUCTOS ------ */
   .main-title {
     margin-left: 70px;

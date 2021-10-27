@@ -12,9 +12,12 @@
 
         <form class="form-search" action="#" method="POST">
             <!-- <h1 class="main-title">Todos los Productos</h1> -->
+            <div class="box-title">
+                <h1 class="title-promotion">En Promoción</h1>
+            </div>
             <div class="span-btn">
-                <input type="text" name="search-input" class="search-input" placeholder="BUSCAR">
-                <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+                    <input type="text" name="search-input" class="search-input" placeholder="BUSCAR">
+                    <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
         <main class="main-products">
@@ -49,7 +52,7 @@
                     <% } %>
                 <% } %>
             </section>
-            <h1 class="main-title">Todos los Productos</h1><br><br><br><br>
+            <h1 class="main-title2">Todos los Productos</h1><br><br><br><br>
             <section>
                 <% for(product of products){ %>
                     <% if (product.promotion == 0) { %>

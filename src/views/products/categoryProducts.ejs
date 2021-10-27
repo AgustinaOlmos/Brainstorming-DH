@@ -12,7 +12,8 @@
 
             <% for(category of categories){ %>
                 <% if (category.id == categoryId) { %>
-                    <h1 class="main-title"><%= category.name %></h1>
+                    <!-- <h1 class="main-title" style="margin-top: 40px;"><%= category.name %></h1> -->
+                    <h1 class="main-title3"><%= category.name %></h1>
                 <% } %> 
             <% } %> 
             
@@ -21,7 +22,7 @@
                 <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
-        <main class="main-products">
+        <main class="main-products" style="margin-top: 30px;">
             <section>
                 <% for(product of products){ %>
                     <% if (product.category == categoryId) { %>
