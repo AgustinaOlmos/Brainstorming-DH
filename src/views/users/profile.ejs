@@ -17,7 +17,7 @@
 
 <div class="dataTitle">
     <h1 style="font-family: 'Bebas Neue'; font-style: regular; color: var(--rosado);">
-        <i class="fas fa-address-card" style="margin-right: 10px;"></i> Perfil del usuario
+        <i class="fas fa-address-card" id="profile-user"></i> Perfil del usuario
     </h1>
 </div>
 <main>
@@ -91,7 +91,7 @@
                 <div class="general-personal-box-2">
                     <div class="card-address">
                         <div class="data-information-2">
-                            <span class="data-img"></span><span style="font-size: 1.25rem; font-weight: 300; color: #212529; ">El Arreo 220</span><br><br>
+                            <span class="data-img"></span><span id="addres">El Arreo 220</span><br><br>
                             <span class="data-img"><strong>Referencia: </strong></span><span> entre cortejarena y garcia lorca, porton negro</span><br><br>
                             <span class="data-img"><i class="fas fa-lg fa-building"></i></span><span>La Reja, Buenos Aires-GBA</span>
                         </div>
@@ -115,7 +115,6 @@
         <div class="dataMessage">
             <div class="dataLogo">
                 <div>
-                    <!-- <i class="fas fa-user"></i> -->
                     <i class="fas fa-box"></i>
                 </div>
             </div>
@@ -123,7 +122,7 @@
             <div class="dataText">
                 <div class="textheader">
                     <div>
-                        <h4><i class="fas fa-plus" style="margin-right: 5px;"></i>Se realizó la acción Crear en Producto</h4>
+                        <h4><i class="fas fa-plus" id="acction-text"></i>Se realizó la acción Crear en Producto</h4>
                     </div>
                 </div>
                 <div class="textBody">
@@ -133,42 +132,40 @@
                 </div>
             </div>
         </div>
-        <div class="dataMessage" style="height: 105px;">
+        <div class="dataMessage" id="dMessage">
             <div class="dataLogo">
                 <div style="background-color: var(--Yellow);">
-                    <!-- <i class="fas fa-user"></i> -->
                     <i class="far fa-bell"></i>
                 </div>
             </div>
-            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataBarMessage" id="dBarMessage"></div>
             <div class="dataText">
                 <div class="textheader">
                     <div>
-                        <h4><i class="far fa-trash-alt" style="margin-right: 5px;"></i>Se realizó la acción Borrar en Notificaciones</h4>
+                        <h4><i class="far fa-trash-alt" id="acction-text2"></i>Se realizó la acción Borrar en Notificaciones</h4>
                     </div>
                 </div>
-                <div class="textBody" style="height: 50px;">
+                <div class="textBody" id="tBody">
                     <div>
                         <h4>Eliminaste una notificación.</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="dataMessage" style="height: 105px;">
+        <div class="dataMessage" id="dMessage2">
             <div class="dataLogo">
-                <div style="background-color: #17a2b8;">
+                <div id="dLogo">
                     <i class="fas fa-user"></i>
-                    <!-- <i class="far fa-bell"></i> -->
                 </div>
             </div>
-            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataBarMessage" id="dMessage3"></div>
             <div class="dataText">
                 <div class="textheader">
                     <div>
-                        <h4><i class="far fa-edit" style="margin-right: 5px;"></i>Se realizó la acción Editar en Mi perfil</h4>
+                        <h4><i class="far fa-edit" id="acction-text3"></i>Se realizó la acción Editar en Mi perfil</h4>
                     </div>
                 </div>
-                <div class="textBody" style="height: 50px;">
+                <div class="textBody" id="tBody2">
                     <div>
                         <h4>Ha editado sus datos personales, ha echo los siguientes cambios: su avatar fué cambiado.</h4>
                     </div>
@@ -176,56 +173,54 @@
             </div>
         </div>
         <div class="dataFech">
-            <div class="dateToday" style="margin-top: 0;">
+            <div class="dateToday" id="dToday">
                 <h4>10 de Octubre de 2021</h4>
             </div>
             <div class="dataBar"></div>
         </div>
-        <div class="dataMessage" style="height: 105px;">
+        <div class="dataMessage" id="dMessage4">
             <div class="dataLogo">
-                <div style="background-color: #17a2b8;">
+                <div id="dLogo2">
                     <i class="fas fa-user"></i>
-                    <!-- <i class="far fa-bell"></i> -->
                 </div>
             </div>
-            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataBarMessage" id="dBarMessage2"></div>
             <div class="dataText">
                 <div class="textheader">
                     <div>
-                        <h4><i class="far fa-edit" style="margin-right: 5px;"></i>Se realizó la acción Editar en Mi perfil</h4>
+                        <h4><i class="far fa-edit" id="acction-text4"></i>Se realizó la acción Editar en Mi perfil</h4>
                     </div>
                 </div>
-                <div class="textBody" style="height: 50px;">
+                <div class="textBody" id="tBody3">
                     <div>
                         <h4>Ha creado una nueva dirección: El Arreo 250</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="dataMessage" style="height: 105px;">
+        <div class="dataMessage" id="dMessage5">
             <div class="dataLogo">
-                <div style="background-color: #17a2b8;">
+                <div id="dLogo3">
                     <i class="fas fa-user"></i>
-                    <!-- <i class="far fa-bell"></i> -->
                 </div>
             </div>
-            <div class="dataBarMessage" style="height: 105px;"></div>
+            <div class="dataBarMessage" id="dBarMessage3"></div>
             <div class="dataText">
                 <div class="textheader">
                     <div>
-                        <h4><i class="far fa-edit" style="margin-right: 5px;"></i>Se realizó la acción Editar en Mi perfil</h4>
+                        <h4><i class="far fa-edit" id="acction-text5"></i>Se realizó la acción Editar en Mi perfil</h4>
                     </div>
                 </div>
-                <div class="textBody" style="height: 50px;">
+                <div class="textBody" id="tBody4">
                     <div>
                         <h4>Ha cambiado su contraseña.</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="dataMessage" style="height: 50px;">
+        <div class="dataMessage" id="dMessage6">
             <div class="dataLogo">
-                <div style="background-color: #6c757d;">
+                <div id="dLogo4">
                     <i class="far fa-clock"></i>
                     <!-- <i class="far fa-bell"></i> -->
                 </div>

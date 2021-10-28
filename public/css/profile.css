@@ -19,6 +19,11 @@
     justify-content: center;
     margin-top: 170px;
 }
+
+#profile-user {
+    margin-right: 10px;
+}
+
 /*==================================================
     Contenedor General
 ==================================================*/
@@ -134,28 +139,16 @@ main {
 
 .dataProfilePersonal {
     margin-top: 20px;
-
-
-
-
-
-
-
-
-
-    /* border: 1px solid green; */
 }
 
 .card-container-personal {
     font-family: 'Source Sans Pro', sans-serif;
-    /* height: 380px; */
     border-radius: 10px;
     overflow: hidden;
     position: relative; 
     box-shadow: 1px 1px 2px #999;
     -webkit-box-shadow: 1px 1px 2px #999;
     -moz-box-shadow: 1px 1px 2px #999;  
-    /* border: 1px solid violet; */
 }
 
 .box-personal {
@@ -181,7 +174,6 @@ main {
 .data-name {
     height: 60px;
     padding-left: 20px;
-    /* border: 1px solid #777; */
 }
 
 .data-name h3{
@@ -195,16 +187,12 @@ main {
     flex-direction: column;
     font-size: 80%;
     padding-left: 20px;
-    /* line-height: 1.3; */
     color: var(--Dark_grayish_blue);
-    /* border: 1px solid cyan; */
 }
 
 .data-information div {
     margin-top: 5px;
 }
-
-
 
 .data-img i{
     width: 25px;
@@ -212,7 +200,6 @@ main {
 
 .general-personal-box {
     height: 180px;
-    /* border: 1px solid #999; */
     display: flex;
     justify-content: space-between;
 }
@@ -220,7 +207,6 @@ main {
 .data-personal {
     width: 70%;
     margin-top: 20px;
-    /* border: 1px solid lightsalmon; */
 }
 
 .data-image {
@@ -228,12 +214,10 @@ main {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    /* border: 1px solid blue; */
 }
 .data-avatar {
     height: 60px;
     width: 60px;
-    /* border: 1px solid red; */
 }
 .data-avatar img {
     width: 100%;
@@ -244,12 +228,9 @@ main {
 
 .box-button {
     height: 70px;
-    /* border: 1px solid mediumorchid; */
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
-    /* margin: auto; */
     align-items: center;
     background-color: var(--White_light);
     border-radius: 0px 0px 10px 10px;
@@ -278,7 +259,6 @@ main {
 
 .card-container-personal-2 {
     font-family: 'Source Sans Pro', sans-serif;
-    /* height: 380px; */
     border-radius: 10px;
     overflow: hidden;
     position: relative; 
@@ -286,7 +266,6 @@ main {
     box-shadow: 1px 1px 2px #999;
     -webkit-box-shadow: 1px 1px 2px #999;
     -moz-box-shadow: 1px 1px 2px #999;  
-    /* border: 1px solid violet; */
 }
 
 .box-personal-2 {
@@ -305,9 +284,14 @@ main {
 
 .general-personal-box-2 {
     height: 200px;
-    /* border: 1px solid #999; */
     display: flex;
     justify-content: space-between;
+}
+
+#addres {
+    font-size: 1.25rem; 
+    font-weight: 300; 
+    color: #212529;
 }
 
 .card-address {
@@ -320,7 +304,6 @@ main {
     box-shadow: 1px 1px 2px #999;
     -webkit-box-shadow: 1px 1px 2px #999;
     -moz-box-shadow: 1px 1px 2px #999; 
-    /* border: 1px solid purple; */
 }
 
 .data-information-2 {
@@ -328,7 +311,6 @@ main {
     font-size: 80%;
     padding-left: 20px;
     color: var(--Dark_grayish_blue);
-    /* border: 1px solid cyan; */
 }
 
 /*==================================================
@@ -336,7 +318,6 @@ main {
 ==================================================*/
 
 .dataHistory {
-    /* width: 69%; */
     display: none !important;
     height: 800px;
     display: flex;
@@ -346,11 +327,6 @@ main {
     box-shadow: 1px 1px 2px #999;
     -webkit-box-shadow: 1px 1px 2px #999;
     -moz-box-shadow: 1px 1px 2px #999;
-
-
-
-    /* border: 1px solid brown; */
-    
 }
 
 .dataNav {
@@ -382,8 +358,6 @@ main {
     height: 60px;
     display: flex;
     position: relative;
-    /* border-radius: 5px 5px 0px 0px; */
-    /* border-bottom: 1px solid rgb(228, 228, 228); */
 }
 
 .dateToday {
@@ -397,9 +371,7 @@ main {
     font-family: "Source Sans Pro";
     font-weight: normal;
     color: white;
-    /* width: 100px; */
     width: 22%;
-    /* text-align: center; */
     padding: 10px;
     height: 100%;
     border-radius: 5px;
@@ -432,7 +404,6 @@ main {
 .dataLogo div {
     width: 30px;
     height: 30px;
-    /* background-color: #17a2b8; */
     background-color: var(--Blue_medium);
     border-radius: 50%;
     text-align: center;
@@ -460,7 +431,6 @@ main {
     background-color: var(--White_light);
     border-radius: 5px 5px 0px 0px;
     border: 1px solid rgb(228, 228, 228);
-    /* border: 1px solid cyan; */
 }
 
 .textheader div {
@@ -473,8 +443,6 @@ main {
     color: #495057;
     font-family: "Source Sans Pro";
     font-weight: bold;
-    /* width: 100px; */
-    /* text-align: center; */
     padding: 10px;
     height: 100%;
 
@@ -487,7 +455,6 @@ main {
     border: 1px solid rgb(228, 228, 228);
     border-top: 0px;
     border-radius: 0px 0px 5px 5px;
-    /* border: 1px solid orangered; */
 }
 
 .textBody div {
@@ -500,8 +467,6 @@ main {
     color: #495057;
     font-family: "Source Sans Pro";
     font-weight: normal;
-    /* width: 100px; */
-    /* text-align: center; */
     padding: 10px;
     line-height: 1.3;
     height: 100%;
@@ -509,12 +474,34 @@ main {
 
 .dataText {
     width: 91%;
+}
 
+#acction-text, #acction-text2, #acction-text3, #acction-text4, #acction-text5 {
+    margin-right: 5px;
+}
 
+#dMessage, #dMessage2, #dMessage3, #dMessage4, #dMessage5, #dMessage6 {
+    height: 105px;
+}
 
+#dLogo, #dLogo2, #dLogo3 {
+    background-color: #17a2b8;
+}
 
+#dLogo4 {
+    background-color: #6c757d;
+}
 
-    /* border: 1px solid blue; */
+#dBarMessage, #dBarMessage2, #dBarMessage3 {
+    height: 105px;
+}
+
+#tBody, #tBody2, #tBody3, #tBody4 {
+    height: 50px;
+}
+
+#dToday {
+    margin-top: 0;
 }
 
 
@@ -530,14 +517,12 @@ main {
 
     /* CONTENEDOR GENERAL */
     main {
-        /* width: 71%; */
         flex-direction: row;
         justify-content: space-between;
     }
 
     /* CONTENEDOR IZQUIERDO */
     .dataProfile {
-        /* width: 38%; */
         width: 98%;
         font-size: 14px;
     }
