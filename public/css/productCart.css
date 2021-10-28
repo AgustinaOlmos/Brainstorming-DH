@@ -282,6 +282,9 @@ span {
   margin-top: 10px;
   height: 50px;
 }
+#bProduct, #bBuy {
+  margin-left:5px;
+}
 
 /*** CAMBIO COLOR A BOTÓN GROW BOX ***/
 .ov-btn-grow-box {
