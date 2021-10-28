@@ -8,6 +8,8 @@
 <body>
     <%- include('../partials/header.ejs') %>
 
+    <%- include('../partials/scrollUp.ejs') %>
+
         <form class="form-search" action="#" method="POST">
 
             <% for(subcategory of subCategories){ %>
@@ -55,7 +57,8 @@
         </main>
 
         <%- include('../partials/footer') %>
-            <script src="/js/main.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/scrollUp.js"></script>
 </body>
 
 </html>
