@@ -6,4 +6,7 @@ const mainController = require('../controllers/mainController')
 router.get('/', mainController.loading)
 router.get('/home', mainController.home)
 
+//To-Do
+/* router.get('/search', mainController.search); */
+
 module.exports = router

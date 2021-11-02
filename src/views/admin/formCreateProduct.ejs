@@ -16,66 +16,67 @@
             <div class="icon_wrapper">
                 <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
             </div>
-            <form action="#" method="POST" id="form-create">
-                <div class="name-prod">
-                    <label for="name-prod"></label>
-                    <input type="text" name="name-prod" id="name-prod" placeholder="Nombre del Producto">
+            <form action="/products/all" method="POST" id="form-create">
+                <div class="title-prod">
+                    <label for="title"></label>
+                    <input type="text" name="title" id="title" placeholder="Nombre del Producto">
                 </div>
                 <div class="img-prod">
-                    <label for="img-prod"></label>
-                    <input type="file" name="img-prod" id="img-prod" accept=".jpg" multiple>
-                </div>
-                <div class="code-prod">
-                    <label for="code-prod"></label>
-                    <input type="number" name="code-prod" id="code-prod" placeholder="Codigo de Barra">
+                    <label for="img"></label>
+                    <input type="file" name="img" id="img" accept=".jpg" multiple>
                 </div>
                 <div class="price-prod">
-                    <label for="price-prod"></label>
-                    <input type="number" name="price-prod" id="price-prod" placeholder="Precio">
+                    <label for="price"></label>
+                    <input type="number" name="price" id="price" placeholder="Precio">
                 </div>
                 <div class="promo-prod">
-                    <label for="promo-prod"></label>
-                    <select name="promo-prod" id="promo-prod">
+                    <label for="promotion"></label>
+                    <select name="promotion" id="promotion">
                         <option disabled hidden selected>Seleccione una opcion</option>
-                        <option value="sale">Con Promoción</option>
-                        <option value="no-sale">Sin Promoción</option>
+                        <option value=1>Con Promoción</option>
+                        <option value=0>Sin Promoción</option>
                     </select>
                 </div>
                 <div class="discount-prod">
-                    <label for="discount-prod"></label>
-                    <input type="number" name="discount-prod" id="discount-prod" placeholder="% de Descuento">
-                </div>
-                <div class="stock-prod">
-                    <label for="stock-prod"></label>
-                    <input type="number" name="stock-prod" id="stock-prod" placeholder="Stock">
-                </div>
+                    <label for="discount"></label>
+                    <input type="number" name="discount" id="discount" placeholder="% de Descuento">
+                </div>                              
                 <div class="categ-prod">
-                    <label for="categ-prod"></label>
-                    <select name="categ-prod" id="categ-prod">
+                    <label for="category"></label>
+                    <select name="category" id="category">
+                        <option disabled hidden selected>Seleccione una Categoria</option>
                         <% for(category of categories) { %>
-                            <option disabled hidden selected>Seleccione una Categoria</option>
-                            <option value="<% category.id %>">
+                            <option value=<%=category.id %>>
                                 <%= category.name %>
                             </option>
                             <% }%>
                     </select>
                 </div>
                 <div class="subcateg-prod">
-                    <label for="subcateg-prod"></label>
-                    <select placeholder="Seleccione una Subcategoria" name="subcateg-prod" id="subcateg-prod">
-                        <% for(subCategory of subCategories) { %>
-                            <option disabled hidden selected>Seleccione una SubCategoria</option>
-                            <option value="<% subCategory.id %>">
-                                <%= subCategory.name %>
+                    <label for="subcategory"></label>
+                    <select name="subcategory" id="subcategory">
+                        <option disabled hidden selected>Seleccione una Subcategoria</option>
+                        <% for(subcategory of subCategories) { %>
+                            <option value=<%=subcategory.id %>>
+                                <%= subcategory.name %>
                             </option>
                             <% }%>
                     </select>
                 </div>
-                <div class="description-prod">
-                    <label for="description-prod"></label>
-                    <textarea name="description-prod" id="description-prod"
+                
+                <!-- <div class="code-prod">
+                    <label for="code"></label>
+                    <input type="number" name="code" id="code" placeholder="Codigo de Barra">
+                </div> -->
+                <!--  <div class="stock-prod">
+                    <label for="stock"></label>
+                    <input type="number" name="stock" id="stock" placeholder="Stock">
+                </div> -->
+                <!-- <div class="description-prod">
+                    <label for="description"></label>
+                            <textarea name="description" id="description"
                         placeholder="Descripcion del Producto"></textarea>
-                </div>
+                </div> -->
                 <div class="submit-prod">
                     <input type="submit" value="Guardar Producto" id="form_button" />
                 </div>
@@ -83,7 +84,7 @@
         </div>
 
         <%- include('../partials/footer') %>
-    <script src="/js/main.js"></script>
+            <script src="/js/main.js"></script>
 </body>
 
 </html>

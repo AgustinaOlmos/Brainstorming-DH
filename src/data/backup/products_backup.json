@@ -1,12 +1,12 @@
 [
  {
-  "id": "22",
-  "title": "agus",
-  "price": "123",
-  "discount": "0",
-  "category": "4",
-  "subcategory": "9",
-  "promotion": "0",
+  "id": 1,
+  "title": "ADUENTUS CABERNET FRANC",
+  "price": 3900,
+  "discount": 10,
+  "category": 4,
+  "subcategory": 10,
+  "promotion": 1,
   "img": "/img/products/vino-aduentusCabernet.jpg"
  },
  {
@@ -208,15 +208,5 @@
   "subcategory": 15,
   "promotion": 1,
   "img": "/img/products/tool-3.jpg"
- },
- {
-  "id": "22",
-  "title": "agus",
-  "price": "123",
-  "discount": "0",
-  "category": "4",
-  "subcategory": "9",
-  "promotion": "0",
-  "img": "/img/products/vino-aduentusCabernet.jpg"
  }
 ]

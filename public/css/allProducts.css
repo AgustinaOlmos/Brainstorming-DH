@@ -52,7 +52,6 @@ input.search-input:focus {
   box-shadow: 0px 0px 10px rgb(100 100 100);
 }
 .main-title {
-  /* display: none; */
   display: flex;
   justify-content: center;
   font-size: 35px;
@@ -183,7 +182,10 @@ input.search-input:focus {
     margin-bottom: 15px;
   }
   .main-title {
-    display: none;
+    display: block;
+    margin: 0 60px;
+    text-align: left;
+
   }
   .main-title2, .main-title3 {
     text-align: left;

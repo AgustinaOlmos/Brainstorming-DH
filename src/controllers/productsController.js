@@ -1,36 +1,47 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productsCategory.json');
-const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const productsFilePath2 = path.join(__dirname, '../data/productsSubCategory.json');
-const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
-const productsFilePath3 = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath3, 'utf-8'));
+let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let categoriesFilePath = path.join(__dirname, '../data/productsCategory.json');
+let categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+let subCategoriesFilePath = path.join(__dirname, '../data/productsSubCategory.json');
+let subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8'));
 
 
 const productsController = {
-    all: (req, res) => res.render('products/allProducts', {
+    all: (req, res) => {
+        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+        res.render('products/allProducts', {
         products,
         categories,
         subCategories,
         nombrePagina: 'Productos'
-    }),
-    category: (req, res) => res.render('products/categoryProducts', {
+    })},
+    category: (req, res) => {
+       products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        
+        res.render('products/categoryProducts', {
         products,
         categoryId: req.params.id,
         categories,
         subCategories,
         nombrePagina: 'Productos por categorias'
-    }),
-    subcategory: (req, res) => res.render('products/subCategoryProducts', {
+    })},
+    subcategory: (req, res) => {
+        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+        res.render('products/subCategoryProducts', {
         products,
         subcategoryId: req.params.id,
         categories,
         subCategories,
         nombrePagina: 'Productos por subcategorias'
-    }),
+    })},
     details: (req, res) => {
+       products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        
         let product = products.find(product => product.id == req.params.id)
         let slidesProduct = products.filter(product => product.id != req.params.id)
         res.render('products/productDetail', {

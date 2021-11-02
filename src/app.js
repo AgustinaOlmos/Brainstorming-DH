@@ -1,36 +1,40 @@
 const express = require('express');
 const path = require('path')
+const methodOverride = require('method-override')
 const app = express();
-const mainRouter = require('./routes/main')
-const productsRouter = require('./routes/products')
-const usersRouter = require('./routes/users')
-const adminRouter = require('./routes/admin')
 
+// Archivos Estaticos
+app.use(express.static('public'));
 
-// Lecturas de bases de datos json para nevbar pagina no encontrada
+// Para capturar y configurar la informacion que viene por post -- Form->Obj Literal->Json
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
-const fs = require('fs');
-
-const productsFilePath = path.join(__dirname, './data/productsCategory.json');
-const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const productsFilePath2 = path.join(__dirname, './data/productsSubCategory.json');
-const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
-
+// Para los métodos PUT y DELETE
+app.use(methodOverride('_method'))
 
 // Establecer vistas
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
 
-// Archivos Estaticos
-app.use(express.static('public'));
-
-
 // Routing
+const mainRouter = require('./routes/main')
+const productsRouter = require('./routes/products')
+const usersRouter = require('./routes/users')
+const adminRouter = require('./routes/admin')
+
 app.use('/', mainRouter)
 app.use('/home', mainRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)
+
+// Lecturas de bases de datos json para navbar pagina no encontrada
+const fs = require('fs');
+const productsFilePath = path.join(__dirname, './data/productsCategory.json');
+const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const productsFilePath2 = path.join(__dirname, './data/productsSubCategory.json');
+const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
 
 app.use((req, res, next) => {
     res.status(404).render('not-found', { 

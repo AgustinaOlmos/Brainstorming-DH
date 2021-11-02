@@ -40,16 +40,16 @@ body {
   margin: 20px auto 50px;
   width: 13.75rem;
 }
-#name-prod,
-#img-prod,
-#code-prod,
-#price-prod,
-#promo-prod,
-#discount-prod,
-#stock-prod,
-#categ-prod,
-#subcateg-prod,
-#description-prod {
+#title,
+#img,
+#code,
+#price,
+#promotion,
+#discount,
+#stock,
+#category,
+#subcategory,
+#description {
   background: none;
   border: none;
   border-bottom: solid 2px #474544;
@@ -63,10 +63,10 @@ body {
   width: 90%;
   font-family: "Montserrat", Arial, sans-serif;
 }
-#img-prod {
+#img {
   color: transparent;
 }
-#description-prod {
+#description {
   line-height: 150%;
   height: 150px;
   resize: none;
@@ -90,16 +90,16 @@ body {
   background: #474544;
   color: #f2f3eb;
 }
-#name-prod,
-#img-prod,
-#code-prod,
-#price-prod,
-#promo-prod,
-#discount-prod,
-#stock-prod,
-#categ-prod,
-#subcateg-prod,
-#description-prod:focus {
+#title,
+#img,
+#code,
+#price,
+#promotion,
+#discount,
+#stock,
+#category,
+#subcategory,
+#description:focus {
   outline: none;
 }
 

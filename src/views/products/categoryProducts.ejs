@@ -11,7 +11,6 @@
     <%- include('../partials/scrollUp.ejs') %>
 
         <form class="form-search" action="#" method="POST">
-
             <% for(category of categories){ %>
                 <% if (category.id == categoryId) { %>
                     <h1 class="main-title3"><%= category.name %></h1>
@@ -19,9 +18,10 @@
             <% } %> 
             
             <div class="span-btn">
-                <input type="text" name="search-input" class="search-input" placeholder="BUSCAR">
+                <input type="text" name="searchProduct" class="search-input" placeholder="BUSCAR">
                 <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
             </div>
+        
         </form>
         <main class="main-products" style="margin-top: 30px;">
             <section>

@@ -118,6 +118,12 @@
                             </ul>
                         </div>
                     </div>
+                    <a href="/admin/<%= product.id %>/edit-product" class="form-edit">
+                        <button class="btn-edit">EDITAR</button>
+                    </a>
+                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete-btn"> ELIMINAR</button>
+                    </form>
                 </div>
             </div>
         </div>

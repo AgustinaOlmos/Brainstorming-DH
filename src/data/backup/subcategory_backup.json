@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "PREPARADOS",
+        "idCategory": 2,
+        "url": "/subCategory/1"
+    },
+    {
+        "id": 2,
+        "name": "PARA PREPARAR",
+        "idCategory": 2,
+        "url": "/subCategory/2"
+    },
+    {
+        "id": 3,
+        "name": "BOX",
+        "idCategory": 2,
+        "url": "/subCategory/3"
+    },
+    {
+        "id": 4,
+        "name": "CAÑAS",
+        "idCategory": 3,
+        "url": "/subCategory/4"
+    },
+    {
+        "id": 5,
+        "name": "GINS",
+        "idCategory": 3,
+        "url": "/subCategory/5"
+    },
+    {
+        "id": 6,
+        "name": "WISKY",
+        "idCategory": 3,
+        "url": "/subCategory/6"
+    },
+    {
+        "id": 7,
+        "name": "OTROS",
+        "idCategory": 3,
+        "url": "/subCategory/7"
+    },
+    {
+        "id": 8,
+        "name": "BLANCO",
+        "idCategory": 4,
+        "url": "/subCategory/8"
+    },
+    {
+        "id": 9,
+        "name": "ROSADO",
+        "idCategory": 4,
+        "url": "/subCategory/9"
+    },
+    {
+        "id": 10,
+        "name": "TINTO",
+        "idCategory": 4,
+        "url": "/subCategory/10"
+    },
+    {
+        "id": 11,
+        "name": "NECTAR",
+        "idCategory": 5,
+        "url": "/subCategory/11"
+    },
+    {
+        "id": 12,
+        "name": "DRESSING",
+        "idCategory": 5,
+        "url": "/subCategory/12"
+    },
+    {
+        "id": 13,
+        "name": "FEE",
+        "idCategory": 5,
+        "url": "/subCategory/13"
+    },
+    {
+        "id": 14,
+        "name": "HIELO",
+        "idCategory": 5,
+        "url": "/subCategory/14"
+    },
+    {
+        "id": 15,
+        "name": "TOOLS",
+        "idCategory": 6,
+        "url": "/subCategory/15"
+    }
+]

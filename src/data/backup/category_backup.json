@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "TODOS LOS PRODUCTOS",
+        "url": "/all",
+        "imgBanner": "vinos-banner3.jpg",
+        "img1": "cocktails-galeria-1.jpg",
+        "img2": "espirituosas-banner.jpg",
+        "img3": "deli-galeria-1.jpg",
+        "img4": "tools-galeria-1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "COCKTAILS",
+        "url": "/category/2",
+        "imgBanner": "cocktails-banner.jpg",
+        "img1": "cocktails-galeria-1.jpg",
+        "img2": "cocktails-galeria-2.jpg",
+        "img3": "cocktails-galeria-3.jpg",
+        "img4": "cocktails-galeria-4.jpg"
+    },
+    {
+        "id": 3,
+        "name": "ESPITITUOSAS",
+        "url": "/category/3",
+        "imgBanner": "espirituosas-banner.jpg",
+        "img1": "espirituosas-galeria-1.jpg",
+        "img2": "espirituosas-galeria-2.jpg",
+        "img3": "espirituosas-galeria-3.jpg",
+        "img4": "espirituosas-galeria-4.jpg"
+    },
+    {
+        "id": 4,
+        "name": "VINOS",
+        "url": "/category/4",
+        "imgBanner": "vinos-banner.jpg",
+        "img1": "vinos-galeria-1.jpg",
+        "img2": "vinos-galeria-2.jpg",
+        "img3": "vinos-galeria-3.jpg",
+        "img4": "vinos-galeria-4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "DELI",
+        "url": "/category/5",
+        "imgBanner": "deli-banner.jpg",
+        "img1": "deli-galeria-1.jpg",
+        "img2": "deli-galeria-2.jpg",
+        "img3": "deli-galeria-3.jpg",
+        "img4": "deli-galeria-4.jpg"
+    },
+    {
+        "id": 6,
+        "name": "TOOLS",
+        "url": "/category/6",
+        "imgBanner": "tools-banner.jpg",
+        "img1": "tools-galeria-1.jpg",
+        "img2": "tools-galeria-2.jpg",
+        "img3": "tools-galeria-3.jpg",
+        "img4": "tools-galeria-4.jpg"
+    }
+]
