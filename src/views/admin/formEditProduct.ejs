@@ -17,72 +17,62 @@
                 <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
             </div>
 
-            <form action="/products/<%= product.id %>/edit-product?_method=PUT" method="POST" id="form-create">
+            <form action="/products/edit-product/<%= product.id %>?_method=PUT" method="POST" id="form-create" enctype="multipart/form-data">
                 <div class="name-prod">
-                    <label for="title"></label>
                     <input type="text" name="title" id="title" value="<%= product.title %>">
                 </div>
                 <div class="img-prod">
-                    <label for="img"></label>
-                    <img src="<%=product.img %>" alt="img del producto" class="img-edit"/>
-                    <input type="file" name="img" id="img" accept=".jpg" multiple>
+                    <img src="/img/products/<%= product.img %>" alt="img del producto" class="img-edit" />
+                    <input type="file" name="editedProductImage" id="img" multiple>
                 </div>
                 <div class="price-prod">
-                    <label for="price"></label>
                     <input type="number" name="price" id="price" value=<%=product.price %>>
                 </div>
                 <div class="promo-prod">
-                    <label for="promotion"></label>
                     <select name="promotion" id="promotion">
                         <% if (product.promotion==1 ) { %>
                             <option value=1>Con Promoción</option>
                             <option value=0>Sin Promoción</option>
                             <% } else { %>
-                            <option value=0>Sin Promoción</option>
-                            <option value=1>Con Promoción</option>
-                        <% } %>
+                                <option value=0>Sin Promoción</option>
+                                <option value=1>Con Promoción</option>
+                                <% } %>
                     </select>
                 </div>
                 <div class="discount-prod">
-                    <label for="discount"></label>
                     <input type="number" name="discount" id="discount" value="<%= product.discount %>"
-                    placeholder="% de Descuento">
+                        placeholder="% de Descuento">
                 </div>
                 <div class="categ-prod">
-                    <label for="category"></label>
                     <select name="category" id="category">
                         <% for(category of categories) { %>
-                            <option value=<%= category.id %>>
+                            <option value=<%=category.id %>>
                                 <%= category.name %>
                             </option>
                             <% }%>
                     </select>
                 </div>
                 <div class="subcateg-prod">
-                    <label for="subcategory"></label>
                     <select name="subcategory" id="subcategory">
                         <% for(subcategory of subCategories) { %>
-                            <option value=<%= subcategory.id %>>
+                            <option value=<%=subcategory.id %>>
                                 <%= subcategory.name %>
                             </option>
                             <% }%>
-                        </select>
-                    </div>                    
-                    
-                    <!--  <div class="stock-prod">
-                        <label for="stock"></label>
+                    </select>
+                </div>
+
+                <!--  <div class="stock-prod">
                         <input type="number" name="stock" id="stock" placeholder="Stock">
                     </div> -->
-                    <!--             <div class="code-prod">
-                    <label for="code"></label>
+                <!--             <div class="code-prod">
                     <input type="number" name="code" id="code" placeholder="Codigo de Barra">
                 </div> -->
-                    <!-- <div class="description-prod">
-                        <label for="description"></label>
+                <!-- <div class="description-prod">
                         <textarea name="description" id="description"
                         placeholder="Descripcion del Producto"></textarea>
                     </div> -->
-                    <div class="submit-prod">
+                <div class="submit-prod">
                     <input type="submit" value="Editar Producto" id="form_button" />
                 </div>
             </form>

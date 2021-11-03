@@ -7,7 +7,7 @@
   "category": 4,
   "subcategory": 10,
   "promotion": 1,
-  "img": "/img/products/vino-aduentusCabernet.jpg"
+  "img": "vino-aduentusCabernet.jpg"
  },
  {
   "id": 2,
@@ -17,7 +17,7 @@
   "category": 4,
   "subcategory": 10,
   "promotion": 0,
-  "img": "/img/products/vino-unoMalbec.jpg"
+  "img": "vino-unoMalbec.jpg"
  },
  {
   "id": 3,
@@ -27,7 +27,7 @@
   "category": 4,
   "subcategory": 10,
   "promotion": 0,
-  "img": "/img/products/vino-unoSaivignon.jpg"
+  "img": "vino-unoSaivignon.jpg"
  },
  {
   "id": 4,
@@ -37,7 +37,7 @@
   "category": 4,
   "subcategory": 10,
   "promotion": 1,
-  "img": "/img/products/vino-uno-malbec-lata.jpg"
+  "img": "vino-uno-malbec-lata.jpg"
  },
  {
   "id": 5,
@@ -47,7 +47,7 @@
   "category": 4,
   "subcategory": 9,
   "promotion": 1,
-  "img": "/img/products/vino-rose-mounier.jpg"
+  "img": "vino-rose-mounier.jpg"
  },
  {
   "id": 6,
@@ -57,7 +57,7 @@
   "category": 4,
   "subcategory": 8,
   "promotion": 0,
-  "img": "/img/products/vino-blanco-uno.jpg"
+  "img": "vino-blanco-uno.jpg"
  },
  {
   "id": 7,
@@ -67,7 +67,7 @@
   "category": 3,
   "subcategory": 5,
   "promotion": 1,
-  "img": "/img/products/gin-fifty.jpg"
+  "img": "gin-fifty.jpg"
  },
  {
   "id": 8,
@@ -77,7 +77,7 @@
   "category": 3,
   "subcategory": 5,
   "promotion": 1,
-  "img": "/img/products/gin-nordes.jpg"
+  "img": "gin-nordes.jpg"
  },
  {
   "id": 9,
@@ -87,7 +87,7 @@
   "category": 3,
   "subcategory": 6,
   "promotion": 0,
-  "img": "/img/products/whisky-damore.jpg"
+  "img": "whisky-damore.jpg"
  },
  {
   "id": 10,
@@ -97,7 +97,7 @@
   "category": 3,
   "subcategory": 6,
   "promotion": 0,
-  "img": "/img/products/whisky-glenrothes.jpg"
+  "img": "whisky-glenrothes.jpg"
  },
  {
   "id": 11,
@@ -107,7 +107,7 @@
   "category": 3,
   "subcategory": 7,
   "promotion": 0,
-  "img": "/img/products/lemoncello-pallini.jpg"
+  "img": "lemoncello-pallini.jpg"
  },
  {
   "id": 12,
@@ -117,7 +117,7 @@
   "category": 3,
   "subcategory": 7,
   "promotion": 0,
-  "img": "/img/products/espiri-otros-cachaza.jpg"
+  "img": "espiri-otros-cachaza.jpg"
  },
  {
   "id": 13,
@@ -127,7 +127,7 @@
   "category": 2,
   "subcategory": 2,
   "promotion": 0,
-  "img": "/img/products/box-1.jpg"
+  "img": "box-1.jpg"
  },
  {
   "id": 14,
@@ -137,7 +137,7 @@
   "category": 2,
   "subcategory": 2,
   "promotion": 1,
-  "img": "/img/products/box-2.jpg"
+  "img": "box-2.jpg"
  },
  {
   "id": 15,
@@ -147,7 +147,7 @@
   "category": 2,
   "subcategory": 1,
   "promotion": 1,
-  "img": "/img/products/negroni.jpg"
+  "img": "negroni.jpg"
  },
  {
   "id": 16,
@@ -157,7 +157,7 @@
   "category": 5,
   "subcategory": 12,
   "promotion": 0,
-  "img": "/img/products/deli-1.jpg"
+  "img": "deli-1.jpg"
  },
  {
   "id": 17,
@@ -167,7 +167,7 @@
   "category": 5,
   "subcategory": 11,
   "promotion": 0,
-  "img": "/img/products/deli-2.jpg"
+  "img": "deli-2.jpg"
  },
  {
   "id": 18,
@@ -177,7 +177,7 @@
   "category": 5,
   "subcategory": 13,
   "promotion": 0,
-  "img": "/img/products/deli-3.jpg"
+  "img": "deli-3.jpg"
  },
  {
   "id": 19,
@@ -187,7 +187,7 @@
   "category": 6,
   "subcategory": 15,
   "promotion": 1,
-  "img": "/img/products/tool-1.jpg"
+  "img": "tool-1.jpg"
  },
  {
   "id": 20,
@@ -197,7 +197,7 @@
   "category": 6,
   "subcategory": 15,
   "promotion": 1,
-  "img": "/img/products/tool-2.jpg"
+  "img": "tool-2.jpg"
  },
  {
   "id": 21,
@@ -207,6 +207,6 @@
   "category": 6,
   "subcategory": 15,
   "promotion": 1,
-  "img": "/img/products/tool-3.jpg"
+  "img": "tool-3.jpg"
  }
 ]

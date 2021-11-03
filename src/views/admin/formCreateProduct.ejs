@@ -16,33 +16,28 @@
             <div class="icon_wrapper">
                 <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
             </div>
-            <form action="/products/all" method="POST" id="form-create">
+            <form action="/products/all" method="POST" id="form-create" enctype="multipart/form-data">
                 <div class="title-prod">
-                    <label for="title"></label>
+                    <!-- <label for="title"></label> -->
                     <input type="text" name="title" id="title" placeholder="Nombre del Producto">
                 </div>
                 <div class="img-prod">
-                    <label for="img"></label>
-                    <input type="file" name="img" id="img" accept=".jpg" multiple>
+                    <input type="file" name="newProductImage" id="img" multiple>
                 </div>
                 <div class="price-prod">
-                    <label for="price"></label>
                     <input type="number" name="price" id="price" placeholder="Precio">
                 </div>
                 <div class="promo-prod">
-                    <label for="promotion"></label>
                     <select name="promotion" id="promotion">
                         <option disabled hidden selected>Seleccione una opcion</option>
-                        <option value=1>Con Promoción</option>
-                        <option value=0>Sin Promoción</option>
+                        <option value= 1>Con Promoción</option>
+                        <option value= 0>Sin Promoción</option>
                     </select>
                 </div>
                 <div class="discount-prod">
-                    <label for="discount"></label>
                     <input type="number" name="discount" id="discount" placeholder="% de Descuento">
-                </div>                              
+                </div>
                 <div class="categ-prod">
-                    <label for="category"></label>
                     <select name="category" id="category">
                         <option disabled hidden selected>Seleccione una Categoria</option>
                         <% for(category of categories) { %>
@@ -53,7 +48,6 @@
                     </select>
                 </div>
                 <div class="subcateg-prod">
-                    <label for="subcategory"></label>
                     <select name="subcategory" id="subcategory">
                         <option disabled hidden selected>Seleccione una Subcategoria</option>
                         <% for(subcategory of subCategories) { %>
@@ -63,18 +57,15 @@
                             <% }%>
                     </select>
                 </div>
-                
+
                 <!-- <div class="code-prod">
-                    <label for="code"></label>
                     <input type="number" name="code" id="code" placeholder="Codigo de Barra">
                 </div> -->
                 <!--  <div class="stock-prod">
-                    <label for="stock"></label>
                     <input type="number" name="stock" id="stock" placeholder="Stock">
                 </div> -->
                 <!-- <div class="description-prod">
-                    <label for="description"></label>
-                            <textarea name="description" id="description"
+                    <textarea name="description" id="description"
                         placeholder="Descripcion del Producto"></textarea>
                 </div> -->
                 <div class="submit-prod">

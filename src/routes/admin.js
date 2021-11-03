@@ -6,7 +6,7 @@ const adminController = require('../controllers/adminController')
 router.get('/create-product', adminController.create)
 
 // Editar un producto - parte 1 // Muestra el Formulario de edición
-router.get('/:id/edit-product', adminController.edit)
+router.get('/edit-product/:id', adminController.edit)
 
 
 module.exports = router

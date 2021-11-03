@@ -18,6 +18,8 @@ const adminController = {
         })
     },
     store: (req, res) => {
+        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
         // Guardar el producto nuevo
         let newProduct = {
             id: products[products.length - 1].id + 1,
@@ -27,9 +29,9 @@ const adminController = {
             category: req.body.category,
             subcategory: req.body.subcategory,
             promotion: req.body.promotion,
-            img: '/img/default-image.png', //req.file.filename
+            img: req.file ? req.file.filename : '/img/default-image.png',
         }
-
+        console.log(req.file)
         products.push(newProduct)
 
         // Pasar los productos a JSON
@@ -40,7 +42,6 @@ const adminController = {
     // (get) - Formulario para editar
     edit: (req, res) => {
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        
         let product = products.find(product => product.id == req.params.id)
         res.render('admin/formEditProduct', {
             product,
@@ -51,21 +52,18 @@ const adminController = {
     },
     // (put) Update - Método para actualizar la info
     update: (req, res) => {
-        // res.send(`Producto con id ${req.params.id} editado y guardado`)
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        
         let id = req.params.id
-        let productToEdit = products.find(product => product.id = id)
+        let productToEdit = products.find(product => product.id == id)
 
         let editedProduct = {
-            id: id,
+            id,
             title: req.body.title,
             price: req.body.price,
             discount: req.body.discount,
             category: req.body.category,
             subcategory: req.body.subcategory,
             promotion: req.body.promotion,
-            img: productToEdit.img
+            img: req.file ? req.file.filename : productToEdit.img
         }
 
         products.forEach((product, index) => {
@@ -75,18 +73,16 @@ const adminController = {
         });
 
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " ")) // Convierto en JSON
-        res.redirect('/products/all')        
-    }, 
+        res.redirect('/products/all')
+    },
 
     destroy: (req, res) => {
-        //res.send(`Producto con id ${req.params.id} eliminado`)
-
         let id = req.params.id
-        
+
         let finalProducts = products.filter(product => product.id != id)
 
         fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, " ")) // Convierto en JSON
-        res.redirect('/products/all')     
+        res.redirect('/products/all')
     }
 }
 

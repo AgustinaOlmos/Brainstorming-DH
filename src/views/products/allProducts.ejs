@@ -20,8 +20,8 @@
                     <% for(product of products){ %>
                         <% if(product.promotion==1 ) { %>
                             <article class="card-product">
-                                <a href="details/<%= product.id %>" id="card-link">
-                                    <img src=<%=product.img %> alt="" />
+                                <a href="/products/details/<%= product.id %>" id="card-link">
+                                    <img src="/img/products/<%= product.img %>" alt="" />
                                     <h3 class="title-product">
                                         <%= product.title %>
                                     </h3>
@@ -56,8 +56,8 @@
                     <% for(product of products){ %>
                         <% if (product.promotion==0 ) { %>
                             <article class="card-product">
-                                <a href="details/<%= product.id %>" id="card-link">
-                                    <img src=<%=product.img %> alt="" />
+                                <a href="/products/details/<%= product.id %>" id="card-link">
+                                    <img src="/img/products/<%= product.img %>" alt="" />
                                     <h3 class="title-product">
                                         <%= product.title %>
                                     </h3>

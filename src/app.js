@@ -4,7 +4,8 @@ const methodOverride = require('method-override')
 const app = express();
 
 // Archivos Estaticos
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Para capturar y configurar la informacion que viene por post -- Form->Obj Literal->Json
 app.use(express.urlencoded({extended: false}))

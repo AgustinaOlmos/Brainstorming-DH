@@ -33,7 +33,7 @@
         ===================================================-->
         <div class="producto">
             <div class="producto_imagen">
-                <img src=<%= product.img %> alt="">
+                <img src="/img/products/<%= product.img %>" alt="">
                 <% if (product.discount > 0) { %>
                     <div class="sale-product">
                         <span><%= product.discount %>% OFF</span>
@@ -118,7 +118,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="/admin/<%= product.id %>/edit-product" class="form-edit">
+                    <a href="/admin/edit-product/<%= product.id %>" class="form-edit">
                         <button class="btn-edit">EDITAR</button>
                     </a>
                     <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
@@ -154,7 +154,7 @@
                             <p class="marvel"><%= product.title %> </p>
                             <!-- Model -->
                             <div class="box-img">
-                                <img src="<%= product.img %> " class="model">
+                                <img src="/img/products/<%= product.img %>" class="model">
                                 <% if (product.discount > 0) { %>
                                     <div class="sale-product">
                                         <span><%= product.discount %>% OFF</span>

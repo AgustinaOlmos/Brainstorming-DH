@@ -63,9 +63,9 @@ body {
   width: 90%;
   font-family: "Montserrat", Arial, sans-serif;
 }
-#img {
+/* #img {
   color: transparent;
-}
+} */
 #description {
   line-height: 150%;
   height: 150px;

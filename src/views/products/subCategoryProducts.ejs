@@ -29,7 +29,7 @@
                     <% if (product.subcategory == subcategoryId) { %>
                         <article class="card-product">
                             <a href="/products/details/<%= product.id %>" id="card-link">
-                                <img src=<%=product.img %> alt="" />
+                                <img src="/img/products/<%= product.img %>" alt="" />
                                 <h3 class="title-product">
                                     <%= product.title %>
                                 </h3>

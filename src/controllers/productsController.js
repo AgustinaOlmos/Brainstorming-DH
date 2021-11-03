@@ -14,34 +14,33 @@ const productsController = {
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         res.render('products/allProducts', {
-        products,
-        categories,
-        subCategories,
-        nombrePagina: 'Productos'
-    })},
+            products,
+            categories,
+            subCategories,
+            nombrePagina: 'Productos'
+        })
+    },
     category: (req, res) => {
-       products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        
         res.render('products/categoryProducts', {
-        products,
-        categoryId: req.params.id,
-        categories,
-        subCategories,
-        nombrePagina: 'Productos por categorias'
-    })},
+            products,
+            categoryId: req.params.id,
+            categories,
+            subCategories,
+            nombrePagina: 'Productos por categorias'
+        })
+    },
     subcategory: (req, res) => {
+        res.render('products/subCategoryProducts', {
+            products,
+            subcategoryId: req.params.id,
+            categories,
+            subCategories,
+            nombrePagina: 'Productos por subcategorias'
+        })
+    },
+    details: (req, res) => {
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        res.render('products/subCategoryProducts', {
-        products,
-        subcategoryId: req.params.id,
-        categories,
-        subCategories,
-        nombrePagina: 'Productos por subcategorias'
-    })},
-    details: (req, res) => {
-       products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        
         let product = products.find(product => product.id == req.params.id)
         let slidesProduct = products.filter(product => product.id != req.params.id)
         res.render('products/productDetail', {
@@ -52,7 +51,7 @@ const productsController = {
             nombrePagina: 'Detalles del Producto'
         })
     },
-    shop: (req, res) => res.render('products/productCart',{
+    shop: (req, res) => res.render('products/productCart', {
         categories,
         subCategories,
         nombrePagina: 'Compras'
