@@ -1,0 +1,27 @@
+[
+    {
+        "id_afip": 1,
+        "name": "Consumidor Final"
+    },
+    {
+        "id_afip": 2,
+        "name": "Responsable Inscripto"
+    },
+    {
+        "id_afip": 3,
+        "name": "Exento"
+    },
+    {
+        "id_afip": 4,
+        "name": "Monotributo"
+    },
+    {
+        "id_afip": 5,
+        "name": "No Categorizado"
+    },
+    {
+        "id_afip": 6,
+        "name": "No Grabado"
+    }
+
+]
