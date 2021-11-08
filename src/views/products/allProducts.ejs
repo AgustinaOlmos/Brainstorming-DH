@@ -21,7 +21,9 @@
                         <% if(product.promotion==1 ) { %>
                             <article class="card-product">
                                 <a href="/products/details/<%= product.id %>" id="card-link">
-                                    <img src="/img/products/<%= product.img %>" alt="" />
+                                    <div class="config-img">
+                                      <img src="/img/products/<%= product.img %>" alt="" />  
+                                    </div>                                    
                                     <h3 class="title-product">
                                         <%= product.title %>
                                     </h3>

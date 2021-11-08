@@ -93,8 +93,10 @@ input.search-input:focus {
   position: relative;
 }
 .card-product img {
+  height: 250px;
   width: 85%;
   border-radius: 10px;
+  object-fit: cover;
 }
 .title-product {
   font-size: 20px;
@@ -206,6 +208,7 @@ input.search-input:focus {
   }
   .card-product img {
     width: 90%;
+    height: 300px;
   }
   .title-product {
     font-size: 22px;
