@@ -39,7 +39,7 @@
 .nosotros {
   height: 600px;
   position: relative;
-  background: url(../img/wall/mona-slide-01.png) center center no-repeat fixed;
+  background: url(../img/wall/traslasierra-cordoba.jpg) center center no-repeat fixed;
   background-size: cover;
   margin-bottom: 100px;
 }
@@ -64,9 +64,17 @@
 }
 
 .nosotros .contenedor-parrafo img {
-  width: 30%;
+  width: 80%;
   height: 30%;
   margin-top: 100px;
+}
+
+.contenedor-parrafo .title-parrafo{
+  text-align: center;
+    font-size: 2.3em;
+    color: var(--blanco);
+    letter-spacing: 4px;
+    font-weight: lighter;
 }
 
 @media (min-width: 768px) {
@@ -98,5 +106,13 @@
   }
   .subtitle-categories {
     transition: color 0.5s;
+  }
+  .nosotros .contenedor-parrafo img {
+    width: 35%;
+  }
+  .contenedor-parrafo .title-parrafo{
+    font-size: 3.3em;
+    font-weight: bold;
+    margin: auto;
   }
 }
