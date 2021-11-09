@@ -9,6 +9,7 @@
 
 <body>
     <%- include('../partials/header.ejs') %>
+    <%- include('../partials/scrollUp.ejs') %>
 
         <div id="container-brain">
             <h1 class="title-brain">&bull; Brainstorming &bull;</h1>
@@ -38,7 +39,7 @@
                     <input type="number" name="discount" id="discount" placeholder="% de Descuento">
                 </div>
                 <div class="categ-prod">
-                    <select name="category" id="category">
+                    <select name="category" id="category" class="categoryProduct">
                         <option disabled hidden selected>Seleccione una Categoria</option>
                         <% for(category of categories) { %>
                             <option value=<%=category.id %>>
@@ -48,7 +49,7 @@
                     </select>
                 </div>
                 <div class="subcateg-prod">
-                    <select name="subcategory" id="subcategory">
+                    <select name="subcategory" id="subcategory" class="subCategoryProduct">
                         <option disabled hidden selected>Seleccione una Subcategoria</option>
                         <% for(subcategory of subCategories) { %>
                             <option value=<%=subcategory.id %>>
@@ -57,17 +58,6 @@
                             <% }%>
                     </select>
                 </div>
-
-                <!-- <div class="code-prod">
-                    <input type="number" name="code" id="code" placeholder="Codigo de Barra">
-                </div> -->
-                <!--  <div class="stock-prod">
-                    <input type="number" name="stock" id="stock" placeholder="Stock">
-                </div> -->
-                <!-- <div class="description-prod">
-                    <textarea name="description" id="description"
-                        placeholder="Descripcion del Producto"></textarea>
-                </div> -->
                 <div class="submit-prod">
                     <input type="submit" value="Guardar Producto" id="form_button" />
                 </div>
@@ -76,6 +66,9 @@
 
         <%- include('../partials/footer') %>
             <script src="/js/main.js"></script>
+            <script src="/js/productsSubCategory.json"></script>
+            <script src="/js/subCategory.js"></script>
+            <script src="/js/scrollUp.js"></script>
 </body>
 
 </html>

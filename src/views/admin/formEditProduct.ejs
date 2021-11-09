@@ -5,10 +5,13 @@
     <%- include('../partials/head.ejs') %>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/formEditProduct.css">
+         <!-- Jquery -->
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
+    <%- include('../partials/scrollUp.ejs') %>
 
         <div id="container-brain">
             <h1 class="title-brain">&bull; Brainstorming &bull;</h1>
@@ -44,34 +47,37 @@
                         placeholder="% de Descuento">
                 </div>
                 <div class="categ-prod">
-                    <select name="category" id="category">
+                    <select name="category" id="category" class="categoryProduct">
                         <% for(category of categories) { %>
-                            <option value=<%=category.id %>>
-                                <%= category.name %>
-                            </option>
-                            <% }%>
+                            <% if (product.category == category.id) { %>
+                                <option value=<%=category.id %> selected>
+                                    <%= category.name %>
+                                </option>
+                            <% } else { %>
+                                <option value=<%=category.id %>>
+                                    <%= category.name %>
+                                </option>
+                            <% } %> 
+                        <% }%>
                     </select>
                 </div>
                 <div class="subcateg-prod">
-                    <select name="subcategory" id="subcategory">
+                    <select name="subcategory" id="subcategory" class="subCategoryProduct">
                         <% for(subcategory of subCategories) { %>
-                            <option value=<%=subcategory.id %>>
-                                <%= subcategory.name %>
-                            </option>
-                            <% }%>
+                            <% if (subcategory.idCategory == categoryId) { %>
+                                <% if (product.category == subcategory.id) { %>
+                                    <option value=<%=subcategory.id %> selected>
+                                        <%= subcategory.name %>
+                                    </option>
+                                <% } else { %>
+                                    <option value=<%=subcategory.id %>>
+                                        <%= subcategory.name %>
+                                    </option>
+                                <% } %>                            
+                            <% } %>
+                        <% }%>
                     </select>
                 </div>
-
-                <!--  <div class="stock-prod">
-                        <input type="number" name="stock" id="stock" placeholder="Stock">
-                    </div> -->
-                <!--             <div class="code-prod">
-                    <input type="number" name="code" id="code" placeholder="Codigo de Barra">
-                </div> -->
-                <!-- <div class="description-prod">
-                        <textarea name="description" id="description"
-                        placeholder="Descripcion del Producto"></textarea>
-                    </div> -->
                 <div class="submit-prod">
                     <input type="submit" value="Editar Producto" id="form_button" />
                 </div>
@@ -80,6 +86,10 @@
 
         <%- include('../partials/footer') %>
             <script src="/js/main.js"></script>
+            <script src="/js/productsSubCategory.json"></script>
+            <script src="/js/subCategory.js"></script>
+            <script src="/js/scrollUp.js"></script>
+
 </body>
 
 </html>

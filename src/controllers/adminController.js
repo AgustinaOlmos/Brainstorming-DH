@@ -24,11 +24,11 @@ const adminController = {
         let newProduct = {
             id: products[products.length - 1].id + 1,
             title: req.body.title,
-            price: req.body.price,
-            discount: req.body.discount,
-            category: req.body.category,
-            subcategory: req.body.subcategory,
-            promotion: req.body.promotion,
+            price: parseInt(req.body.price),
+            discount: parseInt(req.body.discount),
+            category: parseInt(req.body.category),
+            subcategory: parseInt(req.body.subcategory),
+            promotion: parseInt(req.body.promotion),
             img: req.file ? req.file.filename : '/img/default-image.png',
         }
         console.log(req.file)
@@ -43,9 +43,11 @@ const adminController = {
     edit: (req, res) => {
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let product = products.find(product => product.id == req.params.id)
+        let categoryId = product.category
         res.render('admin/formEditProduct', {
             product,
             categories,
+            categoryId,
             subCategories,
             nombrePagina: 'Editar Producto',
         })
@@ -58,11 +60,11 @@ const adminController = {
         let editedProduct = {
             id,
             title: req.body.title,
-            price: req.body.price,
-            discount: req.body.discount,
-            category: req.body.category,
-            subcategory: req.body.subcategory,
-            promotion: req.body.promotion,
+            price: parseInt(req.body.price),
+            discount: parseInt(req.body.discount),
+            category: parseInt(req.body.category),
+            subcategory: parseInt(req.body.subcategory),
+            promotion: parseInt(req.body.promotion),
             img: req.file ? req.file.filename : productToEdit.img
         }
 
