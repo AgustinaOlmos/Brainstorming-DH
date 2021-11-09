@@ -20,7 +20,8 @@
                 <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
             </div>
 
-            <form action="/products/edit-product/<%= product.id %>?_method=PUT" method="POST" id="form-create" enctype="multipart/form-data">
+            <form action="/products/edit-product/<%= product.id %>?_method=PUT" method="POST" id="form-create"
+                enctype="multipart/form-data">
                 <div class="name-prod">
                     <input type="text" name="title" id="title" value="<%= product.title %>">
                 </div>

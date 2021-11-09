@@ -31,8 +31,8 @@
                 <div class="promo-prod">
                     <select name="promotion" id="promotion">
                         <option disabled hidden selected>Seleccione una opcion</option>
-                        <option value= 1>Con Promoción</option>
-                        <option value= 0>Sin Promoción</option>
+                        <option value=1>Con Promoción</option>
+                        <option value=0>Sin Promoción</option>
                     </select>
                 </div>
                 <div class="discount-prod">
@@ -51,11 +51,13 @@
                 <div class="subcateg-prod">
                     <select name="subcategory" id="subcategory" class="subCategoryProduct">
                         <option disabled hidden selected>Seleccione una Subcategoria</option>
-                        <% for(subcategory of subCategories) { %>
-                            <option value=<%=subcategory.id %>>
-                                <%= subcategory.name %>
-                            </option>
-                            <% }%>
+                        <% subCategories.forEach(subcategory=> { %>
+                            <% if (subcategory.idCategory == category.id) { %>
+                                <option value=<% subcategory.id %>>
+                                    <%= subcategory.name %>
+                                </option>                             
+                            <% } %>
+                            <% }) %>
                     </select>
                 </div>
                 <div class="submit-prod">

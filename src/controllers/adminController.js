@@ -11,7 +11,7 @@ let subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8'));
 
 const adminController = {
     create: (req, res) => {
-        res.render('admin/formCreateProduct', {
+         res.render('admin/formCreateProduct', {
             categories,
             subCategories,
             nombrePagina: 'Crear Producto'
@@ -31,7 +31,6 @@ const adminController = {
             promotion: parseInt(req.body.promotion),
             img: req.file ? req.file.filename : '/img/default-image.png',
         }
-        console.log(req.file)
         products.push(newProduct)
 
         // Pasar los productos a JSON
@@ -41,9 +40,13 @@ const adminController = {
 
     // (get) - Formulario para editar
     edit: (req, res) => {
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let product = products.find(product => product.id == req.params.id)
+<<<<<<< HEAD
         let categoryId = product.category
+=======
+       
+>>>>>>> 865ec284dbc8df2db6c97acc3fde10e0415a9c95
         res.render('admin/formEditProduct', {
             product,
             categories,
