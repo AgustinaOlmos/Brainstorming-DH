@@ -42,11 +42,7 @@ const adminController = {
     edit: (req, res) => {
             products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let product = products.find(product => product.id == req.params.id)
-<<<<<<< HEAD
         let categoryId = product.category
-=======
-       
->>>>>>> 865ec284dbc8df2db6c97acc3fde10e0415a9c95
         res.render('admin/formEditProduct', {
             product,
             categories,
