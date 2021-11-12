@@ -29,7 +29,7 @@ const adminController = {
             category: parseInt(req.body.category),
             subcategory: parseInt(req.body.subcategory),
             promotion: parseInt(req.body.promotion),
-            img: req.file ? req.file.filename : '/img/default-image.png',
+            img: req.file ? req.file.filename : 'default-image.jpg',
         }
         products.push(newProduct)
 
