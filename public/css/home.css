@@ -37,7 +37,7 @@
 }
 
 .nosotros {
-  height: 600px;
+  height: 700px;
   position: relative;
   background: url(../img/wall/traslasierra-cordoba.jpg) center center no-repeat fixed;
   background-size: cover;
@@ -75,6 +75,19 @@
     color: var(--blanco);
     letter-spacing: 4px;
     font-weight: lighter;
+}
+
+.contenedor-nosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  height: 400px;
+  line-height: 2.5;
+}
+
+.contenedor-nosotros p {
+  color : var(--blanco);
 }
 
 @media (min-width: 768px) {

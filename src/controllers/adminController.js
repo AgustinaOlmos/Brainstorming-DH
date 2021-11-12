@@ -67,6 +67,16 @@ const adminController = {
             img: req.file ? req.file.filename : productToEdit.img
         }
 
+        //console.log("hola",req.file)
+
+        if(req.file) {
+            console.log('viene foto nueva');
+            if(productToEdit.img != 'default-image.jpg') {
+                console.log(productToEdit.img);
+                fs.unlinkSync(path.join(__dirname, '../../public/img/products/'+productToEdit.img))
+            }
+        }
+
         products.forEach((product, index) => {
             if (product.id == id) {
                 products[index] = editedProduct
