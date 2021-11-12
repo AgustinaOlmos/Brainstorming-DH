@@ -67,12 +67,9 @@ const adminController = {
             img: req.file ? req.file.filename : productToEdit.img
         }
 
-        //console.log("hola",req.file)
-
         if(req.file) {
             console.log('viene foto nueva');
             if(productToEdit.img != 'default-image.jpg') {
-                console.log(productToEdit.img);
                 fs.unlinkSync(path.join(__dirname, '../../public/img/products/'+productToEdit.img))
             }
         }
@@ -91,6 +88,12 @@ const adminController = {
         let id = req.params.id
 
         let finalProducts = products.filter(product => product.id != id)
+
+        let imageOld = products.filter(product => product.id == id)
+
+        if(imageOld[0].img != 'default-image.jpg') {
+            fs.unlinkSync(path.join(__dirname, '../../public/img/products/'+imageOld[0].img))
+        }
 
         fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, " ")) // Convierto en JSON
         res.redirect('/products/all')

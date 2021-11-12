@@ -208,15 +208,5 @@
   "subcategory": 15,
   "promotion": 1,
   "img": "tool-3.jpg"
- },
- {
-  "id": "22",
-  "title": "pirulo",
-  "price": 4500,
-  "discount": 0,
-  "category": 4,
-  "subcategory": 8,
-  "promotion": 0,
-  "img": "product_img_1636751912085deli-2.jpg"
  }
 ]
