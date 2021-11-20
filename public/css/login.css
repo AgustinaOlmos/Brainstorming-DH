@@ -13,7 +13,6 @@
     font-size: 34px;
     color: var(--rosado);
 }
-
 /* CONTENEDOR DE CAMPOS REGISTROS */
 .field-container {
     display: flex;
@@ -28,7 +27,7 @@
     width: 100%;
     height: 40px;
     padding: 7.15px 15px;
-    font-family: var(--fontBody);
+    font-family: 'Arial';
     font-size: 1.25rem;
     font-weight: normal;
     margin-bottom: 15px;
@@ -44,7 +43,23 @@
     border-top: 3px solid var(--rosado);
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
-
+.form-group label {
+    color: var(--rosado);
+}
+.form-group > .text-danger {
+    margin-top: -13px;
+    margin-bottom: 5px;
+    color: red;
+}
+.form-check {
+    text-align: end;
+}
+.form-check .form-check-label {
+    color: var(--rosado);
+}
+.form-check .form-check-label input {
+    margin-right: 10px;
+}
 /* SECTOR DE CONTRASEÑAS */
 .line-container {
     margin-top: 15px;
@@ -61,7 +76,6 @@
     display: flex;
     justify-content: end;
 }
-
 .btn-neon {
     position: relative;
     display: inline-block;
@@ -75,19 +89,16 @@
     cursor: pointer;
     transition: 0.2s;
 }
-
 .btn-neon:hover {
     background: #a945c7;
     color: #FFF;
     box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
     transition-delay: 1s;
 }
-
 .btn-neon span {
     position: absolute;
     display: block;
 }
-
 #span1 {
     top: 0;
     left: -100%;
@@ -95,12 +106,10 @@
     height: 2px;
     background: linear-gradient(90deg, transparent, #a945c7);
 }
-
 .btn-neon:hover #span1 {
     left: 100%;
     transition: 1s;
 }
-
 #span3 {
     bottom: 0;
     right: -100%;
@@ -108,13 +117,11 @@
     height: 2px;
     background: linear-gradient(270deg, transparent, #a945c7);
 }
-
 .btn-neon:hover #span3 {
     right: 100%;
     transition: 1s;
     transition-delay: 0.5s;
 }
-
 #span2 {
     top: -100%;
     right: 0;
@@ -122,13 +129,11 @@
     height: 100%;
     background: linear-gradient(180deg, transparent, #a945c7);
 }
-
 .btn-neon:hover #span2 {
     top: 100%;
     transition: 1s;
     transition-delay: 0.25s;
 }
-
 #span4 {
     bottom: -100%;
     left: 0;
@@ -136,16 +141,11 @@
     height: 100%;
     background: linear-gradient(360deg, transparent, #a945c7);
 }
-
 .btn-neon:hover #span4 {
     bottom: 100%;
     transition: 1s;
     transition-delay: 0.75s;
 }
-
-
-
-
 /*** CAMBIO COLOR A BOTÓN GROW BOX ***/
 .ov-btn-grow-box {
     color: var(--rosado) !important; /* color de fuente */
@@ -157,7 +157,6 @@
 .ov-btn-grow-box::after {
     background: var(--rosado) !important; /* color de fondo hover */
 }
-
 /*==================================================
     PUNTOS DE QUIEBRES
 ==================================================*/
@@ -173,7 +172,6 @@
         width: 100%;
     }
 }
-
 /*==================================================
     DESKTOP
 ==================================================*/
