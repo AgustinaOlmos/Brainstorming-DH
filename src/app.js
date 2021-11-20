@@ -1,8 +1,8 @@
 const express = require('express');
-const path = require('path')
-const methodOverride = require('method-override')
-const session = require('express-session')
-const cookies = require('cookie-parser')
+const path = require('path');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const cookies = require('cookie-parser');
 const app = express();
 
 // Configuracion de Session
@@ -10,9 +10,13 @@ app.use(session({
     secret: 'Brainstorming-Secret',
     resave: false,
     saveUninitialized: false
-}))
+}));
 
-app.use(cookies())
+//Middleware de aplicacion para el menu de navegacion
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
+app.use(cookies());
+app.use(userLoggedMiddleware);
 
 // Archivos Estaticos
 //app.use(express.static('public'));

@@ -32,7 +32,7 @@
     width: 100%;
     height: 40px;
     padding: 7.15px 15px;
-    font-family: var(--fontBody);
+    font-family: 'Arial';
     font-size: 1.25rem;
     font-weight: normal;
     margin-bottom: 15px;
@@ -66,6 +66,17 @@
     border: 2px solid var(--rosado);
     border-top: 3px solid var(--rosado);
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+.form-group label {
+    color: var(--rosado);
+}
+.form-group > .text-danger {
+    margin-top: -13px;
+    margin-bottom: 5px;
+    color: red;
+}
+.form-group > .input-image {
+    color: var(--rosado);
 }
 .form-group p {
     font-family: sans-serif;

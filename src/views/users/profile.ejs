@@ -14,6 +14,12 @@
     <%- include('../partials/header.ejs') %>
 
     <%- include('../partials/scrollUp.ejs') %>
+    <% let zone; %>
+    <% for( let index = 0; index < zoneDatabase.length; index++ ) {
+        if(user.state == zoneDatabase[index].id ) {
+            zone = zoneDatabase[index].name;
+        } 
+     } %>
 
 <div class="dataTitle">
     <h1 style="font-family: 'Bebas Neue'; font-style: regular; color: var(--rosado);">
@@ -26,12 +32,12 @@
             <div class="card-container">
                 <div class="bubbles"></div>
                 <div class="photo">
-                    <img src="/img/users/image-victor.jpg" alt="Foto Personal">
+                    <img src="/img/users/<%= user.avatar %>" alt="Foto Personal">
                 </div>
                 <div class="personal-data-container">
-                    <span class="name">Victor Crest</span>
-                    <span class="age">26</span>
-                    <div class="city">London</div>
+                    <span class="name"><%= user.fullName %></span>
+                    <!-- <span class="age">26</span> -->
+                    <div class="city"><%= user.city %></div>
                 </div>
                 <div class="stats-container">
                     <div class="statistics">
@@ -43,7 +49,7 @@
                         <div class="units">Compras</div>
                     </div>
                     <div class="statistics">
-                        <div class="quantity">1150</div>
+                        <div class="quantity"><%= totalProducts %></div>
                         <div class="units">Productos</div>
                     </div>
                 </div>
@@ -58,17 +64,17 @@
                 <div class="general-personal-box">
                     <div class="data-personal">
                         <div class="data-name">
-                            <h3>Victor Crest</h3>
+                            <h3><%= user.fullName %></h3>
                         </div>
                         <div class="data-information">
                             <div>
-                                <span class="data-img"><i class="fas fa-address-card"></i></span><span>DNI: 20345789</span><br>
+                                <span class="data-img"><i class="fas fa-address-card"></i></span><span>DNI: <%= user.dni_cuit %></span><br>
                             </div>
                             <div>
-                                <span class="data-img" style="margin-top: 10px;"><i class="fas fa-at"></i></span><span>Email: victorcrest@gmail.com</span><br>
+                                <span class="data-img" style="margin-top: 10px;"><i class="fas fa-at"></i></span><span>Email: <%= user.email %></span><br>
                             </div>
                             <div>
-                                <span class="data-img"><i class="fas fa-lg fa-phone"></i></span><span>Teléfono: 1136887699</span>
+                                <span class="data-img"><i class="fas fa-lg fa-phone"></i></span><span>Teléfono: <%= user.phone %></span>
                             </div>
                         </div>
                     </div>
@@ -91,9 +97,9 @@
                 <div class="general-personal-box-2">
                     <div class="card-address">
                         <div class="data-information-2">
-                            <span class="data-img"></span><span id="addres">El Arreo 220</span><br><br>
+                            <span class="data-img"></span><span id="addres"><%= user.street %> <%= user.number %> <%= user.floor %> <%= user.flat %></span><br><br>
                             <span class="data-img"><strong>Referencia: </strong></span><span> entre cortejarena y garcia lorca, porton negro</span><br><br>
-                            <span class="data-img"><i class="fas fa-lg fa-building"></i></span><span>La Reja, Buenos Aires-GBA</span>
+                            <span class="data-img"><i class="fas fa-lg fa-building"></i></span><span>(<%= user.zip %>) <%= user.city %>, <%= zone %></span>
                         </div>
                     </div>
                 </div>

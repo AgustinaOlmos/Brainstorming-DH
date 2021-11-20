@@ -55,6 +55,13 @@ body {
 	font-size: 20px;
 }
 
+#user-logged {
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--blanco);
+	border-radius: 50%;
+	object-fit: cover;
+}
 
 .menu .contenedor-botones-menu {
 	display: none;
@@ -134,6 +141,7 @@ body {
 .menu .contenedor-enlaces-nav .enlaces a:hover {
 	border: 1px solid rgba(255,255,255,.4);
 }
+
 
 /* ------------------------- */
 /* GRID */

@@ -1,3 +1,9 @@
+// 1. Guardar al usuario en la DB                                   ok 3)
+// 2. Buscar al usuario que se quiere loguear por su email          ok 2)
+// 3. Buscar a un usuario por su ID                                 ok 1)
+// 4. Editar la informacion de un usuario
+// 5. Eliminar a un usuario de la DB                                ok 4)
+
 const fs = require('fs');
 
 const User = {
@@ -52,3 +58,5 @@ const User = {
 }
 
 module.exports = User;
+//console.log(User.generateId());
+//console.log(User.delete(4));

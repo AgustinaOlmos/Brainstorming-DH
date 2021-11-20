@@ -14,10 +14,20 @@
 
 			<div class="enlaces">
 				<a href="/home"><i class="fas fa-home" id="home"></i> Inicio</a>
-				<a href="/users/login"><i class="fas fa-user" id="login"></i> Cuenta</a>
+				<% if (locals.isLogged && locals.userLogged.roll_user == 1) { %>
+					<a href="/admin/create-product"><i class="far fa-plus-square"></i> Productos</a>
+				<% } %>
 				<a href="#">Promociones</a>
-				<a href="/admin/create-product">Vender</a>
 				<a href="#">Ayuda</a>
+				<% if (locals.isLogged) { %>	
+					<img id="user-logged" src="/img/users/<%= locals.userLogged.avatar %>" >
+					<a class="nav-link dropdown-toggle" href="/users/profile/" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<%= locals.userLogged.fullName.substr(0,7) %> 
+					</a>
+					<a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+				<% } else { %>
+					<a href="/users/login"><i class="fas fa-user" id="login"></i> Cuenta</a>
+				<% } %>
 				<a href="#"><i class="fas fa-shopping-bag" id="cart"></i></a>
 			</div>
 		</div>
