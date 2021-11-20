@@ -14,6 +14,8 @@ let products = JSON.parse(fs.readFileSync(productsAllFilePath, 'utf-8'));
 
 let totalProducts = products.length;
 
+const User = require('../modelos/User');
+
 const usersController = {
     login: (req, res) => res.render('users/login', {
         categories,
@@ -21,7 +23,8 @@ const usersController = {
         nombrePagina: 'Inicio de Sesion'
     }),
     loginProcess: (req, res) =>{
-        res.send(req.body)
+        let userToLogin = User.findByField('email', req.body.email);
+        return res.send(userToLogin);
     },
     
     register: (req, res) => res.render('users/register', {
