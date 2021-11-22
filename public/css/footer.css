@@ -9,6 +9,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 60px;
 }
 .main-storage .square {
   flex-basis: 50%;

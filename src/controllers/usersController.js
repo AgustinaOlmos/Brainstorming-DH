@@ -178,7 +178,17 @@ const usersController = {
         categories,
         subCategories,
         zoneDatabase,
+        users: User.findAll(),
         user: req.session.userLogged,
+        totalProducts,
+        nombrePagina: 'Perfil de Usuario'
+    }),
+    profileUsers: (req, res) => res.render('users/profile', {
+        categories,
+        subCategories,
+        zoneDatabase,
+        users: User.findAll(),
+        user: User.findByPk(req.params.id),
         totalProducts,
         nombrePagina: 'Perfil de Usuario'
     }),

@@ -101,12 +101,7 @@
                                     <%= locals.oldData && (oneAfip.id_afip == oldData.invoice_type_id) ? 'selected' : null %> 
                                 > <%= oneAfip.name %> </option>
                             <% } %>
-                            <!-- <option id="" value="1">Consumidor final</option>
-                            <option id="" value="2">Responsable inscripto</option>
-                            <option id="" value="3">Exento</option>
-                            <option id="" value="4">Monotributo</option>
-                            <option id="" value="5">No Categorizado</option>
-                            <option id="" value="6">No gravado</option> -->
+
                         </select>
                         <% if (locals.errors && errors.invoice_type_id) { %>
                             <div class="text-danger">
