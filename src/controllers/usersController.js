@@ -32,17 +32,14 @@ const usersController = {
             if(userToLogin.password.substr(0,7) == '$2a$10$'){
                 let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
                 if(isOkThePassword) {
-                    //return res.send('Ok puedes ingresar');
                     // Guarda todos los datos del usuario en una variable de session
                     // primero quitar el atributo password del objeto
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin;
-                    //console.log(req.session.userLogged);
 
                     if(req.body.remember_user) {
                         res.cookie('userBrainstorming', req.body.email, { maxAge: (1000 * 60) * 60 })
                     }
-
 
                     return res.redirect('/home');
                 }
@@ -59,15 +56,11 @@ const usersController = {
                 });
             }
 
-            //return res.send(userToLogin.password);
-            
             if(userToLogin.password == req.body.password){
-                //return res.send('Ok puedes ingresar');
                 // Guarda todos los datos del usuario en una variable de session
                 // primero quitar el atributo password del objeto
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                console.log(req.session.userLogged);
 
                 if(req.body.remember_user) {
                     res.cookie('userBrainstorming', req.body.email, { maxAge: (1000 * 60) * 60 })
@@ -176,8 +169,6 @@ const usersController = {
 
         // quitar el campo repassword del array
         delete userToCreate.repassword;
-
-        console.log(userToCreate);
 
         let userCreated = User.create(userToCreate);
 
