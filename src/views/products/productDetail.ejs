@@ -70,9 +70,9 @@
                         </div>
                     </div>
                     <div class="producto_descripcion_detalle_carrito">
-                        <button type="button">
+                        <button id="addShoppinCart" type="button">
                             <span>agregar a la bolsa de pedidos</span>
-                            <i class="fas fa-shopping-bag"></i>
+                            <i class="fas fa-shopping-bag"></i><br>
                         </button>
                     </div>
                 </div>
@@ -118,12 +118,23 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="/admin/edit-product/<%= product.id %>" class="form-edit">
-                        <button class="btn-edit">EDITAR</button>
-                    </a>
-                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="delete-btn"> ELIMINAR</button>
-                    </form>
+                    <% if (locals.isLogged && locals.userLogged.roll_user == 1) { %>
+                        <div class="editDeleteContainer">
+                            <div class="buttons"> 
+                                <a href="/admin/edit-product/<%= product.id %>" class="form-edit">
+                                    <button class="efectButton fill">EDITAR</button>
+                                </a>
+                            </div>
+                            <!-- <a href="/admin/edit-product/<%= product.id %>" class="form-edit">
+                                <button class="btn-edit">EDITAR</button>
+                            </a> -->
+                            <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                                <div class="buttons">
+                                    <button class="efectButton pulse" type="submit" class="delete-btn">ELIMINAR</button>
+                                </div>
+                            </form>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>

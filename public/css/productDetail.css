@@ -222,6 +222,100 @@ a.detalle_titulo_boton {
   color: var(--tinto);
 }
 
+.editDeleteContainer {
+  display: flex;
+  margin-top: 60px;
+  height: 100px;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  background-color: #2e2d2d;
+  border-radius: 10px;
+}
+
+
+.fill:focus,.fill:hover {
+  box-shadow:inset 0 0 0 2em var(--hover)
+}
+.pulse:focus,.pulse:hover {
+  -webkit-animation:pulse 1s;
+  animation:pulse 1s;
+  box-shadow:0 0 0 2em rgba(255,255,255,0)
+}
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow:0 0 var(--hover)
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow:0 0 var(--hover)
+  }
+}
+.close:focus,.close:hover {
+  box-shadow:inset -3.5em 0 0 0 var(--hover),inset 3.5em 0 0 0 var(--hover)
+}
+.raise:focus,.raise:hover {
+  box-shadow:0 .5em .5em -.4em var(--hover);
+  -webkit-transform:translateY(-.25em);
+  transform:translateY(-.25em)
+}
+.up:focus,.up:hover {
+  box-shadow:inset 0 -3.25em 0 0 var(--hover)
+}
+.slide:focus,.slide:hover {
+  box-shadow:inset 6.5em 0 0 0 var(--hover)
+}
+.offset {
+  box-shadow:.3em .3em 0 0 var(--color),inset .3em .3em 0 0 var(--color)
+}
+.offset:focus,.offset:hover {
+  box-shadow:0 0 var(--hover),inset 6em 3.5em 0 0 var(--hover)
+}
+.fill {
+  --color:#a972cb;--hover:#cb72aa
+}
+.pulse {
+  --color:#ef6eae;--hover:#ef8f6e
+}
+.close {
+  --color:#ff7f82;--hover:#ffdc7f
+}
+.raise {
+  --color:#ffa260;--hover:#e5ff60
+}
+.up {
+  --color:#e4cb58;--hover:#94e458
+}
+.slide {
+  --color:#8fc866;--hover:#66c887
+}
+.offset {
+  --color:#19bc8b;--hover:#1973bc
+}
+.efectButton {
+  color:var(--color);transition:.25s
+}
+.efectButton:focus,button:hover {
+  border-color:var(--hover);color:#fff
+}
+.efectButton {
+  background:0 0;
+  border:2px solid;
+  font:inherit;
+  line-height:1;
+  margin:.5em;
+  padding:1em 2em;
+  cursor:pointer;
+}
+.efectButton {
+  font-weight:400
+}
+
+#addShoppinCart {
+  height: 65px;
+}
+
 /*==================================================
     PRODUCTOS RELACIONADOS
 ==================================================*/
@@ -528,6 +622,9 @@ a.detalle_titulo_boton {
   }
   .sale-product span {
     font-size: 12px;
+  }
+  .editDeleteContainer {
+    margin-top: 0;
   }
 
 }
