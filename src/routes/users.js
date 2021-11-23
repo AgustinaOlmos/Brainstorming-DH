@@ -22,6 +22,10 @@ router.get('/login', guestMiddleware, usersController.login);
 // Procesar login
 router.post('/login', usersController.loginProcess);
 
+// Editar usuarios
+router.get('/editUser/:id/', authMiddleware, usersController.editUser);
+router.put('/editUser/:id', uploadFile.single('avatar'), validations, usersController.updateUser);
+
 // Perfil de Usuario
 router.get('/profile', authMiddleware, usersController.profile);
 router.get('/profileUsers/:id/', authMiddleware, usersController.profileUsers);

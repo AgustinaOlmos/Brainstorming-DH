@@ -58,5 +58,3 @@ const User = {
 }
 
 module.exports = User;
-//console.log(User.generateId());
-//console.log(User.delete(4));

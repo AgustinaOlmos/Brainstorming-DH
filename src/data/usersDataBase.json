@@ -54,10 +54,10 @@
   "roll_user": 2
  },
  {
-  "id": 4,
+  "id": "4",
   "fullName": "Natalia Oduber",
   "dni_cuit": 94654750,
-  "phone": "1138669097",
+  "phone": "1138661609",
   "email": "nataliaoduber@gmail.com",
   "invoice_type_id": 1,
   "street": "El Arreo",
@@ -66,10 +66,10 @@
   "flat": "",
   "zip": "1738",
   "city": "La Reja",
-  "state": 2,
+  "state": 1,
   "reference": "entre calle cartejarena y garcia lorca, porton negro",
   "password": "$2a$10$vp5.nf.1BCN0qiy5R1v9Ee/XgWbxnzdkyTbMZECihkFKfBuRZUEwi",
-  "avatar": "1637240563198_user.jpg",
+  "avatar": "1637643623808_user.jpg",
   "roll_user": 2
  }
 ]
