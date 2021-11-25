@@ -97,7 +97,7 @@
                             <% for (const oneAfip of afip) { %>
                                 <option 
                                     value="<%= oneAfip.id_afip %>"
-                                    <%= locals.oldData && (oneAfip.id_afip == oldData.invoice_type_id) ? 'selected' : user.invoice_type_id %> 
+                                    <%= (oneAfip.id_afip == user.invoice_type_id) ? 'selected' : user.invoice_type_id %> 
                                 > <%= oneAfip.name %> </option>
                             <% } %>
 
@@ -208,7 +208,7 @@
                             <% for (const oneCity of zoneDatabase) { %>
                                 <option 
                                     value="<%= oneCity.id %>"
-                                    <%= locals.oldData && (oneCity.id == oldData.state) ? 'selected' : user.state %> 
+                                    <%= (oneCity.id == user.state) ? 'selected' : user.state %> 
                                 > <%= oneCity.name %> </option>
                             <% } %>
                             <!-- <option value="CABA">CIUDAD AUTONOMA DE BUENOS AIRES</option>

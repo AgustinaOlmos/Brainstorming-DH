@@ -18,22 +18,23 @@
   "roll_user": 1
  },
  {
-  "id": 2,
+  "id": "2",
   "fullName": "Pablo Morrone",
-  "dni_cuit": "22362590",
+  "dni_cuit": 22362590,
   "phone": "1138669097",
   "email": "morronepablo@gmail.com",
   "invoice_type_id": 1,
   "street": "el arreo",
-  "number": 220,
+  "number": "220",
   "floor": "",
   "flat": "",
   "zip": "2333",
   "city": "La Reja",
   "state": 2,
+  "reference": "",
+  "roll_user": 1,
   "password": "morrone22362590",
-  "avatar": "user_default.png",
-  "roll_user": 1
+  "avatar": "1637686577084_user.jpg"
  },
  {
   "id": 3,
@@ -66,10 +67,29 @@
   "flat": "",
   "zip": "1738",
   "city": "La Reja",
-  "state": 1,
+  "state": 2,
   "reference": "entre calle cartejarena y garcia lorca, porton negro",
   "password": "$2a$10$vp5.nf.1BCN0qiy5R1v9Ee/XgWbxnzdkyTbMZECihkFKfBuRZUEwi",
   "avatar": "1637643623808_user.jpg",
   "roll_user": 2
+ },
+ {
+  "id": "41",
+  "fullName": "Alberto Benegas",
+  "dni_cuit": 22354765,
+  "phone": "1138776545",
+  "email": "albertobenegas@gmail.com",
+  "invoice_type_id": 1,
+  "street": "rivadavia ",
+  "number": "10444",
+  "floor": "",
+  "flat": "",
+  "zip": "1425",
+  "city": "Villa Luro",
+  "state": 1,
+  "reference": "Casa propia - tacar timbre",
+  "roll_user": 1,
+  "password": "$2a$10$s6XW.lNFRfDINhYX0GcHiO0Eoe01dSevft99ab4lhC/8rSofOekeO",
+  "avatar": "1637686325065_user.jpg"
  }
 ]
