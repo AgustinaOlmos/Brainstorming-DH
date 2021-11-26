@@ -13,21 +13,6 @@ const productsController = {
     all: (req, res) => {
         products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        let discountToFilter = 5;
-        // Determina la cantidad de productos que se van a mostrar en el index
-        let numberOfProductsToShow = 5;
-        let discountProductsToShow = [];
-        
-        discountProducts = products.filter(product => product.discount >= discountToFilter); // Filtramos los productos
-        for (let i = 0; i < numberOfProductsToShow; i++) {
-            if (discountProducts.length == 0) {break}; // Si no hay mas elementos, salimos del for
-                discountProductsToShow.push( // Pusheamos al array que vamos a enviar...
-                discountProducts.splice( // Tomamos un elemento al azar del array. Splice toma un elemento del array, el primer parametro determina la posicion, el segundo cuantos elementos
-                Math.floor(Math.random()*discountProducts.length), 1
-                )[0] // Ya que splice devuelve un array, lo quitamos del mismo para poder pushearlo
-            );
-        }
-
         res.render('products/allProducts', {
             products,
             categories,
@@ -51,6 +36,29 @@ const productsController = {
             categories,
             subCategories,
             nombrePagina: 'Productos por subcategorias'
+        })
+    },
+    topFive: (req, res) => {
+        let discountToFilter = 5;
+        // Determina la cantidad de productos que se van a mostrar en el index
+        let numberOfProductsToShow = 5;
+        let discountProductsToShow = [];
+        
+        discountProducts = products.filter(product => product.discount >= discountToFilter); // Filtramos los productos
+        for (let i = 0; i < numberOfProductsToShow; i++) {
+            if (discountProducts.length == 0) {break}; // Si no hay mas elementos, salimos del for
+                discountProductsToShow.push( // Pusheamos al array que vamos a enviar...
+                discountProducts.splice( // Tomamos un elemento al azar del array. Splice toma un elemento del array, el primer parametro determina la posicion, el segundo cuantos elementos
+                Math.floor(Math.random()*discountProducts.length), 1
+                )[0] // Ya que splice devuelve un array, lo quitamos del mismo para poder pushearlo
+            );
+        }
+        products = discountProductsToShow;
+        res.render('products/topFiveProducts', {
+            products,
+            categories,
+            subCategories,
+            nombrePagina: 'Top 5 mejores Ofertas'
         })
     },
     details: (req, res) => {

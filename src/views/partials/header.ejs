@@ -17,7 +17,7 @@
 				<% if (locals.isLogged && locals.userLogged.roll_user == 1) { %>
 					<a href="/admin/create-product"><i class="far fa-plus-square"></i> Productos</a>
 				<% } %>
-				<a href="#">Promociones</a>
+				<a href="/products/topFive">Promociones</a>
 				<a href="#">Ayuda</a>
 				<% if (locals.isLogged) { %>	
 					<img id="user-logged" src="/img/users/<%= locals.userLogged.avatar %>" >

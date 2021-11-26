@@ -16,6 +16,7 @@ a {
   margin-top: 200px;
   display: flex;
   flex-direction: column;
+  /* justify-content: space-between; */
 }
 .span-btn {
   display: flex;
@@ -67,6 +68,7 @@ input.search-input:focus {
   margin-bottom: 15px;
 }
 .main-title3 {
+  width: 95%;
   text-align: center;
   font-size: 35px;
   color: var(--tinto);
@@ -189,6 +191,9 @@ input.search-input:focus {
     text-align: left;
 
   }
+  .main-title3 {
+    width: 80%;
+  }
   .main-title2, .main-title3 {
     text-align: left;
     margin-left: 55px;
@@ -242,6 +247,9 @@ input.search-input:focus {
   }
   .search-btn {
     margin-right: 140px;
+  }
+  .main-title3 {
+    width: 70%;
   }
   .main-title2, .main-title3 {
     margin-left: 75px;

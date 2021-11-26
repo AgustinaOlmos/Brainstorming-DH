@@ -24,6 +24,9 @@ router.get('/category/:id/', productsController.category)
 //Productos por Subcategoria
 router.get('/subCategory/:id/', productsController.subcategory)
 
+//Productos Top 5 mejores ofertas
+router.get('/topFive', productsController.topFive)
+
 //Detalle de un producto particular
 router.get('/details/:id/', productsController.details)
 

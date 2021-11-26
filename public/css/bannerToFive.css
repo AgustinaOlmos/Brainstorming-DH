@@ -1,0 +1,24 @@
+.container-slider {
+    margin-top: 50px;
+}
+
+#logo-slider1, #logo-slider2, #logo-slider3, #logo-slider4 {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.form-search {
+    margin-top: 30px;
+}
+
+.main-products {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+@media (min-width: 1024px) {
+    .container-slider {
+        margin-top: 60px;
+    }
+}
