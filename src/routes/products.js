@@ -5,6 +5,8 @@ const multer = require('multer')
 const productsController = require('../controllers/productsController')
 const adminController = require('../controllers/adminController')
 
+const authMiddleware = require('../middlewares/authMiddleware');
+
 // Configuracion de Multar
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -31,7 +33,7 @@ router.get('/topFive', productsController.topFive)
 router.get('/details/:id/', productsController.details)
 
 //Carrito de compras
-router.get('/shop', productsController.shop)
+router.get('/shop', authMiddleware, productsController.shop)
 
 // Crear un producto - parte 2 // Deberá recibir los datos del formulario de creación.
 router.post('/all', upload.single('newProductImage'), adminController.store)

@@ -39,7 +39,7 @@ const productsController = {
         })
     },
     topFive: (req, res) => {
-        let discountToFilter = 5;
+        let discountToFilter = 10;
         // Determina la cantidad de productos que se van a mostrar en el index
         let numberOfProductsToShow = 5;
         let discountProductsToShow = [];
