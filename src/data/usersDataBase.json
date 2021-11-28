@@ -55,7 +55,7 @@
   "roll_user": 2
  },
  {
-  "id": "4",
+  "id": 4,
   "fullName": "Natalia Oduber",
   "dni_cuit": 94654750,
   "phone": "1138661609",
@@ -74,7 +74,7 @@
   "roll_user": 2
  },
  {
-  "id": "41",
+  "id": 5,
   "fullName": "Alberto Benegas",
   "dni_cuit": 22354765,
   "phone": "1138776545",

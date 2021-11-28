@@ -1,16 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productsCategory.json');
-const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const productsFilePath2 = path.join(__dirname, '../data/productsSubCategory.json');
-const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
+const categoriesFilePath = path.join(__dirname, '../data/productsCategory.json');
+const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+const subCategoriesFilePath = path.join(__dirname, '../data/productsSubCategory.json');
+const subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8'));
 const afipFilePath = path.join(__dirname, '../data/afipDataBase.json');
 const afip = JSON.parse(fs.readFileSync(afipFilePath, 'utf-8'));
-const zoneDatabaseFilePath = path.join(__dirname, '../data/zonasDataBase.json');
-const zoneDatabase = JSON.parse(fs.readFileSync(zoneDatabaseFilePath, 'utf-8'));
-const rollDatabaseFilePath = path.join(__dirname, '../data/rollUsersDataBase.json');
-const rollDatabase = JSON.parse(fs.readFileSync(rollDatabaseFilePath, 'utf-8'));
+const zoneFilePath = path.join(__dirname, '../data/zonasDataBase.json');
+const zoneDatabase = JSON.parse(fs.readFileSync(zoneFilePath, 'utf-8'));
+const rollFilePath = path.join(__dirname, '../data/rollUsersDataBase.json');
+const rollDatabase = JSON.parse(fs.readFileSync(rollFilePath, 'utf-8'));
 let productsAllFilePath = path.join(__dirname, '../data/productsDataBase.json');
 let products = JSON.parse(fs.readFileSync(productsAllFilePath, 'utf-8'));
 let usersAllFilePath = path.join(__dirname, '../data/usersDataBase.json');
@@ -20,7 +20,7 @@ let totalProducts = products.length;
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
-const User = require('../modelos/User');
+const User = require('../models/User');
 
 const usersController = {
     login: (req, res) => res.render('users/login', {

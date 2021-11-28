@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productsCategory.json');
-const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const productsFilePath2 = path.join(__dirname, '../data/productsSubCategory.json');
-const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
+const categoriesFilePath = path.join(__dirname, '../data/productsCategory.json');
+const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+const subCategoriesFilePath = path.join(__dirname, '../data/productsSubCategory.json');
+const subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8'));
 
 const mainController = {
     loading: (req, res) => res.render('loading'),
