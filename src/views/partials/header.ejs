@@ -22,7 +22,7 @@
 				<% if (locals.isLogged) { %>	
 					<img id="user-logged" src="/img/users/<%= locals.userLogged.avatar %>" >
 					<a class="nav-link dropdown-toggle" href="/users/profile/" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<%= locals.userLogged.fullName.substr(0,7) %> 
+						<%= locals.userLogged.fullName.substr(0,8) %> 
 					</a>
 					<a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
 				<% } else { %>

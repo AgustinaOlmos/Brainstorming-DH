@@ -20,7 +20,7 @@ let totalProducts = products.length;
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
-const User = require('../models/User');
+const User = require('../modelos/User');
 
 const usersController = {
     login: (req, res) => res.render('users/login', {
