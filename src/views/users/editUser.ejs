@@ -208,7 +208,7 @@
                             <% for (const oneCity of zoneDatabase) { %>
                                 <option 
                                     value="<%= oneCity.id %>"
-                                    <%= (oneCity.id == user.state) ? 'selected' : user.state %> 
+                                    <%= (oneCity.id == user.state_id) ? 'selected' : user.state_id %> 
                                 > <%= oneCity.name %> </option>
                             <% } %>
                             <!-- <option value="CABA">CIUDAD AUTONOMA DE BUENOS AIRES</option>
@@ -232,7 +232,7 @@
                         >
                         
                     </div>
-                    <% if (locals.isLogged && locals.userLogged.roll_user == 1) { %>
+                    <% if (locals.isLogged && locals.userLogged.roll_user_id == 1) { %>
                         <div class="form-group">
                             <select 
                                 name="roll_user" 
@@ -242,7 +242,7 @@
                                 <% for (const oneRoll of rollDatabase) { %>
                                     <option 
                                         value="<%= oneRoll.id %>"
-                                        <%= oneRoll.id == user.roll_user ? 'selected' : null %> 
+                                        <%= oneRoll.id == user.roll_user_id ? 'selected' : null %> 
                                     > <%= oneRoll.roll %> </option>
                                 <% } %>
                                 <!-- <option value="CABA">CIUDAD AUTONOMA DE BUENOS AIRES</option>

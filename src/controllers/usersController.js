@@ -22,6 +22,18 @@ const { validationResult } = require('express-validator');
 
 const User = require('../modelos/User');
 
+/*==================================================
+SEQUELIZE
+==================================================*/
+
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const Op = db.Sequelize.Op
+
+/*==================================================*/
+
+
+
 const usersController = {
     login: (req, res) => res.render('users/login', {
         categories,
@@ -29,13 +41,53 @@ const usersController = {
         nombrePagina: 'Inicio de Sesion'
     }),
     loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
+
+        db.Users.findOne(
+            {
+                where: {
+                    email: req.body.email,
+                    estado: 'A'
+                }
+            }
+        )
+        .then(user => {
+            let usuarioJson = JSON.parse(JSON.stringify(user))
+        //})
+
+        //let userToLogin = User.findByField('email', req.body.email);
+
+            userToLogin = usuarioJson;
         
-        if(userToLogin) {
-            //return res.send(userToLogin.password);
-            if(userToLogin.password.substr(0,7) == '$2a$10$'){
-                let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-                if(isOkThePassword) {
+            if(userToLogin) {
+                //return res.send(userToLogin.password);
+                if(userToLogin.password.substr(0,7) == '$2a$10$'){
+                    let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+                    if(isOkThePassword) {
+                        // Guarda todos los datos del usuario en una variable de session
+                        // primero quitar el atributo password del objeto
+                        delete userToLogin.password;
+                        req.session.userLogged = userToLogin;
+
+                        if(req.body.remember_user) {
+                            res.cookie('userBrainstorming', req.body.email, { maxAge: (1000 * 60) * 60 })
+                        }
+
+                        return res.redirect('/home');
+                    }
+                    return res.render('users/login', {
+                        categories,
+                        subCategories,
+                        errors: {
+                            password: {
+                                msg: '(*) Las credenciales son inválidas'
+                            }
+                        },
+                        oldData: req.body,
+                        nombrePagina: 'Inicio de Sesion'
+                    });
+                }
+
+                if(userToLogin.password == req.body.password){
                     // Guarda todos los datos del usuario en una variable de session
                     // primero quitar el atributo password del objeto
                     delete userToLogin.password;
@@ -58,45 +110,22 @@ const usersController = {
                     oldData: req.body,
                     nombrePagina: 'Inicio de Sesion'
                 });
+
             }
 
-            if(userToLogin.password == req.body.password){
-                // Guarda todos los datos del usuario en una variable de session
-                // primero quitar el atributo password del objeto
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-
-                if(req.body.remember_user) {
-                    res.cookie('userBrainstorming', req.body.email, { maxAge: (1000 * 60) * 60 })
-                }
-
-                return res.redirect('/home');
-            }
             return res.render('users/login', {
                 categories,
                 subCategories,
                 errors: {
-                    password: {
-                        msg: '(*) Las credenciales son inválidas'
+                    email: {
+                        msg: '(*) No se encuentra esta email en nuestra base de datos'
                     }
                 },
                 oldData: req.body,
                 nombrePagina: 'Inicio de Sesion'
             });
 
-        }
-
-        return res.render('users/login', {
-            categories,
-            subCategories,
-            errors: {
-                email: {
-                    msg: '(*) No se encuentra esta email en nuestra base de datos'
-                }
-            },
-            oldData: req.body,
-            nombrePagina: 'Inicio de Sesion'
-        });
+        })
     },
     register: (req, res) => {
         res.render('users/register', {
@@ -130,56 +159,79 @@ const usersController = {
         }
 
         // Comprbar que no exista el usuario por su email
-        let userInDB = User.findByField('email', req.body.email);
 
-        if(userInDB) {
-
-            if(req.file) {
-                if(req.file.filename) {
-                    if(req.file.filename != 'user_default.png') {
-                        fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+req.file.filename))
-                    }
+        db.Users.findOne(
+            {
+                where: {
+                    email: req.body.email
                 }
             }
+        )
+        .then(user => {
+            let userInDB = JSON.parse(JSON.stringify(user));
 
-            return res.render('users/register', {
-                categories,
-                subCategories,
-                afip,
-                zoneDatabase,
-                nombrePagina: 'Registro',
-                errors: {
-                    email: {
-                        msg: '(*) Este email ya está registrado'
+            if(userInDB) {
+
+                if(req.file) {
+                    if(req.file.filename) {
+                        if(req.file.filename != 'user_default.png') {
+                            fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+req.file.filename))
+                        }
                     }
-                },
-                oldData: req.body
-            });
-        }
+                }
 
-        // Genera un Id autoincrementable
-        let id = User.generateId();
+                return res.render('users/register', {
+                    categories,
+                    subCategories,
+                    afip,
+                    zoneDatabase,
+                    nombrePagina: 'Registro',
+                    errors: {
+                        email: {
+                            msg: '(*) Este email ya está registrado'
+                        }
+                    },
+                    oldData: req.body
+                });
+            }
 
-        let userToCreate = {
-            id: id,
-            ...req.body,
-            dni_cuit: parseInt(req.body.dni_cuit),
-            invoice_type_id: parseInt(req.body.invoice_type_id),
-            state: parseInt(req.body.state),
-            password: bcryptjs.hashSync(req.body.password, 10),
-            avatar: req.file ? req.file.filename : 'user_default.png',
-            roll_user: 2
-        }
-
-        // quitar el campo repassword del array
-        delete userToCreate.repassword;
-
-        let userCreated = User.create(userToCreate);
-
-        return res.redirect('/users/login');
+            db.Users.create(
+                {
+                    fullName: req.body.fullName,
+                    dni_cuit: parseInt(req.body.dni_cuit),
+                    phone: parseInt(req.body.phone),
+                    email: req.body.email,
+                    invoice_type_id: parseInt(req.body.invoice_type_id),
+                    street: req.body.street,
+                    number: parseInt(req.body.number),
+                    floor: req.body.floor,
+                    flat: req.body.flat,
+                    zip: parseInt(req.body.zip),
+                    city: req.body.city,
+                    state_id: parseInt(req.body.state),
+                    password: bcryptjs.hashSync(req.body.password, 10),
+                    avatar: req.file ? req.file.filename : 'user_default.png',
+                    roll_user_id: 2,
+                    reference: req.body.reference
+                }
+            )
+            .then(()=> {
+                return res.redirect('/users/login')})            
+            .catch(error => res.send(error))
+        })
     },
-    editUser: (req, res) => {
-        let editUser = User.findByPk(req.params.id)
+    editUser: async (req, res) => {
+        //let editUser = User.findByPk(req.params.id)
+
+        let editUser = await db.Users.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return data;
+        })
         res.render('users/editUser', {
             categories,
             subCategories,
@@ -190,13 +242,25 @@ const usersController = {
             nombrePagina: 'Actualizar usuario'
         })
     },
-    updateUser: (req, res) => {
+    updateUser: async (req, res) => {
         const resultValidation = validationResult(req);
         let emailChange = false;
         let emptyPassword = false;
         let photoChange = false;
         let userAdmin = false;
-        let usersEmail = User.findByPk(req.params.id);
+        //let usersEmail = User.findByPk(req.params.id);
+
+        let usersEmail = await db.Users.findOne({
+            where: {
+                id: req.params.id,
+            }
+        })
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return data;
+        })
+
+
 
         // Si cambio email
         if(usersEmail.email !== req.body.email){
@@ -204,7 +268,18 @@ const usersController = {
         }
 
         if(emailChange == true){
-            let userInDB = User.findByField('email', req.body.email);
+            //let userInDB = User.findByField('email', req.body.email);
+            let userInDB = await db.Users.findOne({
+                where: {
+                    email: req.body.email,
+                }
+            })
+            .then(user => {
+                data = JSON.parse(JSON.stringify(user));
+                return data;
+            })
+            console.log(userInDB);
+
             if(userInDB) {
                 if(req.file) {
                     if(req.file.filename) {
@@ -244,7 +319,20 @@ const usersController = {
                             }
                         }
                     }
-                    let editUser = User.findByPk(req.params.id)
+                    //let editUser = User.findByPk(req.params.id)
+
+                    let editUser = await db.Users.findOne({
+                        where: {
+                            id: req.params.id,
+                        }
+                    })
+                    .then(user => {
+                        data = JSON.parse(JSON.stringify(user));
+                        return data;
+                    })
+                    console.log(editUser);
+
+
                     return res.render('users/editUser', {
                         categories,
                         subCategories,
@@ -264,14 +352,30 @@ const usersController = {
         if(req.file) {
             photoChange = true;
         }
+
+        console.log("Photooooooooo   ",req.file)
         
         //Si el usuario logueado es administrador
-        if(res.locals.userLogged.roll_user == 1){
+        if(res.locals.userLogged.roll_user_id == 1){
             userAdmin = true;
         }
 
         let id = req.params.id
-        let userToEdit = User.findByPk(id);
+        //let userToEdit = User.findByPk(id);
+
+        let userToEdit = await db.Users.findOne({
+            where: {
+                id: req.params.id,
+            }
+        })
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return data;
+        })
+        
+
+
+
         let emailUserChange;
 
         // Si cambio email
@@ -298,8 +402,10 @@ const usersController = {
             if(userToEdit.avatar != 'user_default.png') {
                 fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+userToEdit.avatar))
             }
+            console.log("Cambio Photo ",editPhoto);
         } else {
             editPhoto = userToEdit.avatar;
+            console.log("No cambio Photo ",editPhoto);
         }
 
         let rolChange;
@@ -308,47 +414,88 @@ const usersController = {
         if(userAdmin == true){
             rolChange = parseInt(req.body.roll_user);
         } else {
-            rolChange = userToEdit.roll_user;
+            rolChange = userToEdit.roll_user_id;
         }
 
-        let editedUser = {
-            id: id,
-            ...req.body,
-            email: emailUserChange,
+        db.Users.update({
+            fullName: req.body.fullName,
             dni_cuit: parseInt(req.body.dni_cuit),
+            phone: parseInt(req.body.phone),
+            email: req.body.email,
             invoice_type_id: parseInt(req.body.invoice_type_id),
-            state: parseInt(req.body.state),
+            street: req.body.street,
+            number: parseInt(req.body.number),
+            floor: req.body.floor,
+            flat: req.body.flat,
+            zip: parseInt(req.body.zip),
+            city: req.body.city,
+            state_id: parseInt(req.body.state),
             password: passwordUser,
             avatar: editPhoto,
-            roll_user: rolChange
-        }
+            roll_user_id: rolChange,
+            reference: req.body.reference
+        },
+        {
+            where: {id: id}
+        })
+        .then(()=> {
+            return res.redirect('/users/profile/')})            
+        .catch(error => res.send(error))
 
-        delete editedUser.repassword;
-
-        usersAll.forEach((user, index) => {
-            if (user.id == id) {
-                usersAll[index] = editedUser
-            }
-        });
-
-        fs.writeFileSync(usersAllFilePath, JSON.stringify(usersAll, null, " ")) // Convierto en JSON
-        res.redirect('/users/profile/')
     },
-    profile: (req, res) => res.render('users/profile', {
+    delete: (req, res) => {
+        db.Users.update({
+            estado: 'I'
+        },
+        {
+            where: {id: req.params.id}
+        })
+        .then(()=> {
+            return res.redirect('/users/profile/')})            
+        .catch(error => res.send(error))
+    },
+    profile: async (req, res) => res.render('users/profile', {
         categories,
         subCategories,
         zoneDatabase,
-        users: User.findAll(),
+        //users: User.findAll(),
+        users: Users = await db.Users.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return data;
+        }),
         user: req.session.userLogged,
         totalProducts,
         nombrePagina: 'Perfil de Usuario'
     }),
-    profileUsers: (req, res) => res.render('users/profile', {
+    profileUsers: async (req, res) => res.render('users/profile', {
         categories,
         subCategories,
         zoneDatabase,
-        users: User.findAll(),
-        user: User.findByPk(req.params.id),
+        //users: User.findAll(),
+        users: Users = await db.Users.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return data;
+        }),
+        //user: User.findByPk(req.params.id),
+        user: Users = await db.Users.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return data;
+        }),
         totalProducts,
         nombrePagina: 'Perfil de Usuario'
     }),

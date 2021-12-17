@@ -56,11 +56,11 @@
   "roll_user": 2
  },
  {
-  "id": 4,
+  "id": "4",
   "fullName": "Natalia Oduber",
   "dni_cuit": 94654750,
   "phone": "1138661609",
-  "email": "nataliaoduber@gmail.com",
+  "email": "nataliaoduber2@gmail.com",
   "invoice_type_id": 1,
   "street": "El Arreo",
   "number": "220",

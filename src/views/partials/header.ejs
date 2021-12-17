@@ -14,7 +14,7 @@
 
 			<div class="enlaces">
 				<a href="/home"><i class="fas fa-home" id="home"></i> Inicio</a>
-				<% if (locals.isLogged && locals.userLogged.roll_user == 1) { %>
+				<% if (locals.isLogged && locals.userLogged.roll_user_id == 1) { %>
 					<a href="/admin/create-product"><i class="far fa-plus-square"></i> Productos</a>
 				<% } %>
 				<a href="/products/topFive">Promociones</a>
