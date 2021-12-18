@@ -1,12 +1,8 @@
-//const User = require('../modelos/User');
-
 /*==================================================
 SEQUELIZE
 ==================================================*/
 
 const db = require('../database/models');
-const sequelize = db.sequelize;
-const Op = db.Sequelize.Op
 
 /*==================================================*/
 
@@ -14,7 +10,6 @@ async function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;
 
     let emailInCookie = req.cookies.userBrainstorming;
-	//let userFromCookie = User.findByField('email', emailInCookie);
 	let userFromCookie;
 
 	if(emailInCookie) {
@@ -24,7 +19,6 @@ async function userLoggedMiddleware(req, res, next) {
 			}
 		})
 		.then(user => {
-			//console.log(user);
 			data = JSON.parse(JSON.stringify(user));
 			return data;
 		})

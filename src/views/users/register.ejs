@@ -75,8 +75,8 @@
                                     <option value="">Elegí un tipo de tributo</option>
 
                                     <% for (const oneAfip of afip) { %>
-                                        <option value="<%= oneAfip.id_afip %>" <%=locals.oldData &&
-                                            (oneAfip.id_afip==oldData.invoice_type_id) ? 'selected' : null %>
+                                        <option value="<%= oneAfip.id %>" <%=locals.oldData &&
+                                            (oneAfip.id==oldData.invoice_type_id) ? 'selected' : null %>
                                             > <%= oneAfip.name %>
                                         </option>
                                         <% } %>

@@ -26,6 +26,9 @@ router.get('/category/:id/', productsController.category)
 //Productos por Subcategoria
 router.get('/subCategory/:id/', productsController.subcategory)
 
+//Subcategorias para select vista
+router.get('/subcategories', productsController.getSubCategory)
+
 //Productos Top 5 mejores ofertas
 router.get('/topFive', productsController.topFive)
 

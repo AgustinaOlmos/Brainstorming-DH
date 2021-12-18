@@ -65,6 +65,7 @@ const adminController = {
                 return data;
             })
         let categoryId = products.category_id
+        console.log("categoryId ", categoryId);
 
         res.render('admin/formEditProduct', {
             product: await db.Product.findOne({

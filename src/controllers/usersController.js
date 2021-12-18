@@ -1,46 +1,58 @@
-const fs = require('fs');
-const path = require('path');
-
-const categoriesFilePath = path.join(__dirname, '../data/productsCategory.json');
-const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
-const subCategoriesFilePath = path.join(__dirname, '../data/productsSubCategory.json');
-const subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8'));
-const afipFilePath = path.join(__dirname, '../data/afipDataBase.json');
-const afip = JSON.parse(fs.readFileSync(afipFilePath, 'utf-8'));
-const zoneFilePath = path.join(__dirname, '../data/zonasDataBase.json');
-const zoneDatabase = JSON.parse(fs.readFileSync(zoneFilePath, 'utf-8'));
-const rollFilePath = path.join(__dirname, '../data/rollUsersDataBase.json');
-const rollDatabase = JSON.parse(fs.readFileSync(rollFilePath, 'utf-8'));
-let productsAllFilePath = path.join(__dirname, '../data/productsDataBase.json');
-let products = JSON.parse(fs.readFileSync(productsAllFilePath, 'utf-8'));
-let usersAllFilePath = path.join(__dirname, '../data/usersDataBase.json');
-let usersAll = JSON.parse(fs.readFileSync(usersAllFilePath, 'utf-8'));
-let totalProducts = products.length;
-
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
-const User = require('../modelos/User');
 
 /*==================================================
 SEQUELIZE
 ==================================================*/
 
 const db = require('../database/models');
-const sequelize = db.sequelize;
-const Op = db.Sequelize.Op
 
 /*==================================================*/
 
-
-
 const usersController = {
-    login: (req, res) => res.render('users/login', {
-        categories,
-        subCategories,
+    login: async (req, res) => res.render('users/login', {
+        categories: await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(category => {
+            data = JSON.parse(JSON.stringify(category));
+            return data;
+        }),
+        subCategories: await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(subcategory => {
+            data = JSON.parse(JSON.stringify(subcategory));
+            return data;
+        }),
         nombrePagina: 'Inicio de Sesion'
     }),
-    loginProcess: (req, res) => {
+    loginProcess: async (req, res) => {
+
+        let categories = await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(category => {
+            data = JSON.parse(JSON.stringify(category));
+            return data;
+        })
+
+        let subCategories = await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            })
 
         db.Users.findOne(
             {
@@ -52,9 +64,6 @@ const usersController = {
         )
         .then(user => {
             let usuarioJson = JSON.parse(JSON.stringify(user))
-        //})
-
-        //let userToLogin = User.findByField('email', req.body.email);
 
             userToLogin = usuarioJson;
         
@@ -127,16 +136,85 @@ const usersController = {
 
         })
     },
-    register: (req, res) => {
+    register: async (req, res) => {
         res.render('users/register', {
-            categories,
-            subCategories,
-            afip,
-            zoneDatabase,
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
+            afip: await db.Afip.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(afip => {
+                data = JSON.parse(JSON.stringify(afip));
+                return data;
+            }),
+            zoneDatabase: await db.Zones.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(zones => {
+                data = JSON.parse(JSON.stringify(zones));
+                return data;
+            }),
             nombrePagina: 'Registro'
         })
     },
-    processRegister: (req, res) => {
+    processRegister: async (req, res) => {
+        let categories = await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(category => {
+            data = JSON.parse(JSON.stringify(category));
+            return data;
+        })
+        let subCategories = await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            })
+        let afip = await db.Afip.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(afip => {
+            data = JSON.parse(JSON.stringify(afip));
+            return data;
+        })
+        let zoneDatabase = await db.Zones.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(zones => {
+            data = JSON.parse(JSON.stringify(zones));
+            return data;
+        })
+            
         const resultValidation = validationResult(req);
 
         if(resultValidation.errors.length > 0) {
@@ -221,7 +299,55 @@ const usersController = {
         })
     },
     editUser: async (req, res) => {
-        //let editUser = User.findByPk(req.params.id)
+        let categories = await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(category => {
+            data = JSON.parse(JSON.stringify(category));
+            return data;
+        })
+
+        let subCategories = await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(subcategory => {
+            data = JSON.parse(JSON.stringify(subcategory));
+            return data;
+        })
+
+        let afip = await db.Afip.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(afip => {
+            data = JSON.parse(JSON.stringify(afip));
+            return data;
+        })
+
+        let zoneDatabase = await db.Zones.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(zones => {
+            data = JSON.parse(JSON.stringify(zones));
+            return data;
+        })
+
+        let rollDatabase = await db.Roles.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(roles => {
+            data = JSON.parse(JSON.stringify(roles));
+            return data;
+        })
 
         let editUser = await db.Users.findOne({
             where: {
@@ -244,11 +370,60 @@ const usersController = {
     },
     updateUser: async (req, res) => {
         const resultValidation = validationResult(req);
+        let categories = await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(category => {
+            data = JSON.parse(JSON.stringify(category));
+            return data;
+        })
+
+        let subCategories = await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(subcategory => {
+            data = JSON.parse(JSON.stringify(subcategory));
+            return data;
+        })
+
+        let afip = await db.Afip.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(afip => {
+            data = JSON.parse(JSON.stringify(afip));
+            return data;
+        })
+
+        let zoneDatabase = await db.Zones.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(zones => {
+            data = JSON.parse(JSON.stringify(zones));
+            return data;
+        })
+
+        let rollDatabase = await db.Roles.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(roles => {
+            data = JSON.parse(JSON.stringify(roles));
+            return data;
+        })
+
         let emailChange = false;
         let emptyPassword = false;
         let photoChange = false;
         let userAdmin = false;
-        //let usersEmail = User.findByPk(req.params.id);
 
         let usersEmail = await db.Users.findOne({
             where: {
@@ -260,15 +435,12 @@ const usersController = {
             return data;
         })
 
-
-
         // Si cambio email
         if(usersEmail.email !== req.body.email){
             emailChange = true;
         }
 
         if(emailChange == true){
-            //let userInDB = User.findByField('email', req.body.email);
             let userInDB = await db.Users.findOne({
                 where: {
                     email: req.body.email,
@@ -319,7 +491,6 @@ const usersController = {
                             }
                         }
                     }
-                    //let editUser = User.findByPk(req.params.id)
 
                     let editUser = await db.Users.findOne({
                         where: {
@@ -361,7 +532,6 @@ const usersController = {
         }
 
         let id = req.params.id
-        //let userToEdit = User.findByPk(id);
 
         let userToEdit = await db.Users.findOne({
             where: {
@@ -373,9 +543,6 @@ const usersController = {
             return data;
         })
         
-
-
-
         let emailUserChange;
 
         // Si cambio email
@@ -436,7 +603,7 @@ const usersController = {
             reference: req.body.reference
         },
         {
-            where: {id: id}
+            where: {id: req.params.id}
         })
         .then(()=> {
             return res.redirect('/users/profile/')})            
@@ -454,51 +621,130 @@ const usersController = {
             return res.redirect('/users/profile/')})            
         .catch(error => res.send(error))
     },
-    profile: async (req, res) => res.render('users/profile', {
-        categories,
-        subCategories,
-        zoneDatabase,
-        //users: User.findAll(),
-        users: Users = await db.Users.findAll({
+    profile: async (req, res) => {
+        let products = await db.Product.findAll({
             where: {
                 estado: 'A'
             }
         })
-        .then(user => {
-            data = JSON.parse(JSON.stringify(user));
+        .then(product => {
+            data = JSON.parse(JSON.stringify(product));
             return data;
-        }),
-        user: req.session.userLogged,
-        totalProducts,
-        nombrePagina: 'Perfil de Usuario'
-    }),
-    profileUsers: async (req, res) => res.render('users/profile', {
-        categories,
-        subCategories,
-        zoneDatabase,
-        //users: User.findAll(),
-        users: Users = await db.Users.findAll({
+        })
+
+        res.render('users/profile', {
+            products: await db.Product.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            }),
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
+            zoneDatabase: await db.Zones.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(zones => {
+                data = JSON.parse(JSON.stringify(zones));
+                return data;
+            }),
+            users: Users = await db.Users.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(user => {
+                data = JSON.parse(JSON.stringify(user));
+                return data;
+            }),
+            user: req.session.userLogged,
+            totalProducts: products.length,
+            nombrePagina: 'Perfil de Usuario'
+        })
+    },
+    profileUsers: async (req, res) => {
+        let products = await db.Product.findAll({
             where: {
                 estado: 'A'
             }
         })
-        .then(user => {
-            data = JSON.parse(JSON.stringify(user));
+        .then(product => {
+            data = JSON.parse(JSON.stringify(product));
             return data;
-        }),
-        //user: User.findByPk(req.params.id),
-        user: Users = await db.Users.findOne({
-            where: {
-                id: req.params.id
-            }
         })
-        .then(user => {
-            data = JSON.parse(JSON.stringify(user));
-            return data;
-        }),
-        totalProducts,
-        nombrePagina: 'Perfil de Usuario'
-    }),
+
+        res.render('users/profile', {
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
+            zoneDatabase: await db.Zones.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(zones => {
+                data = JSON.parse(JSON.stringify(zones));
+                return data;
+            }),
+            users: Users = await db.Users.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(user => {
+                data = JSON.parse(JSON.stringify(user));
+                return data;
+            }),
+            user: Users = await db.Users.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(user => {
+                data = JSON.parse(JSON.stringify(user));
+                return data;
+            }),
+            totalProducts: products.length,
+            nombrePagina: 'Perfil de Usuario'
+        })
+
+    },
     logout: (req, res) => {
         res.clearCookie('userBrainstorming')
         req.session.destroy();

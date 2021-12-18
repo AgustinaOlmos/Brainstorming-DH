@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         discount: {
-            type: dataTypes.DECIMAL(11, 2),
+            type: dataTypes.INTEGER(11),
             allowNull: false
         },
         promotion: {

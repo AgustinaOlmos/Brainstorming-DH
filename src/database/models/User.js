@@ -88,6 +88,15 @@ module.exports = (sequelize, dataTypes) => {
             as: "roles",
             foreignKey: "roll_user_id"
         })
+        Users.belongsTo(models.Afip, {
+            as: "afip",
+            foreignKey: "invoice_type_id"
+        })
+        Users.belongsTo(models.Zones, {
+            as: "zones",
+            foreignKey: "state_id"
+        })
+        
     }
 
     return Users;

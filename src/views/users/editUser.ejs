@@ -96,8 +96,8 @@
                             
                             <% for (const oneAfip of afip) { %>
                                 <option 
-                                    value="<%= oneAfip.id_afip %>"
-                                    <%= (oneAfip.id_afip == user.invoice_type_id) ? 'selected' : user.invoice_type_id %> 
+                                    value="<%= oneAfip.id %>"
+                                    <%= (oneAfip.id == user.invoice_type_id) ? 'selected' : user.invoice_type_id %> 
                                 > <%= oneAfip.name %> </option>
                             <% } %>
 

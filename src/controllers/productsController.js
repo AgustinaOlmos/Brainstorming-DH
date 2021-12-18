@@ -1,16 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
 const db = require('../database/models')
 const Op = db.Sequelize.Op
-
-/* let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-let categoriesFilePath = path.join(__dirname, '../data/productsCategory.json');
-let categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
-let subCategoriesFilePath = path.join(__dirname, '../data/productsSubCategory.json');
-let subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8')); */
-
 
 const productsController = {
     all: async (req, res) => {
@@ -201,6 +190,13 @@ const productsController = {
                 }),
             slidesProduct,
             nombrePagina: 'Detalles del Producto'
+        })
+    },
+    getSubCategory: (req, res) => {
+        db.Subcategory.findAll()
+        .then(user => {
+            data = JSON.parse(JSON.stringify(user));
+            return res.send(data);
         })
     },
     shop: async (req, res) => res.render('products/productCart', {
