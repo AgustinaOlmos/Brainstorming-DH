@@ -1,84 +1,277 @@
 const fs = require('fs');
 const path = require('path');
 
-let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const db = require('../database/models')
+const Op = db.Sequelize.Op
+
+/* let productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 let categoriesFilePath = path.join(__dirname, '../data/productsCategory.json');
 let categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 let subCategoriesFilePath = path.join(__dirname, '../data/productsSubCategory.json');
-let subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8'));
+let subCategories = JSON.parse(fs.readFileSync(subCategoriesFilePath, 'utf-8')); */
 
 
 const productsController = {
-    all: (req, res) => {
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+    all: async (req, res) => {
         res.render('products/allProducts', {
-            products,
-            categories,
-            subCategories,
+            products: await db.Product.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(product => {
+                    data = JSON.parse(JSON.stringify(product));
+                    return data;
+                }),
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
             nombrePagina: 'Productos'
         })
     },
-    category: (req, res) => {
+    category: async (req, res) => {
         res.render('products/categoryProducts', {
-            products,
+            products: await db.Product.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(product => {
+                    data = JSON.parse(JSON.stringify(product));
+                    return data;
+                }),
             categoryId: req.params.id,
-            categories,
-            subCategories,
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
             nombrePagina: 'Productos por categorias'
         })
     },
-    subcategory: (req, res) => {
+    subcategory: async (req, res) => {
         res.render('products/subCategoryProducts', {
-            products,
+            products: await db.Product.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(product => {
+                    data = JSON.parse(JSON.stringify(product));
+                    return data;
+                }),
             subcategoryId: req.params.id,
-            categories,
-            subCategories,
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
             nombrePagina: 'Productos por subcategorias'
         })
     },
-    topFive: (req, res) => {
-        let discountToFilter = 10;
+    topFive: async (req, res) => {
+        let discountToFilter = 15;
         // Determina la cantidad de productos que se van a mostrar en el index
         let numberOfProductsToShow = 5;
         let discountProductsToShow = [];
-        
-        discountProducts = products.filter(product => product.discount >= discountToFilter); // Filtramos los productos
+
+        discountProducts = await db.Product.findAll({
+            where: {
+                discount: { [Op.gte]: discountToFilter }
+            },
+            limit: numberOfProductsToShow
+        })
+
         for (let i = 0; i < numberOfProductsToShow; i++) {
-            if (discountProducts.length == 0) {break}; // Si no hay mas elementos, salimos del for
-                discountProductsToShow.push( // Pusheamos al array que vamos a enviar...
+            if (discountProducts.length == 0) { break }; // Si no hay mas elementos, salimos del for
+            discountProductsToShow.push( // Pusheamos al array que vamos a enviar...
                 discountProducts.splice( // Tomamos un elemento al azar del array. Splice toma un elemento del array, el primer parametro determina la posicion, el segundo cuantos elementos
-                Math.floor(Math.random()*discountProducts.length), 1
+                    Math.floor(Math.random() * discountProducts.length), 1
                 )[0] // Ya que splice devuelve un array, lo quitamos del mismo para poder pushearlo
             );
         }
         products = discountProductsToShow;
         res.render('products/topFiveProducts', {
             products,
-            categories,
-            subCategories,
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
             nombrePagina: 'Top 5 mejores Ofertas'
         })
-    },
-    details: (req, res) => {
-        products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-        let product = products.find(product => product.id == req.params.id)
-        let slidesProduct = products.filter(product => product.id != req.params.id)
+    },
+    details: async (req, res) => {
+        let product = await db.Product.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            })
+
+        let slidesProduct = await db.Product.findAll({
+            where: {
+                id: { [Op.ne]: req.params.id }
+            }
+        })
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            })
+
+
         res.render('products/productDetail', {
             product,
-            categories,
-            subCategories,
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
             slidesProduct,
             nombrePagina: 'Detalles del Producto'
         })
     },
-    shop: (req, res) => res.render('products/productCart', {
-        categories,
-        subCategories,
+    shop: async (req, res) => res.render('products/productCart', {
+        categories: await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
+        subCategories: await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
         nombrePagina: 'Compras'
-    })
+    }),
+
+    search: async (req, res) => {
+
+        let products = await db.Product.findAll({
+            where: {
+                title: { [Op.like]: '%' + req.body.searchProduct + '%' },
+                estado: 'A'
+            }
+
+        })
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            })
+
+        res.render('products/searchProducts', {
+            products: await db.Product.findAll({
+                where: {
+                    title: { [Op.like]: '%' + req.body.searchProduct + '%' },
+                    estado: 'A'
+                }
+
+            })
+                .then(product => {
+                    data = JSON.parse(JSON.stringify(product));
+                    return data;
+                }),
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
+            nombrePagina: 'Busqueda'
+        })
+    },
 }
 
 module.exports = productsController

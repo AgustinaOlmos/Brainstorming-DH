@@ -50,7 +50,7 @@
 									<h3 class="subtitulo"><%= category.name %></h3>
 								</a>
 								<% for( let i = 0; i < subCategories.length; i++ ) { %>
-									<% if (subCategories[i].idCategory == category.id ) { %>
+									<% if (subCategories[i].category_id == category.id ) { %>
 										<a href="/products<%= subCategories[i].url %>"><%= subCategories[i].name %></a>
 									<% } %>
 								<% } %>

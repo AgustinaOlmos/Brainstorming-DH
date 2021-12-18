@@ -10,7 +10,7 @@
 
     <%- include('../partials/scrollUp.ejs') %>
 
-        <form class="form-search" action="#" method="POST">
+        <form class="form-search" action="/products/search/" method="POST">
             <% for(category of categories){ %>
                 <% if (category.id == categoryId) { %>
                     <h1 class="main-title3"><%= category.name %></h1>
@@ -26,7 +26,7 @@
         <main class="main-products" style="margin-top: 30px;">
             <section>
                 <% for(product of products){ %>
-                    <% if (product.category == categoryId) { %>
+                    <% if (product.category_id == categoryId) { %>
                         <article class="card-product">
                             <a href="/products/details/<%= product.id %>" id="card-link">
                                 <img src="/img/products/<%= product.img %>" alt="" />

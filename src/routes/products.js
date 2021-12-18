@@ -35,6 +35,9 @@ router.get('/details/:id/', productsController.details)
 //Carrito de compras
 router.get('/shop', authMiddleware, productsController.shop)
 
+//Busqueda de Productos
+router.post('/search', productsController.search)
+
 // Crear un producto - parte 2 // Deberá recibir los datos del formulario de creación.
 router.post('/all', upload.single('newProductImage'), adminController.store)
 

@@ -50,7 +50,7 @@
                 <div class="categ-prod">
                     <select name="category" id="category" class="categoryProduct">
                         <% for(category of categories) { %>
-                            <% if (product.category == category.id) { %>
+                            <% if (product.category_id == category.id) { %>
                                 <option value=<%=category.id %> selected>
                                     <%= category.name %>
                                 </option>
@@ -65,8 +65,8 @@
                 <div class="subcateg-prod">
                     <select name="subcategory" id="subcategory" class="subCategoryProduct">
                         <% for(subcategory of subCategories) { %>
-                            <% if (subcategory.idCategory == categoryId) { %>
-                                <% if (product.category == subcategory.id) { %>
+                            <% if (subcategory.category_id == categoryId) { %>
+                                <% if (product.category_id == subcategory.id) { %>
                                     <option value=<%=subcategory.id %> selected>
                                         <%= subcategory.name %>
                                     </option>
