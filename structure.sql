@@ -1,33 +1,17 @@
--- phpMyAdmin SQL Dump
--- version 5.1.0
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2021 a las 07:41:08
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 7.4.16
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de datos: `brainstorming`
 --
 
 -- --------------------------------------------------------
 
+CREATE DATABASE IF NOT EXISTS brainstorming;
+
+USE brainstorming;
 --
 -- Estructura de tabla para la tabla `afip`
 --
 
-CREATE TABLE `afip` (
+CREATE TABLE IF NOT EXISTS `afip` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `estado` varchar(1) NOT NULL DEFAULT 'A'
@@ -51,7 +35,7 @@ INSERT INTO `afip` (`id`, `name`, `estado`) VALUES
 -- Estructura de tabla para la tabla `carts`
 --
 
-CREATE TABLE `carts` (
+CREATE TABLE IF NOT EXISTS `carts` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `total` decimal(11,2) NOT NULL,
@@ -64,7 +48,7 @@ CREATE TABLE `carts` (
 -- Estructura de tabla para la tabla `cart_product`
 --
 
-CREATE TABLE `cart_product` (
+CREATE TABLE IF NOT EXISTS `cart_product` (
   `id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -77,7 +61,7 @@ CREATE TABLE `cart_product` (
 -- Estructura de tabla para la tabla `categories`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
@@ -107,7 +91,7 @@ INSERT INTO `categories` (`id`, `name`, `url`, `imgBanner`, `img1`, `img2`, `img
 -- Estructura de tabla para la tabla `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `price` decimal(11,2) NOT NULL,
@@ -145,7 +129,8 @@ INSERT INTO `products` (`id`, `title`, `price`, `discount`, `category_id`, `subc
 (19, 'CUCHARA MEZCLADORA', '570.00', 5, 6, 15, 1, 'tool-1.jpg', 'A'),
 (20, 'VASO METÁLICOS MODELO MATE', '850.00', 5, 6, 15, 1, 'tool-2.jpg', 'A'),
 (21, 'COPA DECO', '900.00', 10, 6, 15, 1, 'tool-3.jpg', 'A'),
-(22, 'ANTIGAL UNO ROSADO', '1175.00', 0, 4, 9, 0, 'product_img_163980781855020200626-054344_Uno.Rose.Antigal.jpg', 'A');
+(22, 'ANTIGAL UNO ROSADO', '1175.00', 0, 4, 9, 0, 'product_img_163980781855020200626-054344_Uno.Rose.Antigal.jpg', 'A'),
+(23, 'CAJA CON HIELO PREMIUM - PRISMA', '500.00', 0, 5, 14, 0, 'product_img_163984956734320200626-055511_Hielo3.jpg', 'A');
 
 -- --------------------------------------------------------
 
@@ -153,7 +138,7 @@ INSERT INTO `products` (`id`, `title`, `price`, `discount`, `category_id`, `subc
 -- Estructura de tabla para la tabla `roles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL,
   `roll` varchar(50) NOT NULL,
   `estado` varchar(1) NOT NULL DEFAULT 'A'
@@ -173,7 +158,7 @@ INSERT INTO `roles` (`id`, `roll`, `estado`) VALUES
 -- Estructura de tabla para la tabla `subcategories`
 --
 
-CREATE TABLE `subcategories` (
+CREATE TABLE IF NOT EXISTS `subcategories` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `category_id` int(11) NOT NULL,
@@ -208,7 +193,7 @@ INSERT INTO `subcategories` (`id`, `name`, `category_id`, `url`, `estado`) VALUE
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
   `fullName` varchar(100) NOT NULL,
   `dni_cuit` int(11) NOT NULL,
@@ -238,7 +223,7 @@ INSERT INTO `users` (`id`, `fullName`, `dni_cuit`, `phone`, `email`, `invoice_ty
 (2, 'Pablo Morrone', 22362590, 1138669097, 'morronepablo@gmail.com', 1, 'el arreo', 220, '', '', 2333, 'La Reja', 1, '$2a$10$eIxbehhoqLqNkP.8n.tVo.NL8I15KWq3algkEpntL2xTzsGGiXbEe', '1639076026377_user.jpg', 1, '', 'A'),
 (3, 'Victoria Gallo', 25667889, 1145771234, 'victoriagallo@gmail.com', 1, 'sarrachaga', 650, NULL, NULL, 1712, 'Castelar', 2, 'victoria123', 'user_default.png', 2, NULL, 'A'),
 (4, 'Natalia Oduber', 94654750, 1138661609, 'nataliaoduber@gmail.com', 1, 'El Arreo', 220, '', '', 1738, 'La Reja', 2, '$2a$10$XL/t5gnLDrFtjGmFFFBUa.DLMfLhDxwzkapRsyNGu.c4WFxxLGbqW', '1639018850981_user.jpg', 2, 'entre calle cartejarena y garcia lorca, porton negro gris', 'A'),
-(5, 'Alberto Benegas', 22222222, 55555555, 'albertobenegas@gmail.com', 1, 'Rivadavia', 10444, '1', 'F', 1424, 'Villa Luro', 1, '$2a$10$N6FAI41SilMWrpSL37J5n.zMHVECu9h1kUpplj./N2xOPFH3p.oXu', '1639076543924_user.jpg', 2, 'Casa Particular', 'A'),
+(5, 'Alberto Benegas', 22222222, 33445566, 'albertobenegas@gmail.com', 1, 'Rivadavia', 10444, '1', 'F', 1424, 'Villa Luro', 1, '$2a$10$N6FAI41SilMWrpSL37J5n.zMHVECu9h1kUpplj./N2xOPFH3p.oXu', '1639076543924_user.jpg', 2, 'Casa Particular', 'A'),
 (6, 'Gustavo Vesani', 22165334, 2147483647, 'gustavovessani@gmail.com', 2, 'Alvarez Jonte', 356, '', '', 1712, 'Castelar', 2, '$2a$10$60.2Z0inzevUiss19/m4n.a1q9XYrZkCBWL/n9mAJJXuhcYlCOq4a', '1639063463555_user.jpg', 2, '', 'A'),
 (7, 'Pepe Nuñez', 94654750, 999999999, 'pepe@gmail.com', 1, 'El Arreo', 220, '', '', 1738, 'La Reja', 1, '$2a$10$rEIK663Ito/0skAAVa3SROXpIUGrt1WgQ9n6gEYKA4.5G30EaqXd.', '1639806833055_user.jpg', 2, '', 'A'),
 (8, 'Analia Gomez', 334455666, 777777777, 'analiagomez@gmail.com', 1, 'Cordoba', 234, '1', '', 1428, 'Avellaneda', 2, '$2a$10$SRLqZtnamLLlqELVDtUpqeeF2HT0tFFy1mm87YeqB7lqKiisq4GKa', 'user_default.png', 2, 'Casa Particular', 'A');
@@ -249,7 +234,7 @@ INSERT INTO `users` (`id`, `fullName`, `dni_cuit`, `phone`, `email`, `invoice_ty
 -- Estructura de tabla para la tabla `zones`
 --
 
-CREATE TABLE `zones` (
+CREATE TABLE IF NOT EXISTS `zones` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `estado` varchar(1) NOT NULL DEFAULT 'A'
@@ -362,7 +347,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -426,7 +411,3 @@ ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`state_id`) REFERENCES `zones` (`id`),
   ADD CONSTRAINT `users_ibfk_3` FOREIGN KEY (`roll_user_id`) REFERENCES `roles` (`id`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
