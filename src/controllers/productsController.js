@@ -223,48 +223,37 @@ const productsController = {
 
     search: async (req, res) => {
 
-        let products = await db.Product.findAll({
-            where: {
-                title: { [Op.like]: '%' + req.body.searchProduct + '%' },
-                estado: 'A'
-            }
-
-        })
-            .then(product => {
-                data = JSON.parse(JSON.stringify(product));
-                return data;
-            })
-
         res.render('products/searchProducts', {
             products: await db.Product.findAll({
                 where: {
-                    title: { [Op.like]: '%' + req.body.searchProduct + '%' },
+                    title: { [Op.like]: `%${req.body.searchProduct}%` },
                     estado: 'A'
                 }
 
             })
-                .then(product => {
-                    data = JSON.parse(JSON.stringify(product));
-                    return data;
-                }),
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                console.log(data);
+                return data;
+            }),
             categories: await db.Category.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
             subCategories: await db.Subcategory.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
             nombrePagina: 'Busqueda'
         })
     },

@@ -305,7 +305,9 @@ const usersController = {
             }
         })
         .then(category => {
+            console.log(category);
             data = JSON.parse(JSON.stringify(category));
+            console.log(data);
             return data;
         })
 
