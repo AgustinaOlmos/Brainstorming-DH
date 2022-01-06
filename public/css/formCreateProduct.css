@@ -103,6 +103,12 @@ body {
   outline: none;
 }
 
+.text-danger {
+  margin-top: -13px;
+    margin-bottom: 5px;
+    color: red;
+}
+
 @media (min-width: 1200px) {
   #form_button:hover {
     background: #474544;

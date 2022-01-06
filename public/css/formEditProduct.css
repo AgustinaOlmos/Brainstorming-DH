@@ -111,6 +111,12 @@ body {
   outline: none;
 }
 
+.text-danger {
+  margin-top: -13px;
+    margin-bottom: 5px;
+    color: red;
+}
+
 @media (min-width: 768px) {
   .title-brain {
     font-size: 35px;

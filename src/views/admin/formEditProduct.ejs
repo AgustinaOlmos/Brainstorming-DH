@@ -23,16 +23,39 @@
             <form action="/products/edit-product/<%= product.id %>?_method=PUT" method="POST" id="form-create"
                 enctype="multipart/form-data">
                 <div class="name-prod">
+                    <% if (locals.errors && errors.title) { %>
+                        <div class="text-danger">
+                            <%= errors.title.msg %>
+                        </div>
+                    <% } %>
                     <input type="text" name="title" id="title" value="<%= product.title %>">
                 </div>
                 <div class="img-prod">
                     <img src="/img/products/<%= product.img %>" alt="img del producto" class="img-edit" />
-                    <input type="file" name="editedProductImage" id="img" multiple>
+                    <% if (locals.errors && errors.productImage) { %>
+                        <div class="text-danger">
+                            <%= errors.productImage.msg %>
+                            <br><br>
+                        </div>
+                    <% } %>
+                    <input type="file" name="productImage" id="img" multiple>
                 </div>
                 <div class="price-prod">
+                    <% if (locals.errors && errors.price) { %>
+                        <div class="text-danger">
+                            <%= errors.price.msg %>
+                            <br><br>
+                        </div>
+                    <% } %>
                     <input type="number" name="price" id="price" value=<%=product.price %>>
                 </div>
                 <div class="promo-prod">
+                    <% if (locals.errors && errors.promotion) { %>
+                        <div class="text-danger">
+                            <%= errors.promotion.msg %>
+                            <br><br>
+                        </div>
+                    <% } %>
                     <select name="promotion" id="promotion">
                         <% if (product.promotion==1 ) { %>
                             <option value=1>Con Promoción</option>
@@ -48,6 +71,12 @@
                         placeholder="% de Descuento">
                 </div>
                 <div class="categ-prod">
+                    <% if (locals.errors && errors.category) { %>
+                        <div class="text-danger">
+                            <%= errors.category.msg %>
+                            <br><br>
+                        </div>
+                    <% } %>
                     <select name="category" id="category" class="categoryProduct">
                         <% for(category of categories) { %>
                             <% if (product.category_id == category.id) { %>
@@ -63,6 +92,12 @@
                     </select>
                 </div>
                 <div class="subcateg-prod">
+                    <% if (locals.errors && errors.subcategory) { %>
+                        <div class="text-danger">
+                            <%= errors.subcategory.msg %>
+                            <br><br>
+                        </div>
+                    <% } %>
                     <select name="subcategory" id="subcategory" class="subCategoryProduct">
                         <% for(subcategory of subCategories) { %> 
                             <% if (subcategory.category_id == categoryId) { %>

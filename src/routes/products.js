@@ -5,6 +5,8 @@ const multer = require('multer')
 const productsController = require('../controllers/productsController')
 const adminController = require('../controllers/adminController')
 
+// Middlewares
+const validations = require('../middlewares/validateProductMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 // Configuracion de Multar
@@ -42,10 +44,10 @@ router.get('/shop', authMiddleware, productsController.shop)
 router.post('/search', productsController.search)
 
 // Crear un producto - parte 2 // Deberá recibir los datos del formulario de creación.
-router.post('/all', upload.single('newProductImage'), adminController.store)
+router.post('/all', upload.single('productImage'), validations, adminController.store)
 
 // Editar un producto - parte 2
-router.put('/edit-product/:id', upload.single('editedProductImage'), adminController.update)
+router.put('/edit-product/:id', upload.single('productImage'), validations, adminController.update)
 
 // Eliminar un producto 
 router.delete('/:id', adminController.destroy);

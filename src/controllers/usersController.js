@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
@@ -236,7 +238,7 @@ const usersController = {
             });
         }
 
-        // Comprbar que no exista el usuario por su email
+        // Comprobar que no exista el usuario por su email
 
         db.Users.findOne(
             {
@@ -250,13 +252,13 @@ const usersController = {
 
             if(userInDB) {
 
-                if(req.file) {
-                    if(req.file.filename) {
-                        if(req.file.filename != 'user_default.png') {
-                            fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+req.file.filename))
+                    if(req.file) {
+                        if(req.file.filename) {
+                            if(req.file.filename != 'user_default.png') {
+                                fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+req.file.filename))
+                            }
                         }
                     }
-                }
 
                 return res.render('users/register', {
                     categories,
@@ -525,8 +527,6 @@ const usersController = {
         if(req.file) {
             photoChange = true;
         }
-
-        console.log("Photooooooooo   ",req.file)
         
         //Si el usuario logueado es administrador
         if(res.locals.userLogged.roll_user_id == 1){

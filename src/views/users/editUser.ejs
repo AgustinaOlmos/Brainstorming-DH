@@ -4,6 +4,8 @@
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/efectosBotones.css">
+    <link rel="stylesheet" href="/css/userValidate.css">
+    
 </head>
 
 <body>
@@ -14,7 +16,7 @@
     <!-- Contenedor Formulario Registro -->
     
     <div class="container-form">
-        <form class="form-register" action="/users/editUser/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <form class="form-register" action="/users/editUser/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data" id="form">
 
             <!-- CONTENEDOR TITULO -->
             <div class="form-container">
@@ -40,7 +42,11 @@
                             placeholder="Nombre completo" 
                             name="fullName" 
                             value="<%= locals.oldData ? oldData.fullName : user.fullName %>"
+                            id="username"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.fullName) { %>
                             <div class="text-danger">
                                 <%= errors.fullName.msg %> 
@@ -54,7 +60,11 @@
                             placeholder="DNI / CUIT / CUIL" 
                             name="dni_cuit" 
                             value="<%= locals.oldData ? oldData.dni_cuit : user.dni_cuit %>"
+                            id="dniCuil"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.dni_cuit) { %>
                             <div class="text-danger">
                                 <%= errors.dni_cuit.msg %> 
@@ -68,7 +78,11 @@
                             placeholder="Teléfono" 
                             name="phone" 
                             value="<%= locals.oldData ? oldData.phone : user.phone %>"
+                            id="numberPhone"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.phone) { %>
                             <div class="text-danger">
                                 <%= errors.phone.msg %> 
@@ -81,7 +95,11 @@
                             placeholder="E-Mail" 
                             name="email" 
                             value="<%= locals.oldData ? oldData.email : user.email %>"
+                            id="email"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%= errors.email.msg %> 
@@ -92,22 +110,23 @@
                         <select 
                             name="invoice_type_id" 
                             class="form-control valid"
-                        >
-                            
-                            <% for (const oneAfip of afip) { %>
-                                <option 
-                                    value="<%= oneAfip.id %>"
-                                    <%= (oneAfip.id == user.invoice_type_id) ? 'selected' : user.invoice_type_id %> 
-                                > <%= oneAfip.name %> </option>
-                            <% } %>
-
+                            id="afip"
+                        > 
+                        <% for (const oneAfip of afip) { %>
+                            <option 
+                                value="<%= oneAfip.id %>"
+                                <%= (oneAfip.id == user.invoice_type_id) ? 'selected' : user.invoice_type_id %> 
+                            > <%= oneAfip.name %> </option>
+                        <% } %>
                         </select>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small> 
                         <% if (locals.errors && errors.invoice_type_id) { %>
                             <div class="text-danger">
                                 <%= errors.invoice_type_id.msg %>
                             </div>
                         <% } %>
-                        <p class="smaller text-muted">En caso de ser "Responsable Inscripto" al momento de emitir las facturas, se van a calcular las percepciones de ingresos brutos correspondientes.</p>
                     </div>
                 </div>
 
@@ -126,6 +145,9 @@
                                 id="street" 
                                 value="<%= locals.oldData ? oldData.street : user.street %>"
                             >
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                             <% if (locals.errors && errors.street) { %>
                                 <div class="text-danger">
                                     <%= errors.street.msg %> 
@@ -141,6 +163,9 @@
                                 id="number" 
                                 value="<%= locals.oldData ? oldData.number : user.number %>"
                             >
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                             <% if (locals.errors && errors.number) { %>
                                 <div class="text-danger">
                                     <%= errors.number.msg %> 
@@ -176,6 +201,9 @@
                                 id="zip" 
                                 value="<%= locals.oldData ? oldData.zip : user.zip %>"
                             >
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                             <% if (locals.errors && errors.zip) { %>
                                 <div class="text-danger">
                                     <%= errors.zip.msg %> 
@@ -192,6 +220,9 @@
                             id="city" 
                             value="<%= locals.oldData ? oldData.city : user.city %>"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.city) { %>
                             <div class="text-danger">
                                 <%= errors.city.msg %> 
@@ -203,23 +234,22 @@
                             name="state" 
                             class="form-control" 
                             id="state"
-                        >
-                                
-                            <% for (const oneCity of zoneDatabase) { %>
-                                <option 
-                                    value="<%= oneCity.id %>"
-                                    <%= (oneCity.id == user.state_id) ? 'selected' : user.state_id %> 
-                                > <%= oneCity.name %> </option>
-                            <% } %>
-                            <!-- <option value="CABA">CIUDAD AUTONOMA DE BUENOS AIRES</option>
-                            <option value="GBA">GRAN BUENOS AIRES</option> -->
+                        >   
+                        <% for (const oneCity of zoneDatabase) { %>
+                            <option 
+                                value="<%= oneCity.id %>"
+                                <%= (oneCity.id == user.state_id) ? 'selected' : user.state_id %> 
+                            > <%= oneCity.name %> </option>
+                        <% } %>
                         </select>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.state) { %>
                             <div class="text-danger">
                                 <%= errors.state.msg %>
                             </div>
                         <% } %>
-                        <p>Actualmente el servicio se encuentra limitado a Argentina, Buenos Aires: CABA y algunas zonas de GBA.</p>
                     </div>
                     <div class="form-group">
                         <input 
@@ -239,21 +269,21 @@
                                 class="form-control" 
                                 id="state"
                             > 
-                                <% for (const oneRoll of rollDatabase) { %>
-                                    <option 
-                                        value="<%= oneRoll.id %>"
-                                        <%= oneRoll.id == user.roll_user_id ? 'selected' : null %> 
-                                    > <%= oneRoll.roll %> </option>
-                                <% } %>
-                                <!-- <option value="CABA">CIUDAD AUTONOMA DE BUENOS AIRES</option>
-                                <option value="GBA">GRAN BUENOS AIRES</option> -->
+                            <% for (const oneRoll of rollDatabase) { %>
+                                <option 
+                                    value="<%= oneRoll.id %>"
+                                    <%= oneRoll.id == user.roll_user_id ? 'selected' : null %> 
+                                > <%= oneRoll.roll %> </option>
+                            <% } %>
                             </select>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                             <% if (locals.errors && errors.state) { %>
                                 <div class="text-danger">
                                     <%= errors.state.msg %>
                                 </div>
                             <% } %>
-                            <p>Actualmente el servicio se encuentra limitado a Argentina, Buenos Aires: CABA y algunas zonas de GBA.</p>
                         </div>
                     <% } %>
                     <div class="form-group">
@@ -285,6 +315,9 @@
                         id="password" 
                         type="password"
                     >
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
                             <%= errors.password.msg %>
@@ -297,6 +330,7 @@
                         placeholder="Confirmar Contraseña" 
                         name="repassword" 
                         type="password"
+                        id="password2" 
                     >
                     <% if (locals.errors && errors.repassword) { %>
                         <div class="text-danger">

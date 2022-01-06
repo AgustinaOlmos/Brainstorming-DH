@@ -9,28 +9,28 @@ const productsController = {
                     estado: 'A'
                 }
             })
-                .then(product => {
-                    data = JSON.parse(JSON.stringify(product));
-                    return data;
-                }),
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            }),
             categories: await db.Category.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
             subCategories: await db.Subcategory.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
             nombrePagina: 'Productos'
         })
     },
@@ -41,29 +41,29 @@ const productsController = {
                     estado: 'A'
                 }
             })
-                .then(product => {
-                    data = JSON.parse(JSON.stringify(product));
-                    return data;
-                }),
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            }),
             categoryId: req.params.id,
             categories: await db.Category.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
             subCategories: await db.Subcategory.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
             nombrePagina: 'Productos por categorias'
         })
     },
@@ -74,29 +74,29 @@ const productsController = {
                     estado: 'A'
                 }
             })
-                .then(product => {
-                    data = JSON.parse(JSON.stringify(product));
-                    return data;
-                }),
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            }),
             subcategoryId: req.params.id,
             categories: await db.Category.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
             subCategories: await db.Subcategory.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
             nombrePagina: 'Productos por subcategorias'
         })
     },
@@ -126,22 +126,22 @@ const productsController = {
             products,
             categories: await db.Category.findAll({
                 where: {
-                    estado: 'A'
+                            
                 }
             })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
             subCategories: await db.Subcategory.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
             nombrePagina: 'Top 5 mejores Ofertas'
         })
 
@@ -152,21 +152,20 @@ const productsController = {
                 id: req.params.id
             }
         })
-            .then(product => {
-                data = JSON.parse(JSON.stringify(product));
-                return data;
-            })
+        .then(product => {
+            data = JSON.parse(JSON.stringify(product));
+            return data;
+        })
 
         let slidesProduct = await db.Product.findAll({
             where: {
                 id: { [Op.ne]: req.params.id }
             }
         })
-            .then(product => {
-                data = JSON.parse(JSON.stringify(product));
-                return data;
-            })
-
+        .then(product => {
+            data = JSON.parse(JSON.stringify(product));
+            return data;
+        })
 
         res.render('products/productDetail', {
             product,
@@ -175,19 +174,19 @@ const productsController = {
                     estado: 'A'
                 }
             })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
             subCategories: await db.Subcategory.findAll({
                 where: {
                     estado: 'A'
                 }
             })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
             slidesProduct,
             nombrePagina: 'Detalles del Producto'
         })

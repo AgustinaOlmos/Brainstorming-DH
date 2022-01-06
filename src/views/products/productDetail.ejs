@@ -20,7 +20,7 @@
         <div class="detalle">
             <div class="detalle_titulo_box">
                 <% for(category of categories){ %>
-                    <% if (category.id == product.category ) { %>
+                    <% if (category.id == product.category_id ) { %>
                         <h1 class="detalle_titulo"> <a href="/products/all">PRODUCTOS</a> | <a href="/products/category/<%= category.id %>"><%= category.name %></a> | <span><%= product.title %></span></h1>
                     <% } %>            
                 <% } %>
