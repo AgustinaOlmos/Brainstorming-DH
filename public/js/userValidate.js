@@ -9,8 +9,10 @@ const number = document.getElementById('number');
 const zip = document.getElementById('zip');
 const city = document.getElementById('city');
 const state = document.getElementById('state');
+const imageFile = document.getElementById('imageFile');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const formType = document.getElementById('formType');
 
 let errors = [];
 
@@ -48,9 +50,13 @@ function checkInputs() {
     const zipValue = zip.value.trim();
     const cityValue = city.value.trim();
     const stateValue = state;
+    const imageFileValue = imageFile.value;
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
 
+    if(formType.innerHTML == 'Formulario Edicion') {
+        console.log(true);
+    }
 
     // Validacion para nombre usuario
 	if(usuarioValue === '') {
@@ -134,23 +140,47 @@ function checkInputs() {
 	} else {
 		setSuccessFor(state);
 	}
+     // Validacion para Imagenes
+     let fileExtensions = '.' + imageFileValue.split('.').pop();
+     let acceptedExtension = ['.jpg', '.jpeg', '.png','.gif', '.bmp', '.tiff', '.psd'];
+     if(fileExtensions != '.'){
+        if(!acceptedExtension.includes(fileExtensions)) {
+            setErrorFor(imageFile, `(*) Las extensiones de archivos permitidas son (${acceptedExtension.join(', ')})`);
+            errors.push(`(*) Las extensiones de archivos permitidas son (${acceptedExtension.join(', ')})`);
+        } else {
+            setSuccessFor(imageFile);
+        }
+     } else {
+        setSuccessFor(imageFile);
+     }
     // Validacion de Passwords
-    if(!isPassword(passwordValue)) {
-		setErrorFor(password, '(*) Deberá tener mínimo 8 caracteres, una letras mayúsculas, una letra minúsculas, un número y un carácter especial');
-        errors.push('(*) Deberá tener mínimo 8 caracteres, una letras mayúsculas, una letra minúsculas, un número y un carácter especial');
-	} else {
-		setSuccessFor(password);
-	}
-	
-	if(password2Value === '') {
-		setErrorFor(password2, '(*) La confirmación de contraseña, no debe estar en blanco');
-        errors.push('(*) La confirmación de contraseña, no debe estar en blanco');
-	} else if(passwordValue !== password2Value) {
-		setErrorFor(password2, '(*) Las contraseñas no coinciden');
-        errors.push('(*) Las contraseñas no coinciden');
-	} else{
-		setSuccessFor(password2);
-	}
+
+    if(formType.innerHTML == 'Formulario Edicion') {
+        if(passwordValue !== ''){
+            validatePass();
+        }
+    } else {
+        validatePass();
+    }
+
+    function validatePass() {
+        if(!isPassword(passwordValue)) {
+            setErrorFor(password, '(*) Deberá tener mínimo 8 caracteres, una letras mayúsculas, una letra minúsculas, un número y un carácter especial');
+            errors.push('(*) Deberá tener mínimo 8 caracteres, una letras mayúsculas, una letra minúsculas, un número y un carácter especial');
+        } else {
+            setSuccessFor(password);
+        }
+        
+        if(password2Value === '') {
+            setErrorFor(password2, '(*) La confirmación de contraseña, no debe estar en blanco');
+            errors.push('(*) La confirmación de contraseña, no debe estar en blanco');
+        } else if(passwordValue !== password2Value) {
+            setErrorFor(password2, '(*) Las contraseñas no coinciden');
+            errors.push('(*) Las contraseñas no coinciden');
+        } else{
+            setSuccessFor(password2);
+        }
+    }
 }
 
 function setErrorFor(input, message) {

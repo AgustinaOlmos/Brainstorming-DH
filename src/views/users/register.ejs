@@ -202,7 +202,10 @@
                             </div>
                             <div class="form-group">
                                 <label><b>Imagen de perfil:</b></label>
-                                <input type="file" name="avatar" class="form-control input-image" value="<%= locals.oldData ? oldData.avatar : null %>">
+                                <input type="file" name="avatar" class="form-control input-image" value="<%= locals.oldData ? oldData.avatar : null %>" id="imageFile">
+                                <i class="fas fa-check-circle" style="top: 31px;"></i>
+                                <i class="fas fa-exclamation-circle" style="top: 31px;"></i>
+                                <small>Error message</small>
                                 <% if (locals.errors && errors.avatar) { %>
                                     <div class="text-danger">
                                         <%= errors.avatar.msg %>
@@ -221,7 +224,7 @@
                                 type="password">
                             <i class="fas fa-check-circle"></i>
                             <i class="fas fa-exclamation-circle"></i>
-                            <small>Error message</small>
+                            <small id="formType">Formulario Crear</small>
                             <% if (locals.errors && errors.password) { %>
                                 <div class="text-danger">
                                     <%= errors.password.msg %>

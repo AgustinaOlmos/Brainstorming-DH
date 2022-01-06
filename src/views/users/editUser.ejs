@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/efectosBotones.css">
     <link rel="stylesheet" href="/css/userValidate.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </head>
 
@@ -293,7 +294,11 @@
                             name="avatar"
                             class="form-control input-image"
                             value="<%= user.avatar %>"
+                            id="imageFile"
                         >
+                        <i class="fas fa-check-circle" style="top: 31px;"></i>
+                        <i class="fas fa-exclamation-circle" style="top: 31px;"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.avatar) { %>
                             <div class="text-danger">
                                 <%= errors.avatar.msg %>
@@ -317,7 +322,7 @@
                     >
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
-                    <small>Error message</small>
+                    <small id="formType">Formulario Edicion</small>
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
                             <%= errors.password.msg %>
@@ -332,6 +337,9 @@
                         type="password"
                         id="password2" 
                     >
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
                     <% if (locals.errors && errors.repassword) { %>
                         <div class="text-danger">
                             <%= errors.repassword.msg %>
@@ -365,5 +373,6 @@
     
     <script src="/js/main.js" type="text/javascript"></script>
     <script src="/js/scrollUp.js"></script>
+    <script src="/js/userValidate.js"></script>
 </body>
 </html>

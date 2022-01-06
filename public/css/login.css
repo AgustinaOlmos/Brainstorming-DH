@@ -50,7 +50,7 @@
 .form-group > .text-danger {
     margin-top: -13px;
     margin-bottom: 5px;
-    color: red;
+    color: #e74c3c;
 }
 
 .form-check {

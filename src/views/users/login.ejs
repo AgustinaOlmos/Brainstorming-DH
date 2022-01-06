@@ -3,7 +3,9 @@
 <head>
     <%- include('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/efectosBotones.css"> 
+    <link rel="stylesheet" href="/css/efectosBotones.css">
+    <link rel="stylesheet" href="/css/userValidate.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -16,7 +18,7 @@
     ===================================================-->
     
     <div class="container-form">
-        <form class="form-register" action="/users/login" method="post">
+        <form class="form-register" action="/users/login" method="post" id="form">
 
             <!-- CONTENEDOR TITULO -->
             <div class="form-container">
@@ -37,7 +39,11 @@
                             placeholder="E-Mail" 
                             name="email" 
                             value="<%= locals.oldData ? oldData.email : null %>"
+                            id="email"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%= errors.email.msg %>
@@ -52,6 +58,9 @@
                             id="password" 
                             type="password"
                         >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
                                 <%= errors.password.msg %>
@@ -92,5 +101,6 @@
     
     <script src="/js/main.js" type="text/javascript"></script>
     <script src="/js/scrollUp.js"></script>
+    <script src="/js/loginValidate.js"></script>
 </body>
 </html>
