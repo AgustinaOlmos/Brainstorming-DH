@@ -30,16 +30,16 @@ const adminController = {
     store: async (req, res) => {
         const resultValidation = validationResult(req);
 
-        if(resultValidation.errors.length > 0) {
-            if(req.file) {
-                if(req.file.filename) {
-                    if(req.file.filename != 'user_default.png') {
-                        fs.unlinkSync(path.join(__dirname, '../../public/img/products/'+req.file.filename))
+        if (resultValidation.errors.length > 0) {
+            if (req.file) {
+                if (req.file.filename) {
+                    if (req.file.filename != 'user_default.png') {
+                        fs.unlinkSync(path.join(__dirname, '../../public/img/products/' + req.file.filename))
                     }
                 }
             }
             return res.render('admin/formCreateProduct', {
-                
+
                 categories: await db.Category.findAll({
                     where: {
                         estado: 'A'
@@ -141,11 +141,11 @@ const adminController = {
     update: async (req, res) => {
         const resultValidation = validationResult(req);
 
-        if(resultValidation.errors.length > 0) {
-            if(req.file) {
-                if(req.file.filename) {
-                    if(req.file.filename != 'user_default.png') {
-                        fs.unlinkSync(path.join(__dirname, '../../public/img/products/'+req.file.filename))
+        if (resultValidation.errors.length > 0) {
+            if (req.file) {
+                if (req.file.filename) {
+                    if (req.file.filename != 'user_default.png') {
+                        fs.unlinkSync(path.join(__dirname, '../../public/img/products/' + req.file.filename))
                     }
                 }
             }
@@ -165,29 +165,29 @@ const adminController = {
                         id: req.params.id
                     }
                 })
-                .then(product => {
-                    data = JSON.parse(JSON.stringify(product));
-                    return data;
-                }),
+                    .then(product => {
+                        data = JSON.parse(JSON.stringify(product));
+                        return data;
+                    }),
                 categories: await db.Category.findAll({
                     where: {
                         estado: 'A'
                     }
                 })
-                .then(category => {
-                    data = JSON.parse(JSON.stringify(category));
-                    return data;
-                }),
+                    .then(category => {
+                        data = JSON.parse(JSON.stringify(category));
+                        return data;
+                    }),
                 categoryId,
                 subCategories: await db.Subcategory.findAll({
                     where: {
                         estado: 'A'
                     }
                 })
-                .then(subcategory => {
-                    data = JSON.parse(JSON.stringify(subcategory));
-                    return data;
-                }),
+                    .then(subcategory => {
+                        data = JSON.parse(JSON.stringify(subcategory));
+                        return data;
+                    }),
                 nombrePagina: 'Editar Producto',
                 errors: resultValidation.mapped(),
                 oldData: req.body

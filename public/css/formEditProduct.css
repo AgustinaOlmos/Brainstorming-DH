@@ -41,7 +41,7 @@ body {
   width: 13.75rem;
 }
 #title,
-#img,
+#imageFile,
 #code,
 #price,
 #promotion,
@@ -71,9 +71,9 @@ body {
   margin-bottom: 10px;
   border-radius: 10px;
 }
-/* #img {
+#imageFile {
   color: transparent;
-} */
+}
 #description {
   line-height: 150%;
   height: 150px;
@@ -99,7 +99,7 @@ body {
   color: #f2f3eb;
 }
 #title,
-#img,
+#imageFile,
 #code,
 #price,
 #promotiontion,
@@ -125,7 +125,7 @@ body {
     width: 50%;
   }
   #title,
-  #img,
+  #imageFile,
   #code,
   #price,
   #stock,

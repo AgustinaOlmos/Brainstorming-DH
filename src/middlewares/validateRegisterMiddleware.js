@@ -22,11 +22,11 @@ module.exports = [
   body('state').notEmpty().withMessage('(*) Tienes que seleccionar una ciudad'),
   body('avatar').custom((value, {req}) => {
     let file = req.file;
-    let acceptedExtension = ['.jpg', '.jpeg', '.png','.gif', '.bmp', '.tiff', '.psd'];
+    let acceptedExtensions = ['.jpg', '.jpeg', '.png','.gif', '.bmp', '.tiff', '.psd'];
     if(file) {
-        let fileExtensions = path.extname(file.originalname);
-        if(!acceptedExtension.includes(fileExtensions)){
-            throw new Error(`(*) Las extensiones de archivos permitidas son (${acceptedExtension.join(', ')})`)
+        let fileExtension = path.extname(file.originalname);
+        if(!acceptedExtensions.includes(fileExtension)){
+            throw new Error(`(*) Las extensiones de archivos permitidas son (${acceptedExtensions.join(', ')})`)
         }
     }
 

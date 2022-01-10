@@ -41,7 +41,7 @@ body {
   width: 13.75rem;
 }
 #title,
-#img,
+#imageFile,
 #code,
 #price,
 #promotion,
@@ -63,9 +63,9 @@ body {
   width: 90%;
   font-family: "Montserrat", Arial, sans-serif;
 }
-/* #img {
+#imageFile {
   color: transparent;
-} */
+}
 #description {
   line-height: 150%;
   height: 150px;
@@ -91,7 +91,7 @@ body {
   color: #f2f3eb;
 }
 #title,
-#img,
+#imageFile,
 #code,
 #price,
 #promotion,

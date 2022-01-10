@@ -141,12 +141,12 @@ function checkInputs() {
 		setSuccessFor(state);
 	}
      // Validacion para Imagenes
-     let fileExtensions = '.' + imageFileValue.split('.').pop();
-     let acceptedExtension = ['.jpg', '.jpeg', '.png','.gif', '.bmp', '.tiff', '.psd'];
-     if(fileExtensions != '.'){
-        if(!acceptedExtension.includes(fileExtensions)) {
-            setErrorFor(imageFile, `(*) Las extensiones de archivos permitidas son (${acceptedExtension.join(', ')})`);
-            errors.push(`(*) Las extensiones de archivos permitidas son (${acceptedExtension.join(', ')})`);
+     let fileExtension = '.' + imageFileValue.split('.').pop();
+     let acceptedExtensions = ['.jpg', '.jpeg', '.png','.gif', '.bmp', '.tiff', '.psd'];
+     if(fileExtension != '.'){
+        if(!acceptedExtensions.includes(fileExtension)) {
+            setErrorFor(imageFile, `(*) Las extensiones de archivos permitidas son (${acceptedExtensions.join(', ')})`);
+            errors.push(`(*) Las extensiones de archivos permitidas son (${acceptedExtensions.join(', ')})`);
         } else {
             setSuccessFor(imageFile);
         }
@@ -154,7 +154,6 @@ function checkInputs() {
         setSuccessFor(imageFile);
      }
     // Validacion de Passwords
-
     if(formType.innerHTML == 'Formulario Edicion') {
         if(passwordValue !== ''){
             validatePass();

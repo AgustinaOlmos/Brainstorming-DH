@@ -5,126 +5,150 @@
     <%- include('../partials/head.ejs') %>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/formEditProduct.css">
-         <!-- Jquery -->
-        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/productValidate.css">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Jquery -->
+        <!-- <script type="text/javascript" src="/js/jquery.min.js"></script> -->
 </head>
 
 <body>
     <%- include('../partials/header.ejs') %>
-    <%- include('../partials/scrollUp.ejs') %>
+        <%- include('../partials/scrollUp.ejs') %>
 
-        <div id="container-brain">
-            <h1 class="title-brain">&bull; Brainstorming &bull;</h1>
-            <div class="underline"></div>
-            <div class="icon_wrapper">
-                <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
+            <div id="container-brain">
+                <h1 class="title-brain">&bull; Brainstorming &bull;</h1>
+                <div class="underline"></div>
+                <div class="icon_wrapper">
+                    <img class="icon-copas" src="/img/vectors/copas.png" alt="copas">
+                </div>
+
+                <form action="/products/edit-product/<%= product.id %>?_method=PUT" method="POST" id="form-create"
+                    enctype="multipart/form-data">
+                    <div class="title-prod form-group">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                        <% if (locals.errors && errors.title) { %>
+                            <div class="text-danger">
+                                <%= errors.title.msg %>
+                            </div>
+                            <% } %>
+                                <input type="text" name="title" id="title" value="<%= product.title %>">
+                    </div>
+                    <div class="img-prod form-group">
+                        <img src="/img/products/<%= product.img %>" alt="img del producto" class="img-edit" />
+                        <i class="fas fa-check-circle" id="succImageEdit"></i>
+                        <i class="fas fa-exclamation-circle" id="errorImageEdit"></i>
+                        <small id="smallImageEdit">Error message</small>
+                        <% if (locals.errors && errors.productImage) { %>
+                            <div class="text-danger">
+                                <%= errors.productImage.msg %>
+                                <br><br>
+                            </div>
+                            <% } %>
+                            <input type="file" name="productImage" id="imageFile" multiple>
+                    </div>
+                    <div class="price-prod form-group">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                        <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger">
+                                <%= errors.price.msg %>
+                                    <br><br>
+                            </div>
+                            <% } %>
+                        <input type="number" name="price" id="price" value="<%=product.price %>">
+                    </div>
+                    <div class="promo-prod form-group">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                        <% if (locals.errors && errors.promotion) { %>
+                            <div class="text-danger">
+                                <%= errors.promotion.msg %>
+                                    <br><br>
+                            </div>
+                            <% } %>
+                                <select name="promotion" id="promotion">
+                                    <option value="">Seleccione una opcion</option>
+                                    <% if (product.promotion==1 ) { %>
+                                        <option value=1>Con Promoción</option>
+                                        <option value=0>Sin Promoción</option>
+                                        <% } else { %>
+                                            <option value=0>Sin Promoción</option>
+                                            <option value=1>Con Promoción</option>
+                                            <% } %>
+                                </select>
+                    </div>
+                    <div class="discount-prod">
+                        <input type="number" name="discount" id="discount" value="<%= product.discount %>"
+                            placeholder="% de Descuento">
+                    </div>
+                    <div class="categ-prod form-group">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                        <% if (locals.errors && errors.category) { %>
+                            <div class="text-danger">
+                                <%= errors.category.msg %>
+                                    <br><br>
+                            </div>
+                            <% } %>
+                                <select name="category" id="category" class="categoryProduct">
+                                    <option value="">Seleccione una Categoria</option>
+                                    <% for(category of categories) { %>
+                                        <% if (product.category_id==category.id) { %>
+                                            <option value="<%=category.id %>" selected>
+                                                <%= category.name %>
+                                            </option>
+                                            <% } else { %>
+                                                <option value="<%=category.id %>">
+                                                    <%= category.name %>
+                                                </option>
+                                                <% } %>
+                                                    <% }%>
+                                </select>
+                    </div>
+                    <div class="subcateg-prod form-group">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                        <% if (locals.errors && errors.subcategory) { %>
+                            <div class="text-danger">
+                                <%= errors.subcategory.msg %>
+                                    <br><br>
+                            </div>
+                            <% } %>
+                                <select name="subcategory" id="subcategory" class="subCategoryProduct">
+                                    <option value="">Seleccione una Subcategoria</option>
+                                    <% for(subcategory of subCategories) { %>
+                                        <% if (subcategory.category_id==categoryId) { %>
+                                            <% if (product.subcategory_id==subcategory.id) { %>
+                                                <option value="<%=subcategory.id %>" selected>
+                                                    <%= subcategory.name %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option value="<%=subcategory.id %>">
+                                                        <%= subcategory.name %>
+                                                    </option>
+                                                    <% } %>
+                                                        <% } %>
+                                                            <% }%>
+                                </select>
+                    </div>
+                    <div class="submit-prod">
+                        <input type="submit" value="Editar Producto" id="form_button" />
+                    </div>
+                </form>
             </div>
 
-            <form action="/products/edit-product/<%= product.id %>?_method=PUT" method="POST" id="form-create"
-                enctype="multipart/form-data">
-                <div class="name-prod">
-                    <% if (locals.errors && errors.title) { %>
-                        <div class="text-danger">
-                            <%= errors.title.msg %>
-                        </div>
-                    <% } %>
-                    <input type="text" name="title" id="title" value="<%= product.title %>">
-                </div>
-                <div class="img-prod">
-                    <img src="/img/products/<%= product.img %>" alt="img del producto" class="img-edit" />
-                    <% if (locals.errors && errors.productImage) { %>
-                        <div class="text-danger">
-                            <%= errors.productImage.msg %>
-                            <br><br>
-                        </div>
-                    <% } %>
-                    <input type="file" name="productImage" id="img" multiple>
-                </div>
-                <div class="price-prod">
-                    <% if (locals.errors && errors.price) { %>
-                        <div class="text-danger">
-                            <%= errors.price.msg %>
-                            <br><br>
-                        </div>
-                    <% } %>
-                    <input type="number" name="price" id="price" value=<%=product.price %>>
-                </div>
-                <div class="promo-prod">
-                    <% if (locals.errors && errors.promotion) { %>
-                        <div class="text-danger">
-                            <%= errors.promotion.msg %>
-                            <br><br>
-                        </div>
-                    <% } %>
-                    <select name="promotion" id="promotion">
-                        <% if (product.promotion==1 ) { %>
-                            <option value=1>Con Promoción</option>
-                            <option value=0>Sin Promoción</option>
-                            <% } else { %>
-                                <option value=0>Sin Promoción</option>
-                                <option value=1>Con Promoción</option>
-                                <% } %>
-                    </select>
-                </div>
-                <div class="discount-prod">
-                    <input type="number" name="discount" id="discount" value="<%= product.discount %>"
-                        placeholder="% de Descuento">
-                </div>
-                <div class="categ-prod">
-                    <% if (locals.errors && errors.category) { %>
-                        <div class="text-danger">
-                            <%= errors.category.msg %>
-                            <br><br>
-                        </div>
-                    <% } %>
-                    <select name="category" id="category" class="categoryProduct">
-                        <% for(category of categories) { %>
-                            <% if (product.category_id == category.id) { %>
-                                <option value=<%=category.id %> selected>
-                                    <%= category.name %>
-                                </option>
-                            <% } else { %>
-                                <option value=<%=category.id %>>
-                                    <%= category.name %>
-                                </option>
-                            <% } %> 
-                        <% }%>
-                    </select>
-                </div>
-                <div class="subcateg-prod">
-                    <% if (locals.errors && errors.subcategory) { %>
-                        <div class="text-danger">
-                            <%= errors.subcategory.msg %>
-                            <br><br>
-                        </div>
-                    <% } %>
-                    <select name="subcategory" id="subcategory" class="subCategoryProduct">
-                        <% for(subcategory of subCategories) { %> 
-                            <% if (subcategory.category_id == categoryId) { %>
-                                <% if (product.subcategory_id == subcategory.id) { %>
-                                    <option value=<%=subcategory.id %> selected>
-                                        <%= subcategory.name %>
-                                    </option>
-                                <% } else { %>
-                                    <option value=<%=subcategory.id %>>
-                                        <%= subcategory.name %>
-                                    </option>
-                                <% } %>                            
-                            <% } %>
-                        <% }%>
-                    </select>
-                </div>
-                <div class="submit-prod">
-                    <input type="submit" value="Editar Producto" id="form_button" />
-                </div>
-            </form>
-        </div>
-
-        <%- include('../partials/footer') %>
-            <script src="/js/main.js"></script>
-            <script src="/js/productsSubCategory.json"></script>
-            <script src="/js/subCategory.js"></script>
-            <script src="/js/scrollUp.js"></script>
+            <%- include('../partials/footer') %>
+                <script src="/js/main.js"></script>
+                <script src="/js/productsSubCategory.json"></script>
+                <script src="/js/subCategory.js"></script>
+                <script src="/js/scrollUp.js"></script>
+                <script src="/js/productValidate.js"></script>
 
 </body>
 
