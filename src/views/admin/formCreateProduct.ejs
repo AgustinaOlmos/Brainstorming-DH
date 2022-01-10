@@ -28,9 +28,14 @@
                             <div class="text-danger">
                                 <%= errors.title.msg %>
                             </div>
-                            <% } %>
-                                <input type="text" name="title" id="title" placeholder="Nombre del Producto"
-                                    value="<%= locals.oldData ? oldData.title : null %>" class="form-control">
+                        <% } %>
+                        <input 
+                            type="text" 
+                            name="title" 
+                            id="title" 
+                            placeholder="Nombre del Producto" 
+                            value="<%= locals.oldData ? oldData.title : null %>" class="form-control"
+                        >
                     </div>
                     <div class="img-prod form-group">
                         <% if (locals.errors && errors.productImage) { %>
@@ -38,11 +43,16 @@
                                 <%= errors.productImage.msg %>
                                 <br><br>
                             </div>
-                            <% } %>
-                            <input type="file" name="productImage" value="<%= locals.oldData ? oldData.productImage : null %>" id="imageFile" multiple>
-                            <i class="fas fa-check-circle"></i>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <small id="smallImageCreate">Error message</small>
+                        <% } %>
+                        <input 
+                            type="file" 
+                            name="productImage" 
+                            value="<%= locals.oldData ? oldData.productImage : null %>" 
+                            id="imageFile" multiple
+                        >
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small id="smallImageCreate">Error message</small>
                     </div>
                     <div class="price-prod form-group">
                         <i class="fas fa-check-circle"></i>
@@ -53,9 +63,14 @@
                                 <%= errors.price.msg %>
                                     <br><br>
                             </div>
-                            <% } %>
-                                <input type="number" name="price" id="price" placeholder="Precio"
-                                    value="<%= locals.oldData ? oldData.price : null %>">
+                        <% } %>
+                        <input 
+                            type="number" 
+                            name="price" 
+                            id="price" 
+                            placeholder="Precio"
+                            value="<%= locals.oldData ? oldData.price : null %>"
+                        >
                     </div>
                     <div class="promo-prod form-group">
                         <i class="fas fa-check-circle"></i>
@@ -66,12 +81,12 @@
                                 <%= errors.promotion.msg %>
                                     <br><br>
                             </div>
-                            <% } %>
-                                <select name="promotion" id="promotion">
-                                    <option value="">Seleccione una opcion</option>
-                                    <option value=1>Con Promoción</option>
-                                    <option value=0>Sin Promoción</option>
-                                </select>
+                        <% } %>
+                        <select name="promotion" id="promotion">
+                            <option value="">Seleccione una opcion</option>
+                            <option value=1>Con Promoción</option>
+                            <option value=0>Sin Promoción</option>
+                        </select>
                     </div>
                     <div class="discount-prod">
                         <input type="number" name="discount" id="discount" placeholder="% de Descuento">
@@ -85,15 +100,19 @@
                                 <%= errors.category.msg %>
                                     <br><br>
                             </div>
-                            <% } %>
-                                <select name="category" id="category" class="categoryProduct">
-                                    <option value="">Seleccione una Categoria</option>
-                                    <% for(category of categories) { %>
-                                        <option value="<%=category.id %>">
-                                            <%= category.name %>
-                                        </option>
-                                        <% }%>
-                                </select>
+                        <% } %>
+                        <select 
+                            name="category" 
+                            id="category" 
+                            class="categoryProduct"
+                        >
+                            <option value="">Seleccione una Categoria</option>
+                            <% for(category of categories) { %>
+                                <option value="<%=category.id %>">
+                                    <%= category.name %>
+                                </option>
+                            <% }%>
+                        </select>
                     </div>
                     <div class="subcateg-prod form-group">
                         <i class="fas fa-check-circle"></i>
@@ -104,17 +123,17 @@
                                 <%= errors.subcategory.msg %>
                                     <br><br>
                             </div>
-                            <% } %>
-                                <select name="subcategory" id="subcategory" class="subCategoryProduct">
-                                    <option value="">Seleccione una Subcategoria</option>
-                                    <% subCategories.forEach(subcategory=> { %>
-                                        <% if (subcategory.idCategory==category.id) { %>
-                                            <option value="<% subcategory.id %>">
-                                                <%= subcategory.name %>
-                                            </option>
-                                            <% } %>
-                                                <% }) %>
-                                </select>
+                        <% } %>
+                        <select name="subcategory" id="subcategory" class="subCategoryProduct">
+                            <option value="">Seleccione una Subcategoria</option>
+                            <% subCategories.forEach(subcategory=> { %>
+                                <% if (subcategory.idCategory==category.id) { %>
+                                    <option value="<% subcategory.id %>">
+                                        <%= subcategory.name %>
+                                    </option>
+                                <% } %>
+                            <% }) %>
+                        </select>
                     </div>
                     <div class="submit-prod">
                         <button type="submit" id="form_button">Guardar Producto</button>

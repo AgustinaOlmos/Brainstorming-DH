@@ -31,13 +31,12 @@
                                         <% if (product.discount> 0) { %>
                                             <p class="price-old">$<%= product.price %>
                                             </p>
-                                            <% } %>
-                                                <p class="price">$<%= (product.price - (product.price *
-                                                        (product.discount * 0.01))) %>
-                                                        <div class="icon-bag">
-                                                            <p>AGREGAR</p>
-                                                            <i class="fas fa-shopping-bag"></i>
-                                                        </div>
+                                        <% } %>
+                                        <p class="price">$<%= (product.price - (product.price * (product.discount * 0.01))) %>
+                                        <div class="icon-bag">
+                                            <p>AGREGAR</p>
+                                            <i class="fas fa-shopping-bag"></i>
+                                        </div>
                                     </div>
                                 </a>
                                 <% if (product.discount> 0) { %>
@@ -45,10 +44,9 @@
                                         <span>
                                             <%= product.discount %>% OFF
                                         </span>
-                                        <span>$ <%= (product.price - (product.price * (product.discount * 0.01))) %>
-                                        </span>
+                                        <span>$ <%= (product.price - (product.price * (product.discount * 0.01))) %> </span>
                                     </div>
-                                    <% } %>
+                                <% } %>
                             </article>
                         <% } %>
                     <% } %>

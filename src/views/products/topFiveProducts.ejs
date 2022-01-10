@@ -32,7 +32,11 @@
                 </ul>
             </div>
 
-            <form class="form-search" action="/products/search/" method="POST">
+            <form 
+                class="form-search" 
+                action="/products/search/" 
+                method="POST"
+            >
                 <h1 class="main-title3">Top 5 mejores ofertas</h1>
                 <div class="span-btn">
                     <input type="text" name="searchProduct" class="search-input" placeholder="BUSCAR">
@@ -53,13 +57,12 @@
                                     <% if (product.discount> 0) { %>
                                         <p class="price-old">$<%= product.price %>
                                         </p>
-                                        <% } %>
-                                            <p class="price">$<%= (product.price - (product.price * (product.discount *
-                                                    0.01))) %>
-                                                    <div class="icon-bag">
-                                                        <p>AGREGAR</p>
-                                                        <i class="fas fa-shopping-bag"></i>
-                                                    </div>
+                                    <% } %>
+                                    <p class="price">$<%= (product.price - (product.price * (product.discount * 0.01))) %>
+                                    <div class="icon-bag">
+                                        <p>AGREGAR</p>
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </div>
                                 </div>
                             </a>
                             <% if (product.discount> 0) { %>

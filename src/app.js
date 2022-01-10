@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const app = express();
+const db = require('./database/models')
 
 // Configuracion de Session
 app.use(session({
@@ -45,17 +46,27 @@ app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)
 
-// Lecturas de bases de datos json para navbar pagina no encontrada
-const fs = require('fs');
-const productsFilePath = path.join(__dirname, './data/productsCategory.json');
-const categories = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const productsFilePath2 = path.join(__dirname, './data/productsSubCategory.json');
-const subCategories = JSON.parse(fs.readFileSync(productsFilePath2, 'utf-8'));
-
-app.use((req, res, next) => {
+// Lecturas de bases de datos para navbar pagina no encontrada
+app.use ( async (req, res, next) => {
     res.status(404).render('not-found', { 
-        categories,
-        subCategories,
+        categories: await db.Category.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(category => {
+            data = JSON.parse(JSON.stringify(category));
+            return data;
+        }),
+        subCategories: await db.Subcategory.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(subcategory => {
+            data = JSON.parse(JSON.stringify(subcategory));
+            return data;
+        }),
         nombrePagina: 'Pagina no encontrada'
     });
 })
