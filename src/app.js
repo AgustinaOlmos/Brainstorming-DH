@@ -40,11 +40,19 @@ const productsRouter = require('./routes/products')
 const usersRouter = require('./routes/users')
 const adminRouter = require('./routes/admin')
 
+// Routing Api
+const productsApiRoutes = require('./routes/api/apiProducts')
+
+
+// Routing
 app.use('/', mainRouter)
 app.use('/home', mainRouter)
 app.use('/products', productsRouter)
 app.use('/users', usersRouter)
 app.use('/admin', adminRouter)
+
+// Routing Api
+app.use('/api', productsApiRoutes);
 
 // Lecturas de bases de datos para navbar pagina no encontrada
 app.use ( async (req, res, next) => {
@@ -72,4 +80,4 @@ app.use ( async (req, res, next) => {
 })
 
 
-app.listen(3000, () => console.log("Levantando un servidor con Express en", "http://localhost:3000"))
+app.listen(4000, () => console.log("Levantando un servidor con Express en", "http://localhost:4000"))

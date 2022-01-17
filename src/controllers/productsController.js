@@ -126,7 +126,7 @@ const productsController = {
             products,
             categories: await db.Category.findAll({
                 where: {
-                            
+                      estado: 'A'      
                 }
             })
             .then(category => {
