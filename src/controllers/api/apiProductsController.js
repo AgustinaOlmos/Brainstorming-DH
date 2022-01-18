@@ -49,7 +49,7 @@ const apiProductsController = {
                 delete product.category_id;
                 delete product.subcategory_id;
                 product.dbaseRelations = "category_id";
-                product.detailUrl = `http://localhost:4000/api/all/${product.id}`
+                product.detailUrl = `http://localhost:4000/api/product/${product.id}`
             })
 
             let dataToSend = { countProducts: products.length,

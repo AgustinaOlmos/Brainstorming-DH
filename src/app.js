@@ -42,6 +42,7 @@ const adminRouter = require('./routes/admin')
 
 // Routing Api
 const productsApiRoutes = require('./routes/api/apiProducts')
+const usersApiRoutes = require('./routes/api/apiUsers')
 
 
 // Routing
@@ -53,6 +54,7 @@ app.use('/admin', adminRouter)
 
 // Routing Api
 app.use('/api', productsApiRoutes);
+app.use('/api', usersApiRoutes);
 
 // Lecturas de bases de datos para navbar pagina no encontrada
 app.use ( async (req, res, next) => {
