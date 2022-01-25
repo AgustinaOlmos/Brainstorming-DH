@@ -62,6 +62,40 @@ const apiUsersController = {
             }
             res.status(200).json(respuesta);
         })
+    },
+    email: (req, res) => {
+        console.log("PARAAAAMETROOOOOOO....", req.params.email);
+        db.Users.findOne(
+            {
+                where: {
+                    email: req.params.email,
+                    estado: 'A'
+                }
+            }
+        )
+        .then(user => {
+            let newUser = JSON.parse(JSON.stringify(user))
+            delete newUser.dni_cuit;
+            delete newUser.phone;
+            delete newUser.invoice_type_id;
+            delete newUser.street;
+            delete newUser.number;
+            delete newUser.floor;
+            delete newUser.flat;
+            delete newUser.zip;
+            delete newUser.city;
+            delete newUser.state_id;
+            delete newUser.roll_user_id;
+            delete newUser.reference;
+            delete newUser.estado;
+            delete newUser.email;
+            delete newUser.password;
+            let respuesta = {
+                fullName: newUser.fullName,
+                avatar: newUser.avatar
+            }
+            res.status(200).json(respuesta);
+        })
     }
 }
 

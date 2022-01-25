@@ -374,6 +374,7 @@ const usersController = {
     },
     updateUser: async (req, res) => {
         const resultValidation = validationResult(req);
+
         let categories = await db.Category.findAll({
             where: {
                 estado: 'A'
@@ -424,8 +425,41 @@ const usersController = {
             return data;
         })
 
+        if(resultValidation.errors.length > 0) {
+            if(req.file) {
+                if(req.file.filename) {
+                    if(req.file.filename != 'user_default.png') {
+                        fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+req.file.filename))
+                    }
+                }
+            }
+
+            let editUser = await db.Users.findOne({
+                where: {
+                    id: req.params.id,
+                }
+            })
+            .then(user => {
+                data = JSON.parse(JSON.stringify(user));
+                return data;
+            })
+            console.log(editUser);
+
+
+            return res.render('users/editUser', {
+                categories,
+                subCategories,
+                afip,
+                zoneDatabase,
+                rollDatabase,
+                user: editUser,
+                nombrePagina: 'Actualizar usuario',
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
+
         let emailChange = false;
-        let emptyPassword = false;
         let photoChange = false;
         let userAdmin = false;
 
@@ -482,47 +516,6 @@ const usersController = {
             }
         }
 
-        //Si hay cambio de contraseña
-        if(resultValidation.mapped().password !== undefined) {
-            emptyPassword = true;
-        } else {
-            if(resultValidation.errors.length > 0){
-                if(resultValidation.errors.length > 0) {
-                    if(req.file) {
-                        if(req.file.filename) {
-                            if(req.file.filename != 'user_default.png') {
-                                fs.unlinkSync(path.join(__dirname, '../../public/img/users/'+req.file.filename))
-                            }
-                        }
-                    }
-
-                    let editUser = await db.Users.findOne({
-                        where: {
-                            id: req.params.id,
-                        }
-                    })
-                    .then(user => {
-                        data = JSON.parse(JSON.stringify(user));
-                        return data;
-                    })
-                    console.log(editUser);
-
-
-                    return res.render('users/editUser', {
-                        categories,
-                        subCategories,
-                        afip,
-                        zoneDatabase,
-                        rollDatabase,
-                        user: editUser,
-                        nombrePagina: 'Actualizar usuario',
-                        errors: resultValidation.mapped(),
-                        oldData: req.body
-                    });
-                }
-            }
-        }
-
         // Si hay cambio de Foto
         if(req.file) {
             photoChange = true;
@@ -552,15 +545,6 @@ const usersController = {
             emailUserChange = req.body.email;
         } else {
             emailUserChange = usersEmail.email;
-        }
-
-        let passwordUser;
-
-        // Si hubo cambio de contraseña o no
-        if(emptyPassword == true){
-            passwordUser = userToEdit.password;
-        } else {
-            passwordUser = bcryptjs.hashSync(req.body.password, 10)
         }
 
         let editPhoto;
@@ -599,7 +583,6 @@ const usersController = {
             zip: parseInt(req.body.zip),
             city: req.body.city,
             state_id: parseInt(req.body.state),
-            password: passwordUser,
             avatar: editPhoto,
             roll_user_id: rolChange,
             reference: req.body.reference
@@ -611,6 +594,136 @@ const usersController = {
             return res.redirect('/users/profile/')})            
         .catch(error => res.send(error))
 
+    },
+    updatePass: async (req, res) => {
+        const resultValidation = validationResult(req);
+        let products = await db.Product.findAll({
+            where: {
+                estado: 'A'
+            }
+        })
+        .then(product => {
+            data = JSON.parse(JSON.stringify(product));
+            return data;
+        })
+
+        if(resultValidation.errors.length > 0) {
+
+            return res.render('users/profile', {
+                products: await db.Product.findAll({
+                    where: {
+                        estado: 'A'
+                    }
+                })
+                .then(product => {
+                    data = JSON.parse(JSON.stringify(product));
+                    return data;
+                }),
+                categories: await db.Category.findAll({
+                    where: {
+                        estado: 'A'
+                    }
+                })
+                .then(category => {
+                    data = JSON.parse(JSON.stringify(category));
+                    return data;
+                }),
+                subCategories: await db.Subcategory.findAll({
+                    where: {
+                        estado: 'A'
+                    }
+                })
+                .then(subcategory => {
+                    data = JSON.parse(JSON.stringify(subcategory));
+                    return data;
+                }),
+                zoneDatabase: await db.Zones.findAll({
+                    where: {
+                        estado: 'A'
+                    }
+                })
+                .then(zones => {
+                    data = JSON.parse(JSON.stringify(zones));
+                    return data;
+                }),
+                users: Users = await db.Users.findAll({
+                    where: {
+                        estado: 'A'
+                    }
+                })
+                .then(user => {
+                    data = JSON.parse(JSON.stringify(user));
+                    return data;
+                }),
+                user: req.session.userLogged,
+                totalProducts: products.length,
+                nombrePagina: 'Perfil de Usuario',
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
+
+         // Modificacion de contraseña cuando esta todo OK
+        db.Users.update({
+            password: bcryptjs.hashSync(req.body.password, 10),
+        },
+        {
+            where: {id: req.params.id}
+        })
+        .then(()=> {
+            return res.redirect('/users/profile/')})            
+        .catch(error => res.send(error))
+
+        return res.render('users/profile', {
+            products: await db.Product.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(product => {
+                data = JSON.parse(JSON.stringify(product));
+                return data;
+            }),
+            categories: await db.Category.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(category => {
+                data = JSON.parse(JSON.stringify(category));
+                return data;
+            }),
+            subCategories: await db.Subcategory.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(subcategory => {
+                data = JSON.parse(JSON.stringify(subcategory));
+                return data;
+            }),
+            zoneDatabase: await db.Zones.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(zones => {
+                data = JSON.parse(JSON.stringify(zones));
+                return data;
+            }),
+            users: Users = await db.Users.findAll({
+                where: {
+                    estado: 'A'
+                }
+            })
+            .then(user => {
+                data = JSON.parse(JSON.stringify(user));
+                return data;
+            }),
+            user: req.session.userLogged,
+            totalProducts: products.length,
+            nombrePagina: 'Perfil de Usuario'
+        });
     },
     delete: (req, res) => {
         db.Users.update({

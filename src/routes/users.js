@@ -7,6 +7,8 @@ const usersController = require('../controllers/usersController');
 // Middlewares
 const uploadFile = require('../middlewares/multerMiddleware');
 const validations = require('../middlewares/validateRegisterMiddleware');
+const validations2 = require('../middlewares/validatePasswordMiddleware');
+const validations3 = require('../middlewares/validateUsersEditMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
@@ -24,7 +26,10 @@ router.post('/login', usersController.loginProcess);
 
 // Editar usuarios
 router.get('/editUser/:id/', authMiddleware, usersController.editUser);
-router.put('/editUser/:id', uploadFile.single('avatar'), validations, usersController.updateUser);
+router.put('/editUser/:id', uploadFile.single('avatar'), validations3, usersController.updateUser);
+
+// Editar contraseña
+router.put('/editPass/:id', validations2, usersController.updatePass);
 
 // Eliminar usuario
 router.delete('/delete/:id', authMiddleware, usersController.delete);

@@ -36,8 +36,7 @@ const apiProductsController = {
 
             let countCategoryToSend = [];
             for (let i = 0; i < namesCategories.length; i++) {
-                //countCategoryToSend[namesCategories[i]] = countCategories[i];
-                countCategoryToSend.push(namesCategories[i], countCategories[i]);
+                countCategoryToSend.push(namesCategories[i] + ':  ' + countCategories[i]);
             }
 
             productsToSend.forEach((product) => {

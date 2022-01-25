@@ -7,5 +7,7 @@ const apiUsersController = require('../../controllers/api/apiUsersController')
 router.get('/users/all', apiUsersController.all)
 //Usuarios por Id
 router.get('/user/:id/', apiUsersController.details)
+// Usuario por email
+router.get('/userEmail/:email/', apiUsersController.email)
 
 module.exports = router

@@ -20,6 +20,7 @@
 				<a href="/products/topFive">Promociones</a>
 				<a href="#">Ayuda</a>
 				<% if (locals.isLogged) { %>	
+					<a href="http://localhost:3000/"><i class="fas fa-fw fa-tachometer-alt"></i> Dash</a>
 					<img id="user-logged" src="/img/users/<%= locals.userLogged.avatar %>" >
 					<a class="nav-link dropdown-toggle" href="/users/profile/" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<%= locals.userLogged.fullName.substr(0,8) %> 
