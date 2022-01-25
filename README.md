@@ -27,3 +27,6 @@ https://github.com/AgustinaOlmos/DH-Grupo7-Brainstorming.git
 
 ### Tablero Trello:
 https://trello.com/invite/b/0vHvB91N/db211ca73f3ed29401b1673b6f5dee1e/dh-grupo-7
+
+### Repositorio GitHub Dashboard en React JS:
+https://github.com/morronepablo/Dashboard-DH-Grupo-7-Brainstorming
