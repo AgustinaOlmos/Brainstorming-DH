@@ -76,6 +76,25 @@ const apiProductsController = {
             }
             res.status(200).json(respuesta);
         })
+    },
+    paginate: (req, res) => {
+        const { page, size } = req.query;
+        let pagina = parseInt(page);
+        let tamano = parseInt(size);
+        db.Product.findAll({
+            raw: true,
+            attributes: ['title'],
+            limit : tamano,
+            offset : pagina * tamano
+        }
+
+        ).then(product => {
+            let respuesta = {
+                products: product,
+                status: 200
+            }
+            res.status(200).json(respuesta);
+        })
     }
 }
 
