@@ -41,7 +41,6 @@ const apiUsersController = {
         })
         .then(user => {
             let newUser = JSON.parse(JSON.stringify(user))
-            console.log(newUser);
             delete newUser.password;
             delete newUser.invoice_type_id;
             delete newUser.state_id;
@@ -52,7 +51,7 @@ const apiUsersController = {
             delete newUser.afip.estado;
             delete newUser.zones.id;
             delete newUser.zones.estado;
-            console.log(newUser);
+
             let respuesta = {
                 meta: {
                     status: 200,
@@ -64,9 +63,10 @@ const apiUsersController = {
         })
     },
     email: (req, res) => {
-        console.log("PARAAAAMETROOOOOOO....", req.params.email);
         db.Users.findOne(
             {
+                raw: true,
+                attributes: ['fullName', 'avatar'],
                 where: {
                     email: req.params.email,
                     estado: 'A'
@@ -75,21 +75,6 @@ const apiUsersController = {
         )
         .then(user => {
             let newUser = JSON.parse(JSON.stringify(user))
-            delete newUser.dni_cuit;
-            delete newUser.phone;
-            delete newUser.invoice_type_id;
-            delete newUser.street;
-            delete newUser.number;
-            delete newUser.floor;
-            delete newUser.flat;
-            delete newUser.zip;
-            delete newUser.city;
-            delete newUser.state_id;
-            delete newUser.roll_user_id;
-            delete newUser.reference;
-            delete newUser.estado;
-            delete newUser.email;
-            delete newUser.password;
             let respuesta = {
                 fullName: newUser.fullName,
                 avatar: newUser.avatar

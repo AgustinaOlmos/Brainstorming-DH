@@ -30,6 +30,7 @@ const apiProductsController = {
                     }
                 })
             })
+            
             idCategories.shift();
             namesCategories.shift();
             countCategories.shift();
