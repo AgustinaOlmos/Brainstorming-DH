@@ -6,7 +6,7 @@ var subCategoryArray = [];
 selectElement.addEventListener("change", (event) => {
     categoryID = event.target.value;
 
-    const url = 'http://localhost:3000/products/subcategories';
+    const url = 'http://localhost:4000/products/subcategories';
     fetch(url)
     .then(response => response.json())
     .then(categories => {

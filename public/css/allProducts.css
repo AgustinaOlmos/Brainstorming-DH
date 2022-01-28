@@ -223,7 +223,7 @@ input.search-input:focus {
   }
   .price-old {
     color: var(--grisClaro);
-    text-decoration: line-through;
+      
   }
   .count,
   .icon-bag p{

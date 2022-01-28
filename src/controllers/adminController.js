@@ -77,7 +77,7 @@ const adminController = {
         }
 
         db.Product.create({
-            title: req.body.title,
+            title: req.body.title.toUpperCase(),
             price: req.body.price,
             promotion: req.body.promotion,
             discount: req.body.discount,
@@ -204,7 +204,7 @@ const adminController = {
                 return data;
             })
         if (req.file) {
-            console.log('viene foto nueva');
+            // Viene foto nueva
             if (productToEdit.img != 'default-image.jpg') {
                 fs.unlinkSync(path.join(__dirname, '../../public/img/products/' + productToEdit.img))
             }
@@ -228,17 +228,32 @@ const adminController = {
             .catch(error => res.send(error))
     },
 
-    destroy: (req, res) => {
+    destroy: async  (req, res) => {
+        let products = await db.Product.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(product => {
+            data = JSON.parse(JSON.stringify(product));
+            return data;
+        })
+
+        if (products.img != 'default-image.jpg') {
+            fs.unlinkSync(path.join(__dirname, '../../public/img/products/' + products.img))
+        }
+
         db.Product.update({
             estado: 'I'
         },
-            {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(() => res.redirect('/products/all'))
-            .catch(error => res.send(error))
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => res.redirect('/products/all'))
+        .catch(error => res.send(error))
+
     }
 }
 

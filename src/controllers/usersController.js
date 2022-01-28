@@ -80,7 +80,7 @@ const usersController = {
                         req.session.userLogged = userToLogin;
 
                         if(req.body.remember_user) {
-                            res.cookie('userBrainstorming', req.body.email, { maxAge: (1000 * 60) * 60 })
+                            res.cookie('userBrainstorming', req.body.email, { maxAge: (1000 * 60) * 360  })
                         }
 
                         return res.redirect('/home');

@@ -41,7 +41,7 @@ const apiProductsController = {
             }
 
             productsToSend.forEach((product) => {
-                delete product.price;
+                //delete product.price;
                 delete product.discount;
                 delete product.promotion;
                 delete product.img;
@@ -82,12 +82,16 @@ const apiProductsController = {
         const { page, size } = req.query;
         let pagina = parseInt(page);
         let tamano = parseInt(size);
-        db.Product.findAll({
-            raw: true,
-            attributes: ['title'],
-            limit : tamano,
-            offset : pagina * tamano
-        }
+        db.Product.findAll(
+            {
+                where: {
+                    estado: 'A'
+                },
+                raw: true,
+                attributes: ['title'],
+                limit : tamano,
+                offset : pagina * tamano
+            }
 
         ).then(product => {
             let respuesta = {
