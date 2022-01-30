@@ -7,7 +7,8 @@ const apiProductsController = require('../../controllers/api/apiProductsControll
 router.get('/products/all', apiProductsController.all)
 // Todos los productos paginados
 router.get('/products/page', apiProductsController.paginate)
-
+// Todos los productos Datatable
+router.get('/products/datatable', apiProductsController.dataTable)
 //Productos por Categoria
 router.get('/product/:id/', apiProductsController.details)
 

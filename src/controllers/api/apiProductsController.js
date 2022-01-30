@@ -41,7 +41,6 @@ const apiProductsController = {
             }
 
             productsToSend.forEach((product) => {
-                //delete product.price;
                 delete product.discount;
                 delete product.promotion;
                 delete product.img;
@@ -94,6 +93,45 @@ const apiProductsController = {
             }
 
         ).then(product => {
+            let respuesta = {
+                products: product,
+                status: 200
+            }
+            res.status(200).json(respuesta);
+        })
+    },
+    dataTable: (req, res) => {
+        db.Product.findAll(
+            {
+                where: {
+                    estado: 'A'
+                },
+                raw: true,
+                include: ['category', 'subcategory'],
+                attributes: ['id', 'title', 'price', 'discount'],
+            }
+
+        ).then(product => {
+            let data = product;
+            data.forEach((product) => {
+                product.category = product['category.name'];
+                delete product['category.name'];
+                delete product['subcategory.id'];
+                product.subcategory = product['subcategory.name'];
+                delete product['subcategory.name'];
+                delete product['category.id'];
+                delete product['subcategory.id'];
+                delete product['category.url'];
+                delete product['subcategory.url'];
+                delete product['category.imgBanner'];
+                delete product['category.img1'];
+                delete product['category.img2'];
+                delete product['category.img3'];
+                delete product['category.img4'];
+                delete product['category.estado'];
+                delete product['subcategory.estado'];
+            })
+            console.log("holaaaaaa", data);
             let respuesta = {
                 products: product,
                 status: 200
