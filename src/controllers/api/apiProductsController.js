@@ -131,7 +131,6 @@ const apiProductsController = {
                 delete product['category.estado'];
                 delete product['subcategory.estado'];
             })
-            console.log("holaaaaaa", data);
             let respuesta = {
                 products: product,
                 status: 200
