@@ -9,7 +9,7 @@ router.get('/products/all', apiProductsController.all)
 router.get('/products/page', apiProductsController.paginate)
 // Todos los productos Datatable
 router.get('/products/datatable', apiProductsController.dataTable)
-//Productos por Categoria
+// Detalle de producto
 router.get('/product/:id/', apiProductsController.details)
 
 module.exports = router
