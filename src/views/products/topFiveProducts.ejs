@@ -58,7 +58,7 @@
                                         <p class="price-old">$<%= product.price %>
                                         </p>
                                     <% } %>
-                                    <p class="price">$<%= (product.price - (product.price * (product.discount * 0.01))) %>
+                                    <p class="price">$<%= (product.price - (product.price * (product.discount * 0.01))).toFixed(2) %>
                                     <div class="icon-bag">
                                         <p>AGREGAR</p>
                                         <i class="fas fa-shopping-bag"></i>

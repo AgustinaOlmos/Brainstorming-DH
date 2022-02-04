@@ -168,7 +168,7 @@
                                 <% if (product.discount > 0) { %>
                                     <div class="sale-product">
                                         <span><%= product.discount %>% OFF</span>
-                                        <span>$ <%= (product.price - (product.price * (product.discount * 0.01))) %></span>
+                                        <span>$ <%= (product.price - (product.price * (product.discount * 0.01))).toFixed(2) %></span>
                                     </div>
                                 <% } %>
                             </div>
@@ -178,7 +178,7 @@
                                     <div class="producto_descripcion_cantidad_precio2">
                                         <!-- <h4>PROMO $ <%= product.price %> </h4> -->
                                         <% if (product.discount > 0) { %>
-                                            <h4>PROMO $ <%= (product.price - (product.price * (product.discount * 0.01))) %></h4>
+                                            <h4>PROMO $ <%= (product.price - (product.price * (product.discount * 0.01))).toFixed(2) %></h4>
                                         <% } else { %>
                                             <h4>IMPORTE $ <%= product.price %></h4>
                                         <% } %>

@@ -149,7 +149,8 @@ const productsController = {
     details: async (req, res) => {
         let product = await db.Product.findOne({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                estado: 'A'
             }
         })
         .then(product => {
@@ -159,7 +160,8 @@ const productsController = {
 
         let slidesProduct = await db.Product.findAll({
             where: {
-                id: { [Op.ne]: req.params.id }
+                id: { [Op.ne]: req.params.id },
+                estado: 'A'
             }
         })
         .then(product => {

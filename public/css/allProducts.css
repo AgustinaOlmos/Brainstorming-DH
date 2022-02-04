@@ -223,7 +223,9 @@ input.search-input:focus {
   }
   .price-old {
     color: var(--grisClaro);
-      
+    font-weight: 100;
+    font-size: 18px;
+    text-decoration: line-through;
   }
   .count,
   .icon-bag p{
