@@ -73,14 +73,14 @@ const apiUsersController = {
                 }
             }
         )
-        .then(user => {
-            let newUser = JSON.parse(JSON.stringify(user))
-            let respuesta = {
-                fullName: newUser.fullName,
-                avatar: newUser.avatar
-            }
-            res.status(200).json(respuesta);
-        })
+            .then(user => {
+                let newUser = JSON.parse(JSON.stringify(user))
+                let respuesta = {
+                    fullName: newUser.fullName,
+                    avatar: newUser.avatar
+                }
+                res.status(200).json(respuesta);
+            })
     }
 }
 

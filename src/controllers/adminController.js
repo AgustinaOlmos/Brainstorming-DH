@@ -194,15 +194,15 @@ const adminController = {
             });
         }
 
-        let productToEdit = await db.Product.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(product => {
-                data = JSON.parse(JSON.stringify(product));
-                return data;
+            let productToEdit = await db.Product.findOne({
+                where: {
+                    id: req.params.id
+                }
             })
+                .then(product => {
+                    data = JSON.parse(JSON.stringify(product));
+                    return data;
+                })
         if (req.file) {
             // Viene foto nueva
             if (productToEdit.img != 'default-image.jpg') {
